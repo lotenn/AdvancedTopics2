@@ -122,6 +122,357 @@ AdvancedTopictest/fast:
 	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/build
 .PHONY : AdvancedTopictest/fast
 
+Board.obj: Board.cpp.obj
+
+.PHONY : Board.obj
+
+# target to build an object file
+Board.cpp.obj:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Board.cpp.obj
+.PHONY : Board.cpp.obj
+
+Board.i: Board.cpp.i
+
+.PHONY : Board.i
+
+# target to preprocess a source file
+Board.cpp.i:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Board.cpp.i
+.PHONY : Board.cpp.i
+
+Board.s: Board.cpp.s
+
+.PHONY : Board.s
+
+# target to generate assembly for a file
+Board.cpp.s:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Board.cpp.s
+.PHONY : Board.cpp.s
+
+Cell.obj: Cell.cpp.obj
+
+.PHONY : Cell.obj
+
+# target to build an object file
+Cell.cpp.obj:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Cell.cpp.obj
+.PHONY : Cell.cpp.obj
+
+Cell.i: Cell.cpp.i
+
+.PHONY : Cell.i
+
+# target to preprocess a source file
+Cell.cpp.i:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Cell.cpp.i
+.PHONY : Cell.cpp.i
+
+Cell.s: Cell.cpp.s
+
+.PHONY : Cell.s
+
+# target to generate assembly for a file
+Cell.cpp.s:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Cell.cpp.s
+.PHONY : Cell.cpp.s
+
+Command.obj: Command.cpp.obj
+
+.PHONY : Command.obj
+
+# target to build an object file
+Command.cpp.obj:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Command.cpp.obj
+.PHONY : Command.cpp.obj
+
+Command.i: Command.cpp.i
+
+.PHONY : Command.i
+
+# target to preprocess a source file
+Command.cpp.i:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Command.cpp.i
+.PHONY : Command.cpp.i
+
+Command.s: Command.cpp.s
+
+.PHONY : Command.s
+
+# target to generate assembly for a file
+Command.cpp.s:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Command.cpp.s
+.PHONY : Command.cpp.s
+
+FightInfo.obj: FightInfo.cpp.obj
+
+.PHONY : FightInfo.obj
+
+# target to build an object file
+FightInfo.cpp.obj:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/FightInfo.cpp.obj
+.PHONY : FightInfo.cpp.obj
+
+FightInfo.i: FightInfo.cpp.i
+
+.PHONY : FightInfo.i
+
+# target to preprocess a source file
+FightInfo.cpp.i:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/FightInfo.cpp.i
+.PHONY : FightInfo.cpp.i
+
+FightInfo.s: FightInfo.cpp.s
+
+.PHONY : FightInfo.s
+
+# target to generate assembly for a file
+FightInfo.cpp.s:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/FightInfo.cpp.s
+.PHONY : FightInfo.cpp.s
+
+Files.obj: Files.cpp.obj
+
+.PHONY : Files.obj
+
+# target to build an object file
+Files.cpp.obj:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Files.cpp.obj
+.PHONY : Files.cpp.obj
+
+Files.i: Files.cpp.i
+
+.PHONY : Files.i
+
+# target to preprocess a source file
+Files.cpp.i:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Files.cpp.i
+.PHONY : Files.cpp.i
+
+Files.s: Files.cpp.s
+
+.PHONY : Files.s
+
+# target to generate assembly for a file
+Files.cpp.s:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Files.cpp.s
+.PHONY : Files.cpp.s
+
+Game.obj: Game.cpp.obj
+
+.PHONY : Game.obj
+
+# target to build an object file
+Game.cpp.obj:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Game.cpp.obj
+.PHONY : Game.cpp.obj
+
+Game.i: Game.cpp.i
+
+.PHONY : Game.i
+
+# target to preprocess a source file
+Game.cpp.i:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Game.cpp.i
+.PHONY : Game.cpp.i
+
+Game.s: Game.cpp.s
+
+.PHONY : Game.s
+
+# target to generate assembly for a file
+Game.cpp.s:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Game.cpp.s
+.PHONY : Game.cpp.s
+
+JokerChange.obj: JokerChange.cpp.obj
+
+.PHONY : JokerChange.obj
+
+# target to build an object file
+JokerChange.cpp.obj:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/JokerChange.cpp.obj
+.PHONY : JokerChange.cpp.obj
+
+JokerChange.i: JokerChange.cpp.i
+
+.PHONY : JokerChange.i
+
+# target to preprocess a source file
+JokerChange.cpp.i:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/JokerChange.cpp.i
+.PHONY : JokerChange.cpp.i
+
+JokerChange.s: JokerChange.cpp.s
+
+.PHONY : JokerChange.s
+
+# target to generate assembly for a file
+JokerChange.cpp.s:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/JokerChange.cpp.s
+.PHONY : JokerChange.cpp.s
+
+MainAux.obj: MainAux.cpp.obj
+
+.PHONY : MainAux.obj
+
+# target to build an object file
+MainAux.cpp.obj:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/MainAux.cpp.obj
+.PHONY : MainAux.cpp.obj
+
+MainAux.i: MainAux.cpp.i
+
+.PHONY : MainAux.i
+
+# target to preprocess a source file
+MainAux.cpp.i:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/MainAux.cpp.i
+.PHONY : MainAux.cpp.i
+
+MainAux.s: MainAux.cpp.s
+
+.PHONY : MainAux.s
+
+# target to generate assembly for a file
+MainAux.cpp.s:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/MainAux.cpp.s
+.PHONY : MainAux.cpp.s
+
+Move.obj: Move.cpp.obj
+
+.PHONY : Move.obj
+
+# target to build an object file
+Move.cpp.obj:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Move.cpp.obj
+.PHONY : Move.cpp.obj
+
+Move.i: Move.cpp.i
+
+.PHONY : Move.i
+
+# target to preprocess a source file
+Move.cpp.i:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Move.cpp.i
+.PHONY : Move.cpp.i
+
+Move.s: Move.cpp.s
+
+.PHONY : Move.s
+
+# target to generate assembly for a file
+Move.cpp.s:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Move.cpp.s
+.PHONY : Move.cpp.s
+
+Parser.obj: Parser.cpp.obj
+
+.PHONY : Parser.obj
+
+# target to build an object file
+Parser.cpp.obj:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Parser.cpp.obj
+.PHONY : Parser.cpp.obj
+
+Parser.i: Parser.cpp.i
+
+.PHONY : Parser.i
+
+# target to preprocess a source file
+Parser.cpp.i:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Parser.cpp.i
+.PHONY : Parser.cpp.i
+
+Parser.s: Parser.cpp.s
+
+.PHONY : Parser.s
+
+# target to generate assembly for a file
+Parser.cpp.s:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Parser.cpp.s
+.PHONY : Parser.cpp.s
+
+Piece.obj: Piece.cpp.obj
+
+.PHONY : Piece.obj
+
+# target to build an object file
+Piece.cpp.obj:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Piece.cpp.obj
+.PHONY : Piece.cpp.obj
+
+Piece.i: Piece.cpp.i
+
+.PHONY : Piece.i
+
+# target to preprocess a source file
+Piece.cpp.i:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Piece.cpp.i
+.PHONY : Piece.cpp.i
+
+Piece.s: Piece.cpp.s
+
+.PHONY : Piece.s
+
+# target to generate assembly for a file
+Piece.cpp.s:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Piece.cpp.s
+.PHONY : Piece.cpp.s
+
+PiecePosition.obj: PiecePosition.cpp.obj
+
+.PHONY : PiecePosition.obj
+
+# target to build an object file
+PiecePosition.cpp.obj:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/PiecePosition.cpp.obj
+.PHONY : PiecePosition.cpp.obj
+
+PiecePosition.i: PiecePosition.cpp.i
+
+.PHONY : PiecePosition.i
+
+# target to preprocess a source file
+PiecePosition.cpp.i:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/PiecePosition.cpp.i
+.PHONY : PiecePosition.cpp.i
+
+PiecePosition.s: PiecePosition.cpp.s
+
+.PHONY : PiecePosition.s
+
+# target to generate assembly for a file
+PiecePosition.cpp.s:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/PiecePosition.cpp.s
+.PHONY : PiecePosition.cpp.s
+
+Point.obj: Point.cpp.obj
+
+.PHONY : Point.obj
+
+# target to build an object file
+Point.cpp.obj:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Point.cpp.obj
+.PHONY : Point.cpp.obj
+
+Point.i: Point.cpp.i
+
+.PHONY : Point.i
+
+# target to preprocess a source file
+Point.cpp.i:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Point.cpp.i
+.PHONY : Point.cpp.i
+
+Point.s: Point.cpp.s
+
+.PHONY : Point.s
+
+# target to generate assembly for a file
+Point.cpp.s:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Point.cpp.s
+.PHONY : Point.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -158,6 +509,45 @@ help:
 	@echo ... AdvancedTopictest
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... Board.obj
+	@echo ... Board.i
+	@echo ... Board.s
+	@echo ... Cell.obj
+	@echo ... Cell.i
+	@echo ... Cell.s
+	@echo ... Command.obj
+	@echo ... Command.i
+	@echo ... Command.s
+	@echo ... FightInfo.obj
+	@echo ... FightInfo.i
+	@echo ... FightInfo.s
+	@echo ... Files.obj
+	@echo ... Files.i
+	@echo ... Files.s
+	@echo ... Game.obj
+	@echo ... Game.i
+	@echo ... Game.s
+	@echo ... JokerChange.obj
+	@echo ... JokerChange.i
+	@echo ... JokerChange.s
+	@echo ... MainAux.obj
+	@echo ... MainAux.i
+	@echo ... MainAux.s
+	@echo ... Move.obj
+	@echo ... Move.i
+	@echo ... Move.s
+	@echo ... Parser.obj
+	@echo ... Parser.i
+	@echo ... Parser.s
+	@echo ... Piece.obj
+	@echo ... Piece.i
+	@echo ... Piece.s
+	@echo ... PiecePosition.obj
+	@echo ... PiecePosition.i
+	@echo ... PiecePosition.s
+	@echo ... Point.obj
+	@echo ... Point.i
+	@echo ... Point.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

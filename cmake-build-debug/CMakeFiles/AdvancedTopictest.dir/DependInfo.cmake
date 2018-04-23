@@ -4,6 +4,19 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "C:/Users/loten/CLionProjects/AdvancedTopics2/Board.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/Board.cpp.obj"
+  "C:/Users/loten/CLionProjects/AdvancedTopics2/Cell.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/Cell.cpp.obj"
+  "C:/Users/loten/CLionProjects/AdvancedTopics2/Command.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/Command.cpp.obj"
+  "C:/Users/loten/CLionProjects/AdvancedTopics2/FightInfo.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/FightInfo.cpp.obj"
+  "C:/Users/loten/CLionProjects/AdvancedTopics2/Files.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/Files.cpp.obj"
+  "C:/Users/loten/CLionProjects/AdvancedTopics2/Game.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/Game.cpp.obj"
+  "C:/Users/loten/CLionProjects/AdvancedTopics2/JokerChange.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/JokerChange.cpp.obj"
+  "C:/Users/loten/CLionProjects/AdvancedTopics2/MainAux.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/MainAux.cpp.obj"
+  "C:/Users/loten/CLionProjects/AdvancedTopics2/Move.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/Move.cpp.obj"
+  "C:/Users/loten/CLionProjects/AdvancedTopics2/Parser.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/Parser.cpp.obj"
+  "C:/Users/loten/CLionProjects/AdvancedTopics2/Piece.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/Piece.cpp.obj"
+  "C:/Users/loten/CLionProjects/AdvancedTopics2/PiecePosition.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/PiecePosition.cpp.obj"
+  "C:/Users/loten/CLionProjects/AdvancedTopics2/Point.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/Point.cpp.obj"
   "C:/Users/loten/CLionProjects/AdvancedTopics2/main.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

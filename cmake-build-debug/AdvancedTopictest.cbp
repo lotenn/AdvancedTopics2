@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/loten/CLionProjects/AdvancedTopics2/Point.cpp">
+			<Option target="AdvancedTopictest"/>
+		</Unit>
+		<Unit filename="C:/Users/loten/CLionProjects/AdvancedTopics2/Point.h">
+			<Option target="AdvancedTopictest"/>
+		</Unit>
 		<Unit filename="C:/Users/loten/CLionProjects/AdvancedTopics2/main.cpp">
 			<Option target="AdvancedTopictest"/>
 		</Unit>
