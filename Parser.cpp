@@ -1,7 +1,7 @@
 #include "Parser.h"
 
 unique_ptr<PiecePosition> Parser::parsePiecePosition(string commandLine) {
-    if(commandLine.empty()) return move(make_unique<PiecePositionImp>(INVALID_POINT,INVALID_POINT,'#','#'));
+    if(commandLine.empty()) return move(make_unique<PiecePositionImp>(INVALID_COORD,INVALID_COORD,'#','#'));
     char *str = const_cast<char*>(commandLine.c_str());
     char *tokens[5];
     const char delim[] = " \t\n\r";
@@ -31,19 +31,17 @@ unique_ptr<PiecePosition> Parser::parsePiecePosition(string commandLine) {
                 int srcX = atoi(tokens[1]), srcY = atoi(tokens[2]);
                 return move(make_unique<PiecePositionImp>(srcX, srcY, 'J' ,jokerRep));
     }
-    else return move(make_unique<PiecePositionImp>(INVALID_POINT,INVALID_POINT,INVALID_SYMBOL,INVALID_SYMBOL));
+    else return move(make_unique<PiecePositionImp>(INVALID_COORD,INVALID_COORD,INVALID_SYMBOL,INVALID_SYMBOL));
 }
 
-commandType Parser::parseMoveCommand(string commandLine, vector<Move>& moves, vector<JokerChange>& jokerChanges){
+void Parser::parseMoveCommand(string commandLine, vector<unique_ptr<Move>>& moves, vector<unique_ptr<JokerChange>>& jokerChanges){
     vector<commandType> steps;
     int fromX, fromY, toX, toY, jokerX, jokerY;
     char new_rep;
     if(commandLine.empty()) {
-//        ((PlayerAlgorithmImp &)po).move = MoveImp(0, 0, 0, 0);
-//        steps = {INVALID_MOVE_COMMAND};
-        moves.push_back(MoveImp(INVALID_POINT,INVALID_POINT,INVALID_POINT,INVALID_POINT));
-        jokerChanges.push_back(JokerChangeImp(0,0,'#'));
-        return INVALID_MOVE_COMMAND;
+        moves.push_back(move(make_unique<MoveImp>(INVALID_COORD,INVALID_COORD,INVALID_COORD,INVALID_COORD)));
+        jokerChanges.push_back(move(make_unique<JokerChangeImp>(INVALID_COORD,INVALID_COORD,INVALID_SYMBOL)));
+        return;
     }
 
     char *str = const_cast<char*>(commandLine.c_str());
@@ -56,35 +54,49 @@ commandType Parser::parseMoveCommand(string commandLine, vector<Move>& moves, ve
 
     //9th token  - INVALID_MOVE_COMMAND command
     if (tokens[8] != NULL || tokens[0] == NULL) {
-//        steps = {INVALID_MOVE_COMMAND};
-        return INVALID_MOVE_COMMAND;
+        moves.push_back(move(make_unique<MoveImp>(INVALID_COORD,INVALID_COORD,INVALID_COORD,INVALID_COORD)));
+        jokerChanges.push_back(move(make_unique<JokerChangeImp>(INVALID_COORD,INVALID_COORD,INVALID_SYMBOL)));
+        return;
     }
     //first 4 arguments are not valid numbers in range
-    if (!isNumInRange(tokens[0], 1, M) || !isNumInRange(tokens[1], 1, N) || !isNumInRange(tokens[2], 1, M) ||
+    if (!isNumInRange(tokens[0], 1, M) ||
+        !isNumInRange(tokens[1], 1, N) ||
+        !isNumInRange(tokens[2], 1, M) ||
         !isNumInRange(tokens[3], 1, N)) {
-//        steps = {INVALID_MOVE_COMMAND};
-        return INVALID_MOVE_COMMAND;
+                moves.push_back(move(make_unique<MoveImp>(INVALID_COORD,INVALID_COORD,INVALID_COORD,INVALID_COORD)));
+                jokerChanges.push_back(move(make_unique<JokerChangeImp>(INVALID_COORD,INVALID_COORD,INVALID_SYMBOL)));
+                return;
     }
     //There is a 5th argument (joker command)
     else if (tokens[4] != NULL) {
-        if (strcmp(tokens[4], "J:") || !isNumInRange(tokens[5], 1, M) || !isNumInRange(tokens[6], 1, N) ||
-            !isCharArrValidJokerToolType(tokens[7]) || tokens[8]!=NULL) {
-//            steps = {INVALID_MOVE_COMMAND};
-            return INVALID_MOVE_COMMAND;
+        if (strcmp(tokens[4], "J:") ||
+            !isNumInRange(tokens[5], 1, M) ||
+            !isNumInRange(tokens[6], 1, N) ||
+            !isCharArrValidJokerToolType(tokens[7]) ||
+            tokens[8]!=NULL) {
+                moves.push_back(move(make_unique<MoveImp>(INVALID_COORD,INVALID_COORD,INVALID_COORD,INVALID_COORD)));
+                jokerChanges.push_back(move(make_unique<JokerChangeImp>(INVALID_COORD,INVALID_COORD,INVALID_SYMBOL)));
+                return;
         }
         //valid joker command
         else {
-            steps = {MOVE_COMMAND, JOKER_COMMAND};
+//            steps = {MOVE_COMMAND, JOKER_COMMAND};
             fromX = atoi(tokens[0]), fromY = atoi(tokens[1]), toX = atoi(tokens[2]), toY = atoi(tokens[3]);
             jokerX = atoi(tokens[5]), jokerY = atoi(tokens[6]);
             new_rep = *(tokens[7]);
-            return INVALID_MOVE_COMMAND;
+            moves.push_back(move(make_unique<MoveImp>(fromX, fromY, toX, toY)));
+            jokerChanges.push_back(move(make_unique<JokerChangeImp>(jokerX, jokerY, new_rep)));
+            return;
         }
     }
     //valid move command, no joker command that follows
     else {
         steps = {MOVE_COMMAND};
         fromX = atoi(tokens[0]), fromY = atoi(tokens[1]), toX = atoi(tokens[2]), toY = atoi(tokens[3]);
-        return INVALID_MOVE_COMMAND;
+        moves.push_back(move(make_unique<MoveImp>(fromX, fromY, toX, toY)));
+//        jokerChanges.push_back(move(make_unique<JokerChangeImp>(INVALID_COORD, INVALID_COORD, NO_JOKER_CHANGE_SYMBOL)));
+        jokerChanges.push_back(nullptr);
+
+        return;
     }
 }

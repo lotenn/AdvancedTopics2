@@ -5,11 +5,12 @@
 #ifndef ADVANCEDTOPICS2_PLAYERALGORITHM_H
 #define ADVANCEDTOPICS2_PLAYERALGORITHM_H
 
+#include <vector>
+#include <list>
 #include "Board.h"
 #include "PiecePosition.h"
 #include "Move.h"
 #include "FightInfo.h"
-#include <vector>
 #include "Command.h"
 #include "Parser.h"
 
@@ -24,12 +25,15 @@ public:
 
 };
 
-class PlayerAlgorithmImp: public PlayerAlgorithm{
+class FilePlayerAlgorithm: public PlayerAlgorithm{
 private:
-    vector<Move> moves;
-    vector<JokerChange> jokerChanges;
+    int currentMove;
+    vector<MoveImp> moves;
+    vector<JokerChangeImp> jokerChanges;
 
-
+public:
+    FilePlayerAlgorithm():currentMove(0){}
+    unique_ptr<Move> getMove() override;
 };
 
 
