@@ -11,6 +11,8 @@ Board.h
 C:/Users/loten/CLionProjects/AdvancedTopics2/Board.h
 
 C:/Users/loten/CLionProjects/AdvancedTopics2/Board.h
+PiecePosition.h
+C:/Users/loten/CLionProjects/AdvancedTopics2/PiecePosition.h
 
 C:/Users/loten/CLionProjects/AdvancedTopics2/Cell.cpp
 Cell.h
@@ -35,6 +37,8 @@ FightInfo.h
 C:/Users/loten/CLionProjects/AdvancedTopics2/FightInfo.h
 
 C:/Users/loten/CLionProjects/AdvancedTopics2/FightInfo.h
+Board.h
+C:/Users/loten/CLionProjects/AdvancedTopics2/Board.h
 
 C:/Users/loten/CLionProjects/AdvancedTopics2/Files.cpp
 Files.h
@@ -113,6 +117,8 @@ PiecePosition.h
 C:/Users/loten/CLionProjects/AdvancedTopics2/PiecePosition.h
 Game.h
 C:/Users/loten/CLionProjects/AdvancedTopics2/Game.h
+PlayerAlgorithm.h
+C:/Users/loten/CLionProjects/AdvancedTopics2/PlayerAlgorithm.h
 
 C:/Users/loten/CLionProjects/AdvancedTopics2/Piece.cpp
 Piece.h
@@ -134,11 +140,33 @@ C:/Users/loten/CLionProjects/AdvancedTopics2/Point.h
 Piece.h
 C:/Users/loten/CLionProjects/AdvancedTopics2/Piece.h
 
+C:/Users/loten/CLionProjects/AdvancedTopics2/PlayerAlgorithm.cpp
+PlayerAlgorithm.h
+C:/Users/loten/CLionProjects/AdvancedTopics2/PlayerAlgorithm.h
+
+C:/Users/loten/CLionProjects/AdvancedTopics2/PlayerAlgorithm.h
+Board.h
+C:/Users/loten/CLionProjects/AdvancedTopics2/Board.h
+PiecePosition.h
+C:/Users/loten/CLionProjects/AdvancedTopics2/PiecePosition.h
+Move.h
+C:/Users/loten/CLionProjects/AdvancedTopics2/Move.h
+FightInfo.h
+C:/Users/loten/CLionProjects/AdvancedTopics2/FightInfo.h
+vector
+-
+Command.h
+C:/Users/loten/CLionProjects/AdvancedTopics2/Command.h
+Parser.h
+C:/Users/loten/CLionProjects/AdvancedTopics2/Parser.h
+
 C:/Users/loten/CLionProjects/AdvancedTopics2/Point.cpp
 Point.h
 C:/Users/loten/CLionProjects/AdvancedTopics2/Point.h
 
 C:/Users/loten/CLionProjects/AdvancedTopics2/Point.h
+memory
+-
 
 C:/Users/loten/CLionProjects/AdvancedTopics2/main.cpp
 iostream

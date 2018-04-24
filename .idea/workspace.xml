@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="AdvancedTopics2" targetName="AdvancedTopictest" />
+      <config projectName="AdvancedTopics2" targetName="AdvancedTopics2" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -12,24 +12,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e2da3cc-7623-41d8-8097-a60e30a86474" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/PlayerAlgorithm.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PlayerAlgorithm.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Board.h" beforeDir="false" afterPath="$PROJECT_DIR$/Board.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FightInfo.h" beforeDir="false" afterPath="$PROJECT_DIR$/FightInfo.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JokerChange.h" beforeDir="false" afterPath="$PROJECT_DIR$/JokerChange.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Move.h" beforeDir="false" afterPath="$PROJECT_DIR$/Move.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Point.h" beforeDir="false" afterPath="$PROJECT_DIR$/Point.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/objects1.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/objects1.rsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Parser.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Parser.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Parser.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+            <state relative-caret-position="798">
+              <caret line="41" column="21" lean-forward="true" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -95,6 +85,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="21">
               <caret line="8" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -136,7 +135,6 @@
         <option value="$PROJECT_DIR$/Point.cpp" />
         <option value="$PROJECT_DIR$/PointUtils.h" />
         <option value="$PROJECT_DIR$/Piece.h" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/Files.cpp" />
         <option value="$PROJECT_DIR$/PiecePosition.cpp" />
         <option value="$PROJECT_DIR$/PiecePosition.h" />
@@ -150,6 +148,7 @@
         <option value="$PROJECT_DIR$/JokerChange.h" />
         <option value="$PROJECT_DIR$/Parser.h" />
         <option value="$PROJECT_DIR$/Parser.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
@@ -180,6 +179,11 @@
               <item name="AdvancedTopics2" type="b2602c69:ProjectViewProjectNode" />
               <item name="AdvancedTopics2" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="AdvancedTopics2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AdvancedTopics2" type="462c0819:PsiDirectoryNode" />
+              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -205,12 +209,12 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.AdvancedTopictest">
-    <configuration name="AdvancedTopictest" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="AdvancedTopics2" TARGET_NAME="AdvancedTopictest" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="AdvancedTopics2" RUN_TARGET_NAME="AdvancedTopictest" />
+  <component name="RunManager" selected="Application.AdvancedTopics2">
+    <configuration name="AdvancedTopics2" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="AdvancedTopics2" TARGET_NAME="AdvancedTopics2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="AdvancedTopics2" RUN_TARGET_NAME="AdvancedTopics2" />
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="AdvancedTopics2" RUN_TARGET_NAME="AdvancedTopictest" EXPLICIT_BUILD_TARGET_NAME="all" />
     <list>
       <item itemvalue="Application.Build All" />
-      <item itemvalue="Application.AdvancedTopictest" />
+      <item itemvalue="Application.AdvancedTopics2" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -225,7 +229,7 @@
       <updated>1524214685343</updated>
       <workItem from="1524214686699" duration="5872000" />
       <workItem from="1524477644302" duration="12215000" />
-      <workItem from="1524496784428" duration="10117000" />
+      <workItem from="1524496784428" duration="10652000" />
     </task>
     <task id="LOCAL-00001" summary="sadsda">
       <created>1524214765333</created>
@@ -241,11 +245,18 @@
       <option name="project" value="LOCAL" />
       <updated>1524507237454</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update">
+      <created>1524571795302</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1524571795302</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28204000" />
+    <option name="totallyTimeSpent" value="28739000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -257,14 +268,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17184402" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
-      <window_info active="true" anchor="bottom" id="Messages" order="7" visible="true" weight="0.32905984" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49966952" visible="true" weight="0.32905984" />
       <window_info anchor="bottom" id="CMake" order="7" weight="0.32905984" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50033045" side_tool="true" weight="0.32905984" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32905984" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -307,8 +317,10 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="sadsda" />
-    <option name="LAST_COMMIT_MESSAGE" value="sadsda" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -466,13 +478,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="168" selection-start-line="7" selection-start-column="168" selection-end-line="7" selection-end-column="168" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PiecePosition.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -574,8 +579,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Parser.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="798">
+          <caret line="41" column="21" lean-forward="true" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
         </state>
       </provider>
     </entry>

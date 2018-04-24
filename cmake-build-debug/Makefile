@@ -110,17 +110,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named AdvancedTopictest
+# Target rules for targets named AdvancedTopics2
 
 # Build rule for target.
-AdvancedTopictest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 AdvancedTopictest
-.PHONY : AdvancedTopictest
+AdvancedTopics2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 AdvancedTopics2
+.PHONY : AdvancedTopics2
 
 # fast build rule for target.
-AdvancedTopictest/fast:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/build
-.PHONY : AdvancedTopictest/fast
+AdvancedTopics2/fast:
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/build
+.PHONY : AdvancedTopics2/fast
 
 Board.obj: Board.cpp.obj
 
@@ -128,7 +128,7 @@ Board.obj: Board.cpp.obj
 
 # target to build an object file
 Board.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Board.cpp.obj
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Board.cpp.obj
 .PHONY : Board.cpp.obj
 
 Board.i: Board.cpp.i
@@ -137,7 +137,7 @@ Board.i: Board.cpp.i
 
 # target to preprocess a source file
 Board.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Board.cpp.i
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Board.cpp.i
 .PHONY : Board.cpp.i
 
 Board.s: Board.cpp.s
@@ -146,7 +146,7 @@ Board.s: Board.cpp.s
 
 # target to generate assembly for a file
 Board.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Board.cpp.s
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Board.cpp.s
 .PHONY : Board.cpp.s
 
 Cell.obj: Cell.cpp.obj
@@ -155,7 +155,7 @@ Cell.obj: Cell.cpp.obj
 
 # target to build an object file
 Cell.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Cell.cpp.obj
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Cell.cpp.obj
 .PHONY : Cell.cpp.obj
 
 Cell.i: Cell.cpp.i
@@ -164,7 +164,7 @@ Cell.i: Cell.cpp.i
 
 # target to preprocess a source file
 Cell.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Cell.cpp.i
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Cell.cpp.i
 .PHONY : Cell.cpp.i
 
 Cell.s: Cell.cpp.s
@@ -173,7 +173,7 @@ Cell.s: Cell.cpp.s
 
 # target to generate assembly for a file
 Cell.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Cell.cpp.s
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Cell.cpp.s
 .PHONY : Cell.cpp.s
 
 Command.obj: Command.cpp.obj
@@ -182,7 +182,7 @@ Command.obj: Command.cpp.obj
 
 # target to build an object file
 Command.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Command.cpp.obj
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Command.cpp.obj
 .PHONY : Command.cpp.obj
 
 Command.i: Command.cpp.i
@@ -191,7 +191,7 @@ Command.i: Command.cpp.i
 
 # target to preprocess a source file
 Command.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Command.cpp.i
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Command.cpp.i
 .PHONY : Command.cpp.i
 
 Command.s: Command.cpp.s
@@ -200,7 +200,7 @@ Command.s: Command.cpp.s
 
 # target to generate assembly for a file
 Command.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Command.cpp.s
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Command.cpp.s
 .PHONY : Command.cpp.s
 
 FightInfo.obj: FightInfo.cpp.obj
@@ -209,7 +209,7 @@ FightInfo.obj: FightInfo.cpp.obj
 
 # target to build an object file
 FightInfo.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/FightInfo.cpp.obj
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/FightInfo.cpp.obj
 .PHONY : FightInfo.cpp.obj
 
 FightInfo.i: FightInfo.cpp.i
@@ -218,7 +218,7 @@ FightInfo.i: FightInfo.cpp.i
 
 # target to preprocess a source file
 FightInfo.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/FightInfo.cpp.i
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/FightInfo.cpp.i
 .PHONY : FightInfo.cpp.i
 
 FightInfo.s: FightInfo.cpp.s
@@ -227,7 +227,7 @@ FightInfo.s: FightInfo.cpp.s
 
 # target to generate assembly for a file
 FightInfo.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/FightInfo.cpp.s
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/FightInfo.cpp.s
 .PHONY : FightInfo.cpp.s
 
 Files.obj: Files.cpp.obj
@@ -236,7 +236,7 @@ Files.obj: Files.cpp.obj
 
 # target to build an object file
 Files.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Files.cpp.obj
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Files.cpp.obj
 .PHONY : Files.cpp.obj
 
 Files.i: Files.cpp.i
@@ -245,7 +245,7 @@ Files.i: Files.cpp.i
 
 # target to preprocess a source file
 Files.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Files.cpp.i
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Files.cpp.i
 .PHONY : Files.cpp.i
 
 Files.s: Files.cpp.s
@@ -254,7 +254,7 @@ Files.s: Files.cpp.s
 
 # target to generate assembly for a file
 Files.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Files.cpp.s
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Files.cpp.s
 .PHONY : Files.cpp.s
 
 Game.obj: Game.cpp.obj
@@ -263,7 +263,7 @@ Game.obj: Game.cpp.obj
 
 # target to build an object file
 Game.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Game.cpp.obj
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Game.cpp.obj
 .PHONY : Game.cpp.obj
 
 Game.i: Game.cpp.i
@@ -272,7 +272,7 @@ Game.i: Game.cpp.i
 
 # target to preprocess a source file
 Game.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Game.cpp.i
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Game.cpp.i
 .PHONY : Game.cpp.i
 
 Game.s: Game.cpp.s
@@ -281,7 +281,7 @@ Game.s: Game.cpp.s
 
 # target to generate assembly for a file
 Game.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Game.cpp.s
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Game.cpp.s
 .PHONY : Game.cpp.s
 
 JokerChange.obj: JokerChange.cpp.obj
@@ -290,7 +290,7 @@ JokerChange.obj: JokerChange.cpp.obj
 
 # target to build an object file
 JokerChange.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/JokerChange.cpp.obj
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/JokerChange.cpp.obj
 .PHONY : JokerChange.cpp.obj
 
 JokerChange.i: JokerChange.cpp.i
@@ -299,7 +299,7 @@ JokerChange.i: JokerChange.cpp.i
 
 # target to preprocess a source file
 JokerChange.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/JokerChange.cpp.i
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/JokerChange.cpp.i
 .PHONY : JokerChange.cpp.i
 
 JokerChange.s: JokerChange.cpp.s
@@ -308,7 +308,7 @@ JokerChange.s: JokerChange.cpp.s
 
 # target to generate assembly for a file
 JokerChange.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/JokerChange.cpp.s
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/JokerChange.cpp.s
 .PHONY : JokerChange.cpp.s
 
 MainAux.obj: MainAux.cpp.obj
@@ -317,7 +317,7 @@ MainAux.obj: MainAux.cpp.obj
 
 # target to build an object file
 MainAux.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/MainAux.cpp.obj
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/MainAux.cpp.obj
 .PHONY : MainAux.cpp.obj
 
 MainAux.i: MainAux.cpp.i
@@ -326,7 +326,7 @@ MainAux.i: MainAux.cpp.i
 
 # target to preprocess a source file
 MainAux.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/MainAux.cpp.i
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/MainAux.cpp.i
 .PHONY : MainAux.cpp.i
 
 MainAux.s: MainAux.cpp.s
@@ -335,7 +335,7 @@ MainAux.s: MainAux.cpp.s
 
 # target to generate assembly for a file
 MainAux.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/MainAux.cpp.s
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/MainAux.cpp.s
 .PHONY : MainAux.cpp.s
 
 Move.obj: Move.cpp.obj
@@ -344,7 +344,7 @@ Move.obj: Move.cpp.obj
 
 # target to build an object file
 Move.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Move.cpp.obj
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Move.cpp.obj
 .PHONY : Move.cpp.obj
 
 Move.i: Move.cpp.i
@@ -353,7 +353,7 @@ Move.i: Move.cpp.i
 
 # target to preprocess a source file
 Move.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Move.cpp.i
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Move.cpp.i
 .PHONY : Move.cpp.i
 
 Move.s: Move.cpp.s
@@ -362,7 +362,7 @@ Move.s: Move.cpp.s
 
 # target to generate assembly for a file
 Move.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Move.cpp.s
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Move.cpp.s
 .PHONY : Move.cpp.s
 
 Parser.obj: Parser.cpp.obj
@@ -371,7 +371,7 @@ Parser.obj: Parser.cpp.obj
 
 # target to build an object file
 Parser.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Parser.cpp.obj
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Parser.cpp.obj
 .PHONY : Parser.cpp.obj
 
 Parser.i: Parser.cpp.i
@@ -380,7 +380,7 @@ Parser.i: Parser.cpp.i
 
 # target to preprocess a source file
 Parser.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Parser.cpp.i
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Parser.cpp.i
 .PHONY : Parser.cpp.i
 
 Parser.s: Parser.cpp.s
@@ -389,7 +389,7 @@ Parser.s: Parser.cpp.s
 
 # target to generate assembly for a file
 Parser.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Parser.cpp.s
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Parser.cpp.s
 .PHONY : Parser.cpp.s
 
 Piece.obj: Piece.cpp.obj
@@ -398,7 +398,7 @@ Piece.obj: Piece.cpp.obj
 
 # target to build an object file
 Piece.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Piece.cpp.obj
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Piece.cpp.obj
 .PHONY : Piece.cpp.obj
 
 Piece.i: Piece.cpp.i
@@ -407,7 +407,7 @@ Piece.i: Piece.cpp.i
 
 # target to preprocess a source file
 Piece.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Piece.cpp.i
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Piece.cpp.i
 .PHONY : Piece.cpp.i
 
 Piece.s: Piece.cpp.s
@@ -416,7 +416,7 @@ Piece.s: Piece.cpp.s
 
 # target to generate assembly for a file
 Piece.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Piece.cpp.s
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Piece.cpp.s
 .PHONY : Piece.cpp.s
 
 PiecePosition.obj: PiecePosition.cpp.obj
@@ -425,7 +425,7 @@ PiecePosition.obj: PiecePosition.cpp.obj
 
 # target to build an object file
 PiecePosition.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/PiecePosition.cpp.obj
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/PiecePosition.cpp.obj
 .PHONY : PiecePosition.cpp.obj
 
 PiecePosition.i: PiecePosition.cpp.i
@@ -434,7 +434,7 @@ PiecePosition.i: PiecePosition.cpp.i
 
 # target to preprocess a source file
 PiecePosition.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/PiecePosition.cpp.i
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/PiecePosition.cpp.i
 .PHONY : PiecePosition.cpp.i
 
 PiecePosition.s: PiecePosition.cpp.s
@@ -443,7 +443,7 @@ PiecePosition.s: PiecePosition.cpp.s
 
 # target to generate assembly for a file
 PiecePosition.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/PiecePosition.cpp.s
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/PiecePosition.cpp.s
 .PHONY : PiecePosition.cpp.s
 
 PlayerAlgorithm.obj: PlayerAlgorithm.cpp.obj
@@ -452,7 +452,7 @@ PlayerAlgorithm.obj: PlayerAlgorithm.cpp.obj
 
 # target to build an object file
 PlayerAlgorithm.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/PlayerAlgorithm.cpp.obj
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/PlayerAlgorithm.cpp.obj
 .PHONY : PlayerAlgorithm.cpp.obj
 
 PlayerAlgorithm.i: PlayerAlgorithm.cpp.i
@@ -461,7 +461,7 @@ PlayerAlgorithm.i: PlayerAlgorithm.cpp.i
 
 # target to preprocess a source file
 PlayerAlgorithm.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/PlayerAlgorithm.cpp.i
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/PlayerAlgorithm.cpp.i
 .PHONY : PlayerAlgorithm.cpp.i
 
 PlayerAlgorithm.s: PlayerAlgorithm.cpp.s
@@ -470,7 +470,7 @@ PlayerAlgorithm.s: PlayerAlgorithm.cpp.s
 
 # target to generate assembly for a file
 PlayerAlgorithm.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/PlayerAlgorithm.cpp.s
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/PlayerAlgorithm.cpp.s
 .PHONY : PlayerAlgorithm.cpp.s
 
 Point.obj: Point.cpp.obj
@@ -479,7 +479,7 @@ Point.obj: Point.cpp.obj
 
 # target to build an object file
 Point.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Point.cpp.obj
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Point.cpp.obj
 .PHONY : Point.cpp.obj
 
 Point.i: Point.cpp.i
@@ -488,7 +488,7 @@ Point.i: Point.cpp.i
 
 # target to preprocess a source file
 Point.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Point.cpp.i
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Point.cpp.i
 .PHONY : Point.cpp.i
 
 Point.s: Point.cpp.s
@@ -497,7 +497,7 @@ Point.s: Point.cpp.s
 
 # target to generate assembly for a file
 Point.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/Point.cpp.s
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Point.cpp.s
 .PHONY : Point.cpp.s
 
 main.obj: main.cpp.obj
@@ -506,7 +506,7 @@ main.obj: main.cpp.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/main.cpp.obj
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -515,7 +515,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -524,7 +524,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -533,7 +533,7 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
-	@echo ... AdvancedTopictest
+	@echo ... AdvancedTopics2
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Board.obj
