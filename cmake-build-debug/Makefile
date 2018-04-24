@@ -446,6 +446,33 @@ PiecePosition.cpp.s:
 	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/PiecePosition.cpp.s
 .PHONY : PiecePosition.cpp.s
 
+PlayerAlgorithm.obj: PlayerAlgorithm.cpp.obj
+
+.PHONY : PlayerAlgorithm.obj
+
+# target to build an object file
+PlayerAlgorithm.cpp.obj:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/PlayerAlgorithm.cpp.obj
+.PHONY : PlayerAlgorithm.cpp.obj
+
+PlayerAlgorithm.i: PlayerAlgorithm.cpp.i
+
+.PHONY : PlayerAlgorithm.i
+
+# target to preprocess a source file
+PlayerAlgorithm.cpp.i:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/PlayerAlgorithm.cpp.i
+.PHONY : PlayerAlgorithm.cpp.i
+
+PlayerAlgorithm.s: PlayerAlgorithm.cpp.s
+
+.PHONY : PlayerAlgorithm.s
+
+# target to generate assembly for a file
+PlayerAlgorithm.cpp.s:
+	$(MAKE) -f CMakeFiles\AdvancedTopictest.dir\build.make CMakeFiles/AdvancedTopictest.dir/PlayerAlgorithm.cpp.s
+.PHONY : PlayerAlgorithm.cpp.s
+
 Point.obj: Point.cpp.obj
 
 .PHONY : Point.obj
@@ -545,6 +572,9 @@ help:
 	@echo ... PiecePosition.obj
 	@echo ... PiecePosition.i
 	@echo ... PiecePosition.s
+	@echo ... PlayerAlgorithm.obj
+	@echo ... PlayerAlgorithm.i
+	@echo ... PlayerAlgorithm.s
 	@echo ... Point.obj
 	@echo ... Point.i
 	@echo ... Point.s

@@ -1,6 +1,11 @@
 #ifndef ADVANCEDTOPICS2_POINT_H
 #define ADVANCEDTOPICS2_POINT_H
 
+#include <memory>
+
+
+using namespace std;
+
 class Point {
 public:
     virtual ~Point() = default;

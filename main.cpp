@@ -6,8 +6,8 @@
 using namespace std;
 
 int main() {
-    Parser p;
-    unique_ptr<PiecePosition> positions = p.parsePiecePosition("\tJ 2 3 B");
+    Parser parser;
+    unique_ptr<PiecePosition> positions = parser.parsePiecePosition("\tJ 2 3 B");
 
     cout << positions.get()->getPosition().getX() << endl;
     cout << positions.get()->getPosition().getY() << endl;

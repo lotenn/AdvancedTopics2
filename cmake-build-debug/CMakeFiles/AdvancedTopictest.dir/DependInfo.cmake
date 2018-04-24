@@ -16,6 +16,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/loten/CLionProjects/AdvancedTopics2/Parser.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/Parser.cpp.obj"
   "C:/Users/loten/CLionProjects/AdvancedTopics2/Piece.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/Piece.cpp.obj"
   "C:/Users/loten/CLionProjects/AdvancedTopics2/PiecePosition.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/PiecePosition.cpp.obj"
+  "C:/Users/loten/CLionProjects/AdvancedTopics2/PlayerAlgorithm.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/PlayerAlgorithm.cpp.obj"
   "C:/Users/loten/CLionProjects/AdvancedTopics2/Point.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/Point.cpp.obj"
   "C:/Users/loten/CLionProjects/AdvancedTopics2/main.cpp" "C:/Users/loten/CLionProjects/AdvancedTopics2/cmake-build-debug/CMakeFiles/AdvancedTopictest.dir/main.cpp.obj"
   )

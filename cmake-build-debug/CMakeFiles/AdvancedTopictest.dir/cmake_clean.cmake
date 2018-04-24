@@ -13,6 +13,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/AdvancedTopictest.dir/MainAux.cpp.obj"
   "CMakeFiles/AdvancedTopictest.dir/Cell.cpp.obj"
   "CMakeFiles/AdvancedTopictest.dir/Files.cpp.obj"
+  "CMakeFiles/AdvancedTopictest.dir/PlayerAlgorithm.cpp.obj"
   "AdvancedTopictest.pdb"
   "AdvancedTopictest.exe"
   "AdvancedTopictest.exe.manifest"
