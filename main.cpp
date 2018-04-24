@@ -20,12 +20,13 @@ int main() {
     vector<unique_ptr<Move>> moves;
     vector<unique_ptr<JokerChange>> jokerChanges;
 
-//    moves.push_back(make_unique<MoveImp>(1,2,3,4));
-//    jokerChanges.push_back(make_unique<JokerChangeImp>(1,2,'S'));
+    parser.parseMoveCommand("1 2 3 4 J: 2 3 B", moves, jokerChanges);
 
-    parser.parseMoveCommand("1 2 3 4 ad ", moves, jokerChanges);
-    cout << moves[0].get()->getTo().getX()<< endl;
-    cout << jokerChanges[0].get()->getJokerNewRep()<< endl;
+    if((moves[0]==nullptr)) cout << "null" << endl;
+    else cout << moves[0].get()->getTo().getX()<< endl;
+    if((jokerChanges[0]==nullptr)) cout << "null" << endl;
+    else cout << jokerChanges[0].get()->getJokerNewRep() << endl;
+
 
     return 0;
 }

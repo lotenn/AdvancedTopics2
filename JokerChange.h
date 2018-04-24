@@ -5,11 +5,7 @@
 #ifndef ADVANCEDTOPICS2_JOKERCHANGE_H
 #define ADVANCEDTOPICS2_JOKERCHANGE_H
 #include "Point.h"
-
-
 #define NO_JOKER_CHANGE_SYMBOL '#'
-
-
 
 class JokerChange {
 public:
@@ -23,7 +19,7 @@ private:
     char jokerNewRep;
 public:
     JokerChangeImp(int x, int y, char _jokerNewRep):
-            jokerChangePosition(make_unique<PointImp>(PointImp(x,y))),
+            jokerChangePosition(make_unique<PointImp>(x,y)),
             jokerNewRep(_jokerNewRep){}
 
     const Point& getJokerChangePosition() const override{

@@ -27,13 +27,13 @@ public:
 
 class FilePlayerAlgorithm: public PlayerAlgorithm{
 private:
-    int currentMove;
-    vector<MoveImp> moves;
-    vector<JokerChangeImp> jokerChanges;
+    list<unique_ptr<Move>> moves;
+    list<unique_ptr<JokerChange>> jokerChanges;
 
 public:
-    FilePlayerAlgorithm():currentMove(0){}
-    unique_ptr<Move> getMove() override;
+    unique_ptr<Move> getMove() override {
+        return move(moves.front());
+    }
 };
 
 

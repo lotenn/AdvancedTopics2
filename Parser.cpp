@@ -1,7 +1,7 @@
 #include "Parser.h"
 
 unique_ptr<PiecePosition> Parser::parsePiecePosition(string commandLine) {
-    if(commandLine.empty()) return move(make_unique<PiecePositionImp>(INVALID_COORD,INVALID_COORD,'#','#'));
+    if(commandLine.empty()) return nullptr;
     char *str = const_cast<char*>(commandLine.c_str());
     char *tokens[5];
     const char delim[] = " \t\n\r";
@@ -31,7 +31,7 @@ unique_ptr<PiecePosition> Parser::parsePiecePosition(string commandLine) {
                 int srcX = atoi(tokens[1]), srcY = atoi(tokens[2]);
                 return move(make_unique<PiecePositionImp>(srcX, srcY, 'J' ,jokerRep));
     }
-    else return move(make_unique<PiecePositionImp>(INVALID_COORD,INVALID_COORD,INVALID_SYMBOL,INVALID_SYMBOL));
+    else return nullptr;
 }
 
 void Parser::parseMoveCommand(string commandLine, vector<unique_ptr<Move>>& moves, vector<unique_ptr<JokerChange>>& jokerChanges){
@@ -39,8 +39,8 @@ void Parser::parseMoveCommand(string commandLine, vector<unique_ptr<Move>>& move
     int fromX, fromY, toX, toY, jokerX, jokerY;
     char new_rep;
     if(commandLine.empty()) {
-        moves.push_back(move(make_unique<MoveImp>(INVALID_COORD,INVALID_COORD,INVALID_COORD,INVALID_COORD)));
-        jokerChanges.push_back(move(make_unique<JokerChangeImp>(INVALID_COORD,INVALID_COORD,INVALID_SYMBOL)));
+        moves.push_back(nullptr);
+        jokerChanges.push_back(nullptr);
         return;
     }
 
@@ -54,8 +54,8 @@ void Parser::parseMoveCommand(string commandLine, vector<unique_ptr<Move>>& move
 
     //9th token  - INVALID_MOVE_COMMAND command
     if (tokens[8] != NULL || tokens[0] == NULL) {
-        moves.push_back(move(make_unique<MoveImp>(INVALID_COORD,INVALID_COORD,INVALID_COORD,INVALID_COORD)));
-        jokerChanges.push_back(move(make_unique<JokerChangeImp>(INVALID_COORD,INVALID_COORD,INVALID_SYMBOL)));
+        moves.push_back(nullptr);
+        jokerChanges.push_back(nullptr);
         return;
     }
     //first 4 arguments are not valid numbers in range
@@ -63,8 +63,8 @@ void Parser::parseMoveCommand(string commandLine, vector<unique_ptr<Move>>& move
         !isNumInRange(tokens[1], 1, N) ||
         !isNumInRange(tokens[2], 1, M) ||
         !isNumInRange(tokens[3], 1, N)) {
-                moves.push_back(move(make_unique<MoveImp>(INVALID_COORD,INVALID_COORD,INVALID_COORD,INVALID_COORD)));
-                jokerChanges.push_back(move(make_unique<JokerChangeImp>(INVALID_COORD,INVALID_COORD,INVALID_SYMBOL)));
+                moves.push_back(nullptr);
+                jokerChanges.push_back(nullptr);
                 return;
     }
     //There is a 5th argument (joker command)
@@ -74,8 +74,8 @@ void Parser::parseMoveCommand(string commandLine, vector<unique_ptr<Move>>& move
             !isNumInRange(tokens[6], 1, N) ||
             !isCharArrValidJokerToolType(tokens[7]) ||
             tokens[8]!=NULL) {
-                moves.push_back(move(make_unique<MoveImp>(INVALID_COORD,INVALID_COORD,INVALID_COORD,INVALID_COORD)));
-                jokerChanges.push_back(move(make_unique<JokerChangeImp>(INVALID_COORD,INVALID_COORD,INVALID_SYMBOL)));
+                moves.push_back(nullptr);
+                jokerChanges.push_back(nullptr);
                 return;
         }
         //valid joker command
@@ -94,9 +94,7 @@ void Parser::parseMoveCommand(string commandLine, vector<unique_ptr<Move>>& move
         steps = {MOVE_COMMAND};
         fromX = atoi(tokens[0]), fromY = atoi(tokens[1]), toX = atoi(tokens[2]), toY = atoi(tokens[3]);
         moves.push_back(move(make_unique<MoveImp>(fromX, fromY, toX, toY)));
-//        jokerChanges.push_back(move(make_unique<JokerChangeImp>(INVALID_COORD, INVALID_COORD, NO_JOKER_CHANGE_SYMBOL)));
         jokerChanges.push_back(nullptr);
-
         return;
     }
 }
