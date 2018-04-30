@@ -11,7 +11,6 @@
 #include "PiecePosition.h"
 #include "Move.h"
 #include "FightInfo.h"
-#include "Command.h"
 #include "Parser.h"
 
 class PlayerAlgorithm {

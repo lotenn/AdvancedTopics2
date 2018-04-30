@@ -11,7 +11,7 @@ unique_ptr<PiecePosition> Parser::parsePiecePosition(string commandLine) {
         tokens[i] = strtok(NULL, delim);
 
     //valid positioning command
-    if (isCharArrValidToolType(tokens[0]) &&
+    if (isCharArrValidPieceType(tokens[0]) &&
         isNumInRange(tokens[1], 1, M) &&
         isNumInRange(tokens[2], 1, N) &&
         tokens[3]==NULL){
@@ -24,7 +24,7 @@ unique_ptr<PiecePosition> Parser::parsePiecePosition(string commandLine) {
     else if(tokens[0]!=NULL && !strcmp(tokens[0], "J") &&
             isNumInRange(tokens[1], 1, M) &&
             isNumInRange(tokens[2], 1, N) &&
-            isCharArrValidJokerToolType(tokens[3]) &&
+            isCharArrValidJokerPieceType(tokens[3]) &&
             tokens[4]==NULL){
 
                 char jokerRep = *(tokens[3]);
@@ -72,7 +72,7 @@ void Parser::parseMoveCommand(string commandLine, vector<unique_ptr<Move>>& move
         if (strcmp(tokens[4], "J:") ||
             !isNumInRange(tokens[5], 1, M) ||
             !isNumInRange(tokens[6], 1, N) ||
-            !isCharArrValidJokerToolType(tokens[7]) ||
+            !isCharArrValidJokerPieceType(tokens[7]) ||
             tokens[8]!=NULL) {
                 moves.push_back(nullptr);
                 jokerChanges.push_back(nullptr);

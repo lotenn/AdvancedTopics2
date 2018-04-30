@@ -149,60 +149,6 @@ Board.cpp.s:
 	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Board.cpp.s
 .PHONY : Board.cpp.s
 
-Cell.obj: Cell.cpp.obj
-
-.PHONY : Cell.obj
-
-# target to build an object file
-Cell.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Cell.cpp.obj
-.PHONY : Cell.cpp.obj
-
-Cell.i: Cell.cpp.i
-
-.PHONY : Cell.i
-
-# target to preprocess a source file
-Cell.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Cell.cpp.i
-.PHONY : Cell.cpp.i
-
-Cell.s: Cell.cpp.s
-
-.PHONY : Cell.s
-
-# target to generate assembly for a file
-Cell.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Cell.cpp.s
-.PHONY : Cell.cpp.s
-
-Command.obj: Command.cpp.obj
-
-.PHONY : Command.obj
-
-# target to build an object file
-Command.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Command.cpp.obj
-.PHONY : Command.cpp.obj
-
-Command.i: Command.cpp.i
-
-.PHONY : Command.i
-
-# target to preprocess a source file
-Command.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Command.cpp.i
-.PHONY : Command.cpp.i
-
-Command.s: Command.cpp.s
-
-.PHONY : Command.s
-
-# target to generate assembly for a file
-Command.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Command.cpp.s
-.PHONY : Command.cpp.s
-
 FightInfo.obj: FightInfo.cpp.obj
 
 .PHONY : FightInfo.obj
@@ -283,6 +229,33 @@ Game.s: Game.cpp.s
 Game.cpp.s:
 	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Game.cpp.s
 .PHONY : Game.cpp.s
+
+GameManager.obj: GameManager.cpp.obj
+
+.PHONY : GameManager.obj
+
+# target to build an object file
+GameManager.cpp.obj:
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/GameManager.cpp.obj
+.PHONY : GameManager.cpp.obj
+
+GameManager.i: GameManager.cpp.i
+
+.PHONY : GameManager.i
+
+# target to preprocess a source file
+GameManager.cpp.i:
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/GameManager.cpp.i
+.PHONY : GameManager.cpp.i
+
+GameManager.s: GameManager.cpp.s
+
+.PHONY : GameManager.s
+
+# target to generate assembly for a file
+GameManager.cpp.s:
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/GameManager.cpp.s
+.PHONY : GameManager.cpp.s
 
 JokerChange.obj: JokerChange.cpp.obj
 
@@ -539,12 +512,6 @@ help:
 	@echo ... Board.obj
 	@echo ... Board.i
 	@echo ... Board.s
-	@echo ... Cell.obj
-	@echo ... Cell.i
-	@echo ... Cell.s
-	@echo ... Command.obj
-	@echo ... Command.i
-	@echo ... Command.s
 	@echo ... FightInfo.obj
 	@echo ... FightInfo.i
 	@echo ... FightInfo.s
@@ -554,6 +521,9 @@ help:
 	@echo ... Game.obj
 	@echo ... Game.i
 	@echo ... Game.s
+	@echo ... GameManager.obj
+	@echo ... GameManager.i
+	@echo ... GameManager.s
 	@echo ... JokerChange.obj
 	@echo ... JokerChange.i
 	@echo ... JokerChange.s

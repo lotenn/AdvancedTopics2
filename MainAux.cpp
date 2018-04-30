@@ -7,7 +7,7 @@ bool badPositioningFile(endGameReason reason){
 }
 
 void printNoPositioningFile(endGameMessage endGameMsg){
-    cout << "No Positioning input file for " << toString(endGameMsg.winner) << endl;
+    cout << "No Positioning input file for " << playerEnumToString(endGameMsg.winner) << endl;
 }
 
 bool badMovesFile(endGameReason reason){
@@ -16,7 +16,7 @@ bool badMovesFile(endGameReason reason){
 }
 
 void printNoMoveFile(endGameMessage endGameMsg){
-    cout << "No Moves input file for " << toString(endGameMsg.winner) << endl;
+    cout << "No Moves input file for " << playerEnumToString(endGameMsg.winner) << endl;
 }
 
 bool badInputFile(endGameReason reason){
@@ -29,13 +29,13 @@ void printBadInputFile(endGameMessage msg){
     string msgPrefix = "Bad "+ inputType +" input file: ";
     if(msg.mainReason != DRAW_BAD_POSITIONING_FILE_BOTH_PLAYERS) {
         errorMessage = getBadInputFileMessage(msg.mainReason);
-        cout << msgPrefix << errorMessage << " - " + toString(getOpposite(msg.winner)) << endl;
+        cout << msgPrefix << errorMessage << " - " + playerEnumToString(getOpposite(msg.winner)) << endl;
     }
     else{
         errorMessage = getBadInputFileMessage(msg.reason1);
-        cout << msgPrefix << errorMessage << " - " + toString(PLAYER_1) << endl;
+        cout << msgPrefix << errorMessage << " - " + playerEnumToString(PLAYER_1) << endl;
         errorMessage = getBadInputFileMessage(msg.reason2);
-        cout << msgPrefix << errorMessage << " - " + toString(PLAYER_2) << endl;
+        cout << msgPrefix << errorMessage << " - " + playerEnumToString(PLAYER_2) << endl;
     }
 }
 

@@ -1,33 +1,6 @@
 #include "Game.h"
 
-playerEnum getOpposite(playerEnum player){
-    switch(player){
-        case PLAYER_1:
-            return PLAYER_2;
-        case PLAYER_2:
-            return PLAYER_1;
-        default:
-            return NO_PLAYER;
-    }
-}
 
-string toString(playerEnum player){
-    map<playerEnum , string> strings;
-    strings[PLAYER_1] = "player 1";
-    strings[PLAYER_2] = "player 2";
-    strings[NO_PLAYER] = "no player";
-    auto str = strings.find(player);
-    return str != strings.end() ? str->second : "";
-}
-
-string getWinnerString(playerEnum player){
-    map<playerEnum , string> winner;
-    winner[PLAYER_1] = "1";
-    winner[PLAYER_2] = "2";
-    winner[NO_PLAYER] = "0";
-    auto str = winner.find(player);
-    return str != winner.end() ? str->second : "";
-}
 
 endGameReason toReason(executeCommandMessage msg){
     switch(msg){
@@ -63,15 +36,22 @@ string getReasonString(endGameMessage endGameMsg){
     map<endGameReason, string> reasons;
     reasons[NO_MORE_FLAGS] = "All flags of the opponent are captured";
     reasons[NO_MOVING_TOOLS] = "All moving PIECEs of the opponent are eaten";
-    reasons[BAD_POSITIONING_FILE_INVALID] = "Bad Positioning input file for "+toString(getOpposite(endGameMsg.winner))+" - line "+to_string(endGameMsg.errorLine1);
-    reasons[BAD_POSITIONING_FILE_NOT_ENOUGH_FLAGS] = "Bad Positioning input file for "+toString(getOpposite(endGameMsg.winner))+" - line "+to_string(endGameMsg.errorLine1);
-    reasons[BAD_POSITIONING_FILE_TOO_MANY_TOOLS] = "Bad Positioning input file for "+toString(getOpposite(endGameMsg.winner))+" - line "+to_string(endGameMsg.errorLine1);
-    reasons[BAD_POSITIONING_FILE_DUPLICATE_CELL_POSITION] = "Bad Positioning input file for "+toString(getOpposite(endGameMsg.winner))+" - line "+to_string(endGameMsg.errorLine1);
-    reasons[BAD_MOVE_FILE_INVALID] = "Bad Moves input file for "+toString(getOpposite(endGameMsg.winner))+" - line "+to_string(endGameMsg.errorLine1);
-    reasons[BAD_MOVE_FILE_NOT_YOUR_TOOL] = "Bad Moves input file for "+toString(getOpposite(endGameMsg.winner))+" - line "+to_string(endGameMsg.errorLine1);
-    reasons[BAD_MOVE_FILE_TOOL_CANT_MOVE] = "Bad Moves input file for "+toString(getOpposite(endGameMsg.winner))+" - line "+to_string(endGameMsg.errorLine1);
-    reasons[BAD_MOVE_FILE_CELL_OCCUPIED] = "Bad Moves input file for "+toString(getOpposite(endGameMsg.winner))+" - line "+to_string(endGameMsg.errorLine1);
-    reasons[BAD_MOVE_FILE_NOT_JOKER] = "Bad Moves input file for "+toString(getOpposite(endGameMsg.winner))+" - line "+to_string(endGameMsg.errorLine1);
+    reasons[BAD_POSITIONING_FILE_INVALID] = "Bad Positioning input file for "+
+                                            playerEnumToString(getOpposite(endGameMsg.winner))+" - line "+to_string(endGameMsg.errorLine1);
+    reasons[BAD_POSITIONING_FILE_NOT_ENOUGH_FLAGS] = "Bad Positioning input file for "+
+                                                     playerEnumToString(getOpposite(endGameMsg.winner))+" - line "+to_string(endGameMsg.errorLine1);
+    reasons[BAD_POSITIONING_FILE_TOO_MANY_TOOLS] = "Bad Positioning input file for "+
+                                                   playerEnumToString(getOpposite(endGameMsg.winner))+" - line "+to_string(endGameMsg.errorLine1);
+    reasons[BAD_POSITIONING_FILE_DUPLICATE_CELL_POSITION] = "Bad Positioning input file for "+
+                                                            playerEnumToString(getOpposite(endGameMsg.winner))+" - line "+to_string(endGameMsg.errorLine1);
+    reasons[BAD_MOVE_FILE_INVALID] = "Bad Moves input file for "+ playerEnumToString(getOpposite(endGameMsg.winner))+" - line "+to_string(endGameMsg.errorLine1);
+    reasons[BAD_MOVE_FILE_NOT_YOUR_TOOL] = "Bad Moves input file for "+
+                                           playerEnumToString(getOpposite(endGameMsg.winner))+" - line "+to_string(endGameMsg.errorLine1);
+    reasons[BAD_MOVE_FILE_TOOL_CANT_MOVE] = "Bad Moves input file for "+
+                                            playerEnumToString(getOpposite(endGameMsg.winner))+" - line "+to_string(endGameMsg.errorLine1);
+    reasons[BAD_MOVE_FILE_CELL_OCCUPIED] = "Bad Moves input file for "+
+                                           playerEnumToString(getOpposite(endGameMsg.winner))+" - line "+to_string(endGameMsg.errorLine1);
+    reasons[BAD_MOVE_FILE_NOT_JOKER] = "Bad Moves input file for "+ playerEnumToString(getOpposite(endGameMsg.winner))+" - line "+to_string(endGameMsg.errorLine1);
     reasons[DRAW_NO_MORE_MOVES] = "A tie - both Moves input files done without a winner";
     reasons[DRAW_NO_MOVING_TOOLS] = "A tie - all moving PIECEs are eaten by both players";
     reasons[DRAW_POSITIONING_ENDED_WITH_NO_FLAGS] = "A tie - all flags are eaten by both players in the position files";
@@ -101,98 +81,40 @@ endGameMessage createEndGameMessage(endGameReason reason, playerEnum winner){
     return createEndGameMessage(reason, winner, -1, -1);
 }
 
-bool isNumInRange(char* str, int rangeStart, int rangeEnd) {
-    if (str == NULL || strlen(str)==0) {
-        return false;
-    }
-    int n = strlen(str);
-    for (int i = 0; i < n; i++) {
-        //not valid digits
-        if (!('0' <= str[i] && str[i] <= '9')) return false;
-    }
-    //str in a number
-    int num = atoi(str);
 
-    return (num >= rangeStart && num <= rangeEnd);
-}
-
-bool isValidToolType(char tool){
-    switch (tool) {
-        case 'R':
-        case 'P':
-        case 'S':
-        case 'B':
-        case 'F':
-        case 'J':
-            return true;
-        default:
-            return false;
-    }
-}
-
-bool isCharArrValidToolType(char *c) {
-    if(c == NULL) return false;
-    if(strlen(c)==1){
-        char tool = *c;
-        return isValidToolType(tool);
-    }
-    return false;
-}
-
-bool isValidJokerToolType(char tool){
-    switch (tool) {
-        case 'R':
-        case 'P':
-        case 'S':
-        case 'B':
-            return true;
-        default:
-            return false;
-    }
-}
-
-bool isCharArrValidJokerToolType(char *c) {
-    if(c == NULL) return false;
-    if(strlen(c)==1){
-        char tool = *c;
-        return isValidJokerToolType(tool);
-    }
-    return false;
-}
-
-Game::Game():emptyTool(new EmptyTool(NO_PLAYER)), player1Score(0), player2Score(0), currentPlayer(PLAYER_1){
+Game::Game():emptyTool(new EmptyPiece(NO_PLAYER)), player1Score(0), player2Score(0), currentPlayer(PLAYER_1){
     player1Tools.reserve(NUM_OF_TOOLS);
     player2Tools.reserve(NUM_OF_TOOLS);
 
     int toolIndex = 0;
     for(int i = toolIndex; toolIndex<(i+NUM_OF_R); toolIndex++){
-        player1Tools.push_back(new RockTool(PLAYER_1));
-        player2Tools.push_back(new RockTool(PLAYER_2));
+        player1Tools.push_back(new RockPiece(PLAYER_1));
+        player2Tools.push_back(new RockPiece(PLAYER_2));
     }
 
     for(int i = toolIndex; toolIndex<(i+NUM_OF_P); toolIndex++){
-        player1Tools.push_back(new PaperTool(PLAYER_1));
-        player2Tools.push_back(new PaperTool(PLAYER_2));
+        player1Tools.push_back(new PaperPiece(PLAYER_1));
+        player2Tools.push_back(new PaperPiece(PLAYER_2));
     }
 
     for(int i = toolIndex; toolIndex<(i+NUM_OF_S); toolIndex++){
-        player1Tools.push_back(new ScissorsTool(PLAYER_1));
-        player2Tools.push_back(new ScissorsTool(PLAYER_2));
+        player1Tools.push_back(new ScissorsPiece(PLAYER_1));
+        player2Tools.push_back(new ScissorsPiece(PLAYER_2));
     }
 
     for(int i = toolIndex; toolIndex<(i+NUM_OF_B); toolIndex++){
-        player1Tools.push_back(new BombTool(PLAYER_1));
-        player2Tools.push_back(new BombTool(PLAYER_2));
+        player1Tools.push_back(new BombPiece(PLAYER_1));
+        player2Tools.push_back(new BombPiece(PLAYER_2));
     }
 
     for(int i = toolIndex; toolIndex<(i+NUM_OF_J); toolIndex++){
-        player1Tools.push_back(new JokerTool(PLAYER_1));
-        player2Tools.push_back(new JokerTool(PLAYER_2));
+        player1Tools.push_back(new JokerPiece(PLAYER_1));
+        player2Tools.push_back(new JokerPiece(PLAYER_2));
     }
 
     for(int i = toolIndex; toolIndex<(i+NUM_OF_F); toolIndex++){
-        player1Tools.push_back(new FlagTool(PLAYER_1));
-        player2Tools.push_back(new FlagTool(PLAYER_2));
+        player1Tools.push_back(new FlagPiece(PLAYER_1));
+        player2Tools.push_back(new FlagPiece(PLAYER_2));
     }
 }
 
@@ -206,7 +128,7 @@ Game::~Game() {
 
 void Game::setPlayerTools(const vector<PositioningCommand> &commands, playerEnum player){
 //    playerEnum oppositePlayer = getOppositePlayer(this->getCurrentPlayer());
-    vector<Tool *> *playerTools;
+    vector<Piece *> *playerTools;
     switch (player){
         case PLAYER_1:
             playerTools = &(this->player1Tools);
@@ -220,12 +142,12 @@ void Game::setPlayerTools(const vector<PositioningCommand> &commands, playerEnum
     //iterating through all commands in "commands" vector
     for(int i=0; i<(int)commands.size(); i++){
         //extracting data from current command
-        toolType _toolType = charToToolType(commands[i].toolType);
+        pieceType _toolType = charToToolType(commands[i].toolType);
         int col = getCol(commands[i].source), row = getRow(commands[i].source);
 
         //Regular command
         if(commands[i].type == REGULAR_POSITIONING_COMMAND){
-            for (Tool *tool:(*playerTools)) {
+            for (Piece *tool:(*playerTools)) {
                 //matching tool was found (not positioned, not joker, correct type)
                 if (!tool->IsPositioned() && !tool->isJoker() && tool->getType() == _toolType) {
                     this->gameBoard[row][col] = this->battleWinner(tool, this->gameBoard[row][col]);
@@ -237,7 +159,7 @@ void Game::setPlayerTools(const vector<PositioningCommand> &commands, playerEnum
         //joker commands
         else{
             //looking for next un-positioned joker
-            for (Tool* tool:(*playerTools)) {
+            for (Piece* tool:(*playerTools)) {
                 //matching tool was found (not positioned, joker type)
                 if (!tool->IsPositioned() && tool->isJoker()) {
                     tool->setJoker(_toolType);
@@ -259,10 +181,10 @@ void Game::resetGameBoard(){
         }
     }
 
-    for(Tool *tool: player1Tools)
+    for(Piece *tool: player1Tools)
         tool->removeTool();
 
-    for(Tool *tool: player2Tools)
+    for(Piece *tool: player2Tools)
         tool->removeTool();
 }
 
@@ -272,17 +194,17 @@ void Game::setCurrentPlayer(playerEnum player){
     this->currentPlayer = player;
 }
 
-bool Tool::canCapture(Tool *other) {
-    vector<toolType> weakerTools = this->getWeakerTools();
-    toolType otherType = other->getType();
-    for(toolType weakTool: weakerTools){
-        if(weakTool == otherType)
+bool Piece::canCapture(Piece *other) {
+    vector<pieceType> weakerPieces = this->getWeakerPieces();
+    pieceType otherType = other->getType();
+    for(pieceType weakPiece: weakerPieces){
+        if(weakPiece == otherType)
             return true;
     }
     return false;
 }
 
-Tool* Game::battleWinner(Tool *source, Tool *target) {
+Piece* Game::battleWinner(Piece *source, Piece *target) {
     bool sourceWin = source->canCapture(target), targetWin = target->canCapture(source);
     if(sourceWin && targetWin) {
         source->removeTool();
@@ -304,7 +226,7 @@ Tool* Game::battleWinner(Tool *source, Tool *target) {
 executeCommandMessage Game::executeMove(Command cmd){
     Cell source = cmd.source, target = cmd.target;
     int sourceRow = getRow(source), sourceCol = getCol(source), targetRow = getRow(target), targetCol = getCol(target);
-    Tool *sourceTool = this->gameBoard[sourceRow][sourceCol], *targetTool = this->gameBoard[targetRow][targetCol];
+    Piece *sourceTool = this->gameBoard[sourceRow][sourceCol], *targetTool = this->gameBoard[targetRow][targetCol];
     //trying to move tool doesn't belong to player
     if(sourceTool->getPlayer() != this->getCurrentPlayer())
         return EXECUTE_COMMAND_NOT_YOUR_TOOL;
@@ -326,8 +248,8 @@ executeCommandMessage Game::executeJoker(Command cmd){
     //joker command execution
     Cell jokerCell = cmd.joker;
     int jokerRow = getRow(jokerCell), jokerCol = getCol(jokerCell);
-    toolType joker_new_type = charToToolType(cmd.new_type);
-    Tool *jokerTool = this->gameBoard[jokerRow][jokerCol];
+    pieceType joker_new_type = charToToolType(cmd.new_type);
+    Piece *jokerTool = this->gameBoard[jokerRow][jokerCol];
     return jokerTool->setJoker(joker_new_type);
 }
 
@@ -342,10 +264,10 @@ executeCommandMessage Game::executeCommand(Command cmd){
     }
 }
 
-endGameReason Game::playerHasLost(vector<Tool*> playerTools){
+endGameReason Game::playerHasLost(vector<Piece*> playerTools){
     int flagsCount=0;
     int movingToolsCount=0;
-    for(Tool *tool:playerTools) {
+    for(Piece *tool:playerTools) {
         if (tool->IsPositioned()) {
             if (tool->getType() == FLAG) {flagsCount++;}
             else if (tool->canMove()) {movingToolsCount++;}
@@ -378,32 +300,6 @@ void Game::raisePlayerScore(int score, playerEnum player){
     else if(player == PLAYER_2) this->player2Score+=score;
 }
 
-toolType charToToolType(char c) {
-    switch (c) {
-        case 'R':
-            return ROCK;
-        case 'P':
-            return PAPER;
-        case 'S':
-            return SCISSORS;
-        case 'B':
-            return BOMB;
-        case 'F':
-            return FLAG;
-        default:
-            return EMPTY;
-    }
-}
 
-string Game::boardToString(){
-    string str;
-    for (int row = 0; row < N; row++) {
-        for (int col = 0; col < M; col++){
-            str+= this->gameBoard[row][col]->toChar();
-        }
-        if(row != N-1)
-            str+="\n";
-    }
-    return str;
-}
+
 
