@@ -48,8 +48,9 @@ public:
      * Set @arg(player) tools according to @arg(commands)
     */
     void setPlayerTools(const vector<PositioningCommand> &commands, playerEnum player);
-    bool executeMove(unique_ptr<Move> move);
     bool performBattle(Point& point, shared_ptr<Piece> source, shared_ptr<Piece> target);
+    bool executeMove(unique_ptr<Move> move);
+    void executeJoker(unique_ptr<JokerChange> jokerChange);
 };
 
 

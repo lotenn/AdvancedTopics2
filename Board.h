@@ -27,7 +27,7 @@ public:
         return playerEnumToInt(board[PointUtils::getRow(pos)][PointUtils::getCol(pos)]->getPlayer());
     }
     shared_ptr<Piece>& getEmptyPiece(){return emptyPiece;}
-    shared_ptr<Piece> getPiece(Point& point){
+    shared_ptr<Piece> getPiece(const Point& point){
         int row = PointUtils::getRow(point), col = PointUtils::getCol(point);
         return board[row][col];
     }
