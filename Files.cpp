@@ -1,6 +1,8 @@
 #include "Files.h"
 
-endGameMessage validatePositioningFile(const char* filePath, vector<unique_ptr<PiecePosition>>& piecePositions) {
+endGameMessage validatePositioningFile(const char                         *filePath,
+                                       vector<unique_ptr<PiecePosition>>&  piecePositions)
+{
     ifstream positioningFile;
     positioningFile.open(filePath, ios::in);
     if(!positioningFile.is_open()) {return createEndGameMessage(NO_POSITIONING_FILE, NO_PLAYER);}
@@ -17,11 +19,11 @@ endGameMessage validatePositioningFile(const char* filePath, vector<unique_ptr<P
         if(line.find_first_not_of(" \t\n\r") == line.npos) continue;
         _piecePosition = parser.parsePiecePosition(line);
         //bad syntax
-        if(_piecePosition.get() == nullptr){
+        if(_piecePosition == nullptr){
             positioningFile.close();
             return createEndGameMessage(BAD_POSITIONING_FILE_INVALID, NO_PLAYER, lineNumber, -1);
         }
-        Point position = _piecePosition.get()->getPosition();
+        Point position = _piecePosition->getPosition();
         int row = PointUtils::getRow(position), col = PointUtils::getCol(position);
 
         //current cell already contains same winner's tool
@@ -30,8 +32,8 @@ endGameMessage validatePositioningFile(const char* filePath, vector<unique_ptr<P
             return createEndGameMessage(BAD_POSITIONING_FILE_DUPLICATE_CELL_POSITION, NO_PLAYER, lineNumber, -1);
         }
         //regular command
-        if(_piecePosition.get()->getJokerRep() == NO_JOKER_CHANGE_SYMBOL){
-            switch(_piecePosition.get()->getPiece()){
+        if(_piecePosition->getJokerRep() == NO_JOKER_CHANGE_SYMBOL){
+            switch(_piecePosition->getPiece()){
                 case 'R':
                     rockCounter--;
                     break;
@@ -76,7 +78,10 @@ endGameMessage validatePositioningFile(const char* filePath, vector<unique_ptr<P
     return createEndGameMessage(NO_WINNER, NO_PLAYER);
 }
 
-endGameMessage parsingMoveFile(const char *filePath, vector<Command> &commands){
+endGameMessage parsingMoveFile(const char                      *filePath,
+                               vector<unique_ptr<Move>>        &moves,
+                               vector<unique_ptr<JokerChange>> &jokerChanges)
+{
     ifstream movesFile;
     movesFile.open(filePath, ios::in);
     //file is not opened / created
@@ -84,11 +89,9 @@ endGameMessage parsingMoveFile(const char *filePath, vector<Command> &commands){
 
     Parser parser;
     string line;
-    Command cmd;
     while(getline(movesFile, line)){
-                if(line.find_first_not_of(" \t\n\r") == line.npos) {continue;}  //Disregarding all-whitespace lines
-//        cmd = parser.parseMoveCommand(line);
-        commands.push_back(cmd);
+        if(line.find_first_not_of(" \t\n\r") == line.npos) {continue;}  //Disregarding all-whitespace lines
+        parser.parseMoveCommand(line, moves, jokerChanges);             //parsing line
     }
     movesFile.close();
     return createEndGameMessage(NO_WINNER, NO_PLAYER);

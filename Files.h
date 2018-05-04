@@ -22,7 +22,8 @@
  * - (BAD_POSITIONING_FILE_NOT_ENOUGH_FLAGS, NO_PLAYER, lineNumber, -1): not enough flags
  * - (NO_WINNER, NO_PLAYER): no winner at the end of this positioning
  */
-endGameMessage validatePositioningFile(const char* filePath, vector<unique_ptr<PiecePosition>>& piecePositions);
+endGameMessage validatePositioningFile(const char                         *filePath,
+                                       vector<unique_ptr<PiecePosition>>&  piecePositions);
 /*
  * Parse a file of a player's game commands.
  * @args:
@@ -33,7 +34,9 @@ endGameMessage validatePositioningFile(const char* filePath, vector<unique_ptr<P
  * - (NO_MOVE_FILE, NO_PLAYER): in case of missing / corrupted file
  * - (NO_WINNER, NO_PLAYER): else
  */
-endGameMessage parsingMoveFile(const char *filePath, vector<Command> &commands);
+endGameMessage parsingMoveFile(const char                      *filePath,
+                               vector<unique_ptr<Move>>        &moves,
+                               vector<unique_ptr<JokerChange>> &jokerChanges);
 /*
  *Generates end game output file and prints end game message.
  * in case file is not opened, error message will be printed to the console
