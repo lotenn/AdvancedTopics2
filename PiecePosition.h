@@ -29,7 +29,7 @@ public:
             jokerRep(_jokerRep) {}
 
     const Point& getPosition() const override {
-        return *this->position.get();
+        return *(this->position.get());
     }
 
     char getPiece() const override {    // R, P, S, B, J or F

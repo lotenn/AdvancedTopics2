@@ -31,7 +31,7 @@ public:
         position = make_unique<PointImp>(x,y);
     }
 
-    virtual char getPiece(int player) const override{
+    char getPiece(int player) const override{
         if(player == 1){return player1Piece;}
         return player2Piece;
     }

@@ -35,7 +35,6 @@ unique_ptr<PiecePosition> Parser::parsePiecePosition(string commandLine) {
 }
 
 void Parser::parseMoveCommand(string commandLine, vector<unique_ptr<Move>>& moves, vector<unique_ptr<JokerChange>>& jokerChanges){
-    vector<commandType> steps;
     int fromX, fromY, toX, toY, jokerX, jokerY;
     char new_rep;
     if(commandLine.empty()) {
@@ -91,7 +90,6 @@ void Parser::parseMoveCommand(string commandLine, vector<unique_ptr<Move>>& move
     }
     //valid move command, no joker command that follows
     else {
-        steps = {MOVE_COMMAND};
         fromX = atoi(tokens[0]), fromY = atoi(tokens[1]), toX = atoi(tokens[2]), toY = atoi(tokens[3]);
         moves.push_back(move(make_unique<MoveImp>(fromX, fromY, toX, toY)));
         jokerChanges.push_back(nullptr);

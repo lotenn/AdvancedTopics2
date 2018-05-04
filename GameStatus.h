@@ -52,8 +52,8 @@ public:
         return gameOn;
     }
 
-    void setGameOn(bool gameOn) {
-        GameStatus::gameOn = gameOn;
+    void setGameOff() {
+        GameStatus::gameOn = false;
     }
 
     endGameReason getMainReason() const {
