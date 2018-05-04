@@ -22,7 +22,7 @@
  * - (BAD_POSITIONING_FILE_NOT_ENOUGH_FLAGS, NO_PLAYER, lineNumber, -1): not enough flags
  * - (NO_WINNER, NO_PLAYER): no winner at the end of this positioning
  */
-endGameMessage validatePositioningFile(const char* filePath, vector<PositioningCommand>& commands);
+endGameMessage validatePositioningFile(const char* filePath, vector<unique_ptr<PiecePosition>>& piecePositions);
 /*
  * Parse a file of a player's game commands.
  * @args:
