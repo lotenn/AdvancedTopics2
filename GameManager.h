@@ -18,9 +18,6 @@
 #define NUM_OF_F 1
 #define NUM_OF_TOOLS (NUM_OF_B + NUM_OF_F + NUM_OF_J + NUM_OF_P + NUM_OF_R + NUM_OF_S)
 
-
-
-
 int static playerEnumToInt(playerEnum player){
     switch(player){
         case PLAYER_1:
@@ -57,12 +54,12 @@ private:
 public:
     void validatePositioningVector(playerEnum player, vector<unique_ptr<PiecePosition>>&  piecePositions);
 
-    /*
-     * Set @arg(player) tools according to @arg(commands)
-    */
     void setPlayerTools(const vector<PositioningCommand> &commands, playerEnum player);
+
     bool performBattle(Point& point, shared_ptr<Piece> source, shared_ptr<Piece> target);
+
     bool executeMove(unique_ptr<Move> move);
+
     void executeJoker(unique_ptr<JokerChange> jokerChange);
 };
 

@@ -79,7 +79,6 @@ void Parser::parseMoveCommand(string commandLine, vector<unique_ptr<Move>>& move
         }
         //valid joker command
         else {
-//            steps = {MOVE_COMMAND, JOKER_COMMAND};
             fromX = atoi(tokens[0]), fromY = atoi(tokens[1]), toX = atoi(tokens[2]), toY = atoi(tokens[3]);
             jokerX = atoi(tokens[5]), jokerY = atoi(tokens[6]);
             new_rep = *(tokens[7]);

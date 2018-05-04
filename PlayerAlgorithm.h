@@ -15,6 +15,10 @@
 #include "FightInfo.h"
 #include "Parser.h"
 
+#define INVALID_COORD (-1)
+#define INVALID_CHAR '\0'
+
+
 class PlayerAlgorithm {
 public:
     virtual void getInitialPositions(int player, std::vector<unique_ptr<PiecePosition>>& vectorToFill)=0;
@@ -28,15 +32,33 @@ public:
 
 class FilePlayerAlgorithm: public PlayerAlgorithm{
 private:
-    list<unique_ptr<Move>> moves;
-    list<unique_ptr<JokerChange>> jokerChanges;
+    vector<unique_ptr<Move>> moves;
+    vector<unique_ptr<JokerChange>> jokerChanges;
+    playerEnum player;
+    int currentMove;
+    int currentJokerChange;
+
 
 public:
+    FilePlayerAlgorithm():player(NO_PLAYER), currentMove(0), currentJokerChange(0){}
+
     unique_ptr<Move> getMove() override {
-        return move(moves.front());
+        if(currentMove == moves.size()){
+            return make_unique<MoveImp>(INVALID_COORD,INVALID_COORD,INVALID_COORD,INVALID_COORD);
+        }
+        return move(moves[currentMove++]);
+    }
+
+    unique_ptr<JokerChange> getJokerChange() override  {
+        if(currentMove == moves.size()){
+            return make_unique<JokerChangeImp>(INVALID_COORD,INVALID_COORD,INVALID_CHAR);
+        }
+        return move(jokerChanges[currentJokerChange++]);
     }
 
     void getInitialPositions(int player, std::vector<unique_ptr<PiecePosition>>& vectorToFill) override;
+
+    void getMoves();
 };
 
 

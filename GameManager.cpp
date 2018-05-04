@@ -108,6 +108,7 @@ void GameManager::executeJoker(unique_ptr<JokerChange> jokerChange){
     shared_ptr<Piece> jokerPiece = board.getPiece(jokerChange->getJokerChangePosition());
     jokerPiece->setJoker(joker_new_type, gameStatus);
 }
+
 void GameManager::validatePositioningVector(playerEnum player, vector<unique_ptr<PiecePosition>>&  piecePositions){
     //No positioning file or empty file
     if (piecePositions.empty()) {

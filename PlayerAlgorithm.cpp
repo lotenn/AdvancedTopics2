@@ -4,16 +4,18 @@
 
 #include "PlayerAlgorithm.h"
 
-void FilePlayerAlgorithm::getInitialPositions(int player, std::vector<unique_ptr<PiecePosition>>& vectorToFill)
-{
+void FilePlayerAlgorithm::getInitialPositions(int _player, std::vector<unique_ptr<PiecePosition>>& vectorToFill) {
     ifstream positioningFile;
     const char* filePath;
-    switch(player){
+    switch(_player){
         case PLAYER_1:
             filePath = "../player1.rps_board";
+            this->player = PLAYER_1;
             break;
         default:
             filePath = "../player2.rps_board";
+            this->player = PLAYER_2;
+            break;
     }
     //invalid file or file doesn't exist
     positioningFile.open(filePath, ios::in);
@@ -28,4 +30,28 @@ void FilePlayerAlgorithm::getInitialPositions(int player, std::vector<unique_ptr
         vectorToFill.push_back(_piecePosition);
     }
     positioningFile.close();
+}
+
+void FilePlayerAlgorithm::getMoves(){
+    ifstream movesFile;
+    const char* filePath;
+    switch(this->player){
+        case PLAYER_1:
+            filePath = "../player1.rps_moves";
+            break;
+        default:
+            filePath = "../player2.rps_moves";
+            break;
+    }
+    movesFile.open(filePath, ios::in);
+    //file is not opened / created
+    if(!movesFile.is_open()){return;}
+
+    Parser parser;
+    string line;
+    while(getline(movesFile, line)){
+        if(line.find_first_not_of(" \t\n\r") == line.npos) {continue;}  //Disregarding all-whitespace lines
+        parser.parseMoveCommand(line, this->moves, this->jokerChanges);    //parsing line and push moves to vectors
+    }
+    movesFile.close();
 }

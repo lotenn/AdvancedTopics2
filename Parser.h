@@ -9,8 +9,7 @@
 #include "PiecePosition.h"
 #include "Game.h"
 #include "PlayerAlgorithm.h"
-#define INVALID_COORD 0
-#define INVALID_SYMBOL '#'
+
 
 using namespace std;
 
