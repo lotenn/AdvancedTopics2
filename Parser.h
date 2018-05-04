@@ -9,8 +9,8 @@
 #include "PiecePosition.h"
 #include "Game.h"
 #include "PlayerAlgorithm.h"
-#define INVALID_POINT 0
-#define INVALID_SYMBOL 0
+#define INVALID_COORD 0
+#define INVALID_SYMBOL '#'
 
 using namespace std;
 
@@ -21,7 +21,7 @@ public:
 	Parser& operator=(const Parser&)= delete;
 
     unique_ptr<PiecePosition> parsePiecePosition(string commandLine);
-	commandType parseMoveCommand(string commandLine, vector<Move>& moves, vector<JokerChange>& jokerChanges);
+	void parseMoveCommand(string commandLine, vector<unique_ptr<Move>>& moves, vector<unique_ptr<JokerChange>>& jokerChanges);
 
 };
 

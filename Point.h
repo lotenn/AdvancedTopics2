@@ -2,8 +2,6 @@
 #define ADVANCEDTOPICS2_POINT_H
 
 #include <memory>
-
-
 using namespace std;
 
 class Point {
@@ -30,6 +28,5 @@ public:
     static int getCol(const Point& point){return point.getX()-1;}
     static int getRow(const Point& point){return point.getY()-1;}
 };
-
 
 #endif //ADVANCEDTOPICS2_POINT_H

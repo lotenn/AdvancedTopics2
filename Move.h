@@ -24,6 +24,7 @@ public:
             from(make_unique<PointImp>(PointImp(fromX, fromY))),
             to(make_unique<PointImp>(PointImp(toX, toY))){}
 
+//    MoveImp(const MoveImp&)
     const Point& getFrom() const override {return *(this->from);}
     const Point& getTo() const override {return *(this->to);}
 };
