@@ -11,15 +11,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e2da3cc-7623-41d8-8097-a60e30a86474" name="Default" comment="Merge branch 'master' of https://github.com/lotenn/AdvancedTopics2&#10;&#10;# Conflicts:&#10;#&#9;GameManager.cpp&#10;#&#9;GameManager.h">
+    <list default="true" id="2e2da3cc-7623-41d8-8097-a60e30a86474" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Files.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Files.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Parser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Parser.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Parser.h" beforeDir="false" afterPath="$PROJECT_DIR$/Parser.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlayerAlgorithm.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PlayerAlgorithm.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlayerAlgorithm.h" beforeDir="false" afterPath="$PROJECT_DIR$/PlayerAlgorithm.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.2/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.2/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
@@ -96,11 +89,10 @@
       <file leaf-file-name="PlayerAlgorithm.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PlayerAlgorithm.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="51" column="55" selection-start-line="51" selection-start-column="55" selection-end-line="51" selection-end-column="55" />
+            <state relative-caret-position="360">
+              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
               <folding>
                 <element signature="e#0#2#0" />
-                <element signature="e#308#885#1" />
                 <element signature="e#1160#1242#0" />
                 <element signature="e#1337#1412#0" />
               </folding>
@@ -289,11 +281,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525444280209</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="total">
+      <created>1525448312007</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1525448312007</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50763000" />
+    <option name="totallyTimeSpent" value="51046000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -373,7 +372,8 @@
     <MESSAGE value="Game Status" />
     <MESSAGE value="update" />
     <MESSAGE value="Merge branch 'master' of https://github.com/lotenn/AdvancedTopics2&#10;&#10;# Conflicts:&#10;#&#9;GameManager.cpp&#10;#&#9;GameManager.h" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/lotenn/AdvancedTopics2&#10;&#10;# Conflicts:&#10;#&#9;GameManager.cpp&#10;#&#9;GameManager.h" />
+    <MESSAGE value="total" />
+    <option name="LAST_COMMIT_MESSAGE" value="total" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -711,11 +711,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PlayerAlgorithm.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="51" column="55" selection-start-line="51" selection-start-column="55" selection-end-line="51" selection-end-column="55" />
+        <state relative-caret-position="360">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
           <folding>
             <element signature="e#0#2#0" />
-            <element signature="e#308#885#1" />
             <element signature="e#1160#1242#0" />
             <element signature="e#1337#1412#0" />
           </folding>

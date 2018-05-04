@@ -59,6 +59,10 @@ public:
     void getInitialPositions(int player, std::vector<unique_ptr<PiecePosition>>& vectorToFill) override;
 
     void getMoves();
+
+    void notifyOnInitialBoard(const Board& b, const std::vector<unique_ptr<FightInfo>>& fights) override {};
+    void notifyOnOpponentMove(const Move& move) override {}; // called only on opponent’s move
+    void notifyFightResult(const FightInfo& fightInfo) override {}; // called only if there was a fight
 };
 
 
