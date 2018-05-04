@@ -57,18 +57,42 @@ bool GameManager::executeMove(unique_ptr<Move> move){
     }
     else{
         board.setPiece(sourcePoint, board.getEmptyPiece());
-        return performBattle(targetPoint, sourcePiece, targetPiece, fightInfo);
+        return performBattle(targetPoint, sourcePiece, targetPiece);
     }
 }
 
-bool performBattle(Point& point, shared_ptr<Piece> sourcePiece, shared_ptr<Piece> targetPiece){
-    bool wasFight = false;
-    if((sourcePiece->getPlayer() == PLAYER_1 && targetPiece->getPlayer() == PLAYER_2) ||
-            (sourcePiece->getPlayer() == PLAYER_2 && targetPiece->getPlayer() == PLAYER_1)){
+bool GameManager::performBattle(Point& point, shared_ptr<Piece> source, shared_ptr<Piece> target){
+    bool wasFight = false, sourceWin = source->canCapture(target), targetWin = target->canCapture(source);
+    char player1Piece = '#', player2Piece = '#';
+    playerEnum winner = NO_PLAYER;
+    if((source->getPlayer() == PLAYER_1 && target->getPlayer() == PLAYER_2) ||
+            (source->getPlayer() == PLAYER_2 && target->getPlayer() == PLAYER_1)){
         wasFight = true;
-        char player1Piece, player2Piece;
-        player1Piece = sourcePiece->getPlayer() == PLAYER_1 ?
-                       pieceTypeToChar(sourcePiece->getType()) : pieceTypeToChar(targetPiece->getType());
+        player1Piece = source->getPlayer() == PLAYER_1 ?
+                       pieceTypeToChar(source->getType()) : pieceTypeToChar(target->getType());
+        player2Piece = target->getPlayer() == PLAYER_2 ?
+                       pieceTypeToChar(target->getType()) : pieceTypeToChar(source->getType());
     }
-    char player1Piece, player2Piece;
+    if(sourceWin && targetWin){
+        source->removePiece();
+        target->removePiece();
+        board.setPiece(point, board.getEmptyPiece());
+    }
+    else if(sourceWin){
+        source->placePiece();
+        target->removePiece();
+        winner = source->getPlayer();
+        board.setPiece(point, source);
+    }
+    else{
+        target->placePiece();
+        source->removePiece();
+        winner = target->getPlayer();
+        board.setPiece(point, target);
+    }
+    fightInfo.setPosition(point.getX(), point.getY());
+    fightInfo.setPlayer1Piece(player1Piece);
+    fightInfo.setPlayer2Piece(player2Piece);
+    fightInfo.setWinner(winner);
+    return wasFight;
 }

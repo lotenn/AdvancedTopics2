@@ -49,7 +49,7 @@ public:
     */
     void setPlayerTools(const vector<PositioningCommand> &commands, playerEnum player);
     bool executeMove(unique_ptr<Move> move);
-    bool performBattle(Point& point,shared_ptr<Piece> sourcePiece, shared_ptr<Piece> targetPiece, FightInfoImp& fightInfo);
+    bool performBattle(Point& point, shared_ptr<Piece> source, shared_ptr<Piece> target);
 };
 
 
