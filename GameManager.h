@@ -8,6 +8,7 @@
 #include "Board.h"
 #include "FightInfo.h"
 #include "GameStatus.h"
+#include "Move.h"
 
 int static playerEnumToInt(playerEnum player){
     switch(player){
@@ -32,7 +33,7 @@ string getWinnerString(playerEnum player);
 
 class GameManager {
 private:
-    Board board;
+    BoardImp board;
     vector<shared_ptr<Piece>> player1Tools;
     vector<shared_ptr<Piece>> player2Tools;
     int player1Score;
@@ -47,7 +48,8 @@ public:
      * Set @arg(player) tools according to @arg(commands)
     */
     void setPlayerTools(const vector<PositioningCommand> &commands, playerEnum player);
-
+    bool executeMove(unique_ptr<Move> move);
+    bool performBattle(Point& point,shared_ptr<Piece> sourcePiece, shared_ptr<Piece> targetPiece, FightInfoImp& fightInfo);
 };
 
 

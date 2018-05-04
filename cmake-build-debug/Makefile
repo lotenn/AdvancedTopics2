@@ -257,6 +257,33 @@ GameManager.cpp.s:
 	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/GameManager.cpp.s
 .PHONY : GameManager.cpp.s
 
+GameStatus.obj: GameStatus.cpp.obj
+
+.PHONY : GameStatus.obj
+
+# target to build an object file
+GameStatus.cpp.obj:
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/GameStatus.cpp.obj
+.PHONY : GameStatus.cpp.obj
+
+GameStatus.i: GameStatus.cpp.i
+
+.PHONY : GameStatus.i
+
+# target to preprocess a source file
+GameStatus.cpp.i:
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/GameStatus.cpp.i
+.PHONY : GameStatus.cpp.i
+
+GameStatus.s: GameStatus.cpp.s
+
+.PHONY : GameStatus.s
+
+# target to generate assembly for a file
+GameStatus.cpp.s:
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/GameStatus.cpp.s
+.PHONY : GameStatus.cpp.s
+
 JokerChange.obj: JokerChange.cpp.obj
 
 .PHONY : JokerChange.obj
@@ -524,6 +551,9 @@ help:
 	@echo ... GameManager.obj
 	@echo ... GameManager.i
 	@echo ... GameManager.s
+	@echo ... GameStatus.obj
+	@echo ... GameStatus.i
+	@echo ... GameStatus.s
 	@echo ... JokerChange.obj
 	@echo ... JokerChange.i
 	@echo ... JokerChange.s

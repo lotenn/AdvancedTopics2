@@ -48,6 +48,7 @@ private:
 
 public:
     GameStatus(): gameOn(true){}
+
     bool isGameOn() const {
         return gameOn;
     }

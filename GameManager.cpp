@@ -32,30 +32,43 @@ string getWinnerString(playerEnum player){
 
 //*********************************************************************
 
-void GameManager::executeMove(Move& move){
+bool GameManager::executeMove(unique_ptr<Move> move){
     if(move == nullptr){
-
+        gameStatus.setGameOff();
+        gameStatus.setMainReason(BAD_MOVE_FILE_INVALID);
+        return false;
     }
-}
-
-executeCommandMessage Game::executeMove(Command cmd){
-    Cell source = cmd.source, target = cmd.target;
-    int sourceRow = getRow(source), sourceCol = getCol(source), targetRow = getRow(target), targetCol = getCol(target);
-    Piece *sourceTool = this->gameBoard[sourceRow][sourceCol], *targetTool = this->gameBoard[targetRow][targetCol];
-    //trying to move tool doesn't belong to player
-    if(sourceTool->getPlayer() != this->getCurrentPlayer())
-        return EXECUTE_COMMAND_NOT_YOUR_TOOL;
-        //trying to move tool that cannot move
-    else if(!sourceTool->canMove(source, target))
-        return EXECUTE_COMMAND_TOOL_CANT_MOVE;
-        //move's target cell contain player tool
-    else if(sourceTool->getPlayer() == targetTool->getPlayer())
-        return EXECUTE_COMMAND_CELL_OCCUPIED;
-        //valid move
+    Point sourcePoint = move->getFrom(), targetPoint = move->getTo();
+    shared_ptr<Piece> sourcePiece = board.getPiece(sourcePoint), targetPiece = board.getPiece(targetPoint);
+    if(sourcePiece->getPlayer() != this->currentPlayer){
+        gameStatus.setGameOff();
+        gameStatus.setMainReason(BAD_MOVE_FILE_NOT_YOUR_TOOL);
+         return false;
+    }
+    else if(!sourcePiece->canMove(sourcePoint, targetPoint)){
+        gameStatus.setGameOff();
+        gameStatus.setMainReason(BAD_MOVE_FILE_TOOL_CANT_MOVE);
+        return false;
+    }
+    else if(sourcePiece->getPlayer() == targetPiece->getPlayer()){
+        gameStatus.setGameOff();
+        gameStatus.setMainReason(BAD_MOVE_FILE_CELL_OCCUPIED);
+        return false;
+    }
     else{
-        this->gameBoard[sourceRow][sourceCol] = this->emptyTool;
-        this->gameBoard[targetRow][targetCol] = this->battleWinner(sourceTool, targetTool);
-        return EXECUTE_COMMAND_SUCCESS;
+        board.setPiece(sourcePoint, board.getEmptyPiece());
+        return performBattle(targetPoint, sourcePiece, targetPiece, fightInfo);
     }
 }
 
+bool performBattle(Point& point, shared_ptr<Piece> sourcePiece, shared_ptr<Piece> targetPiece){
+    bool wasFight = false;
+    if((sourcePiece->getPlayer() == PLAYER_1 && targetPiece->getPlayer() == PLAYER_2) ||
+            (sourcePiece->getPlayer() == PLAYER_2 && targetPiece->getPlayer() == PLAYER_1)){
+        wasFight = true;
+        char player1Piece, player2Piece;
+        player1Piece = sourcePiece->getPlayer() == PLAYER_1 ?
+                       pieceTypeToChar(sourcePiece->getType()) : pieceTypeToChar(targetPiece->getType());
+    }
+    char player1Piece, player2Piece;
+}

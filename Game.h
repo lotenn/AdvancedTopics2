@@ -28,7 +28,6 @@ enum executeCommandMessage{
 };
 
 enum endGameReason{
-	NO_WINNER,
 	NO_MORE_FLAGS,
 	NO_MOVING_TOOLS,
 	NO_POSITIONING_FILE,
