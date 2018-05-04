@@ -6,23 +6,23 @@
 #define ADVANCEDTOPICS2_FIGHTINFO_H
 
 #include "Board.h"
+#include "GameManager.h"
 
 class FightInfo {
 public:
     virtual const Point& getPosition() const=0;
-    virtual char getOpponentPiece() const=0; // R, P, S, B or F (but NOT J)
+    virtual char getPiece(int player) const = 0; // R, P, S, B or F (but NOT J)
     virtual int getWinner() const=0; // 0 - both lost, 1 - player 1 won, 2 - player 2 won
 };
 
 class FightInfoImp: public FightInfo{
 private:
     unique_ptr<Point> position;
-    char opponentPiece;
-    int winner;
+    char player1Piece;
+    char player2Piece;
+    playerEnum winner;
 
 public:
-    FightInfoImp():position(nullptr), opponentPiece('\0'), winner(0){};
-
     const Point& getPosition() const override{
         return *position;
     }
@@ -31,19 +31,24 @@ public:
         position = make_unique<PointImp>(x,y);
     }
 
-    char getOpponentPiece() const override{
-        return opponentPiece;
+    virtual char getPiece(int player) const override{
+        if(player == 1){return player1Piece;}
+        return player2Piece;
     }
 
-    void setOpponentPiece(char _opponentPiece){
-        opponentPiece = _opponentPiece;
+    void setPlayer1Piece(char piece){
+        player1Piece = piece;
+    }
+
+    void setPlayer2Piece(char piece){
+        player2Piece = piece;
     }
 
     int getWinner() const override{
-        return winner;
+        return playerEnumToInt(winner);
     }
 
-    void setWinner (int _winner){
+    void setWinner (playerEnum _winner){
         winner = _winner;
     }
 };
