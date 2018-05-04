@@ -66,7 +66,7 @@ public:
 
     virtual vector<pieceType> getWeakerPieces() const = 0;
 
-    bool canCapture(Piece *other);
+    bool canCapture(shared_ptr<Piece> other);
 
     void setJoker(pieceType joker_new_rep, GameStatus& gameStatus){
         if(this->isJoker()){
