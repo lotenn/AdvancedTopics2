@@ -6,14 +6,8 @@
 #define ADVANCEDTOPICS2_GAMEMANAGER_H
 
 #include "Board.h"
-
-
-//************************Player Enum ****************************************************
-enum playerEnum {
-    PLAYER_1 = 1,
-    PLAYER_2 = 2,
-    NO_PLAYER = 0
-};
+#include "FightInfo.h"
+#include "GameStatus.h"
 
 int static playerEnumToInt(playerEnum player){
     switch(player){
@@ -44,6 +38,8 @@ private:
     int player1Score;
     int player2Score;
     playerEnum currentPlayer;
+    FightInfoImp fightInfo;
+    GameStatus gameStatus;
 
 
 public:

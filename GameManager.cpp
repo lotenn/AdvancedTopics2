@@ -32,3 +32,30 @@ string getWinnerString(playerEnum player){
 
 //*********************************************************************
 
+void GameManager::executeMove(Move& move){
+    if(move == nullptr){
+
+    }
+}
+
+executeCommandMessage Game::executeMove(Command cmd){
+    Cell source = cmd.source, target = cmd.target;
+    int sourceRow = getRow(source), sourceCol = getCol(source), targetRow = getRow(target), targetCol = getCol(target);
+    Piece *sourceTool = this->gameBoard[sourceRow][sourceCol], *targetTool = this->gameBoard[targetRow][targetCol];
+    //trying to move tool doesn't belong to player
+    if(sourceTool->getPlayer() != this->getCurrentPlayer())
+        return EXECUTE_COMMAND_NOT_YOUR_TOOL;
+        //trying to move tool that cannot move
+    else if(!sourceTool->canMove(source, target))
+        return EXECUTE_COMMAND_TOOL_CANT_MOVE;
+        //move's target cell contain player tool
+    else if(sourceTool->getPlayer() == targetTool->getPlayer())
+        return EXECUTE_COMMAND_CELL_OCCUPIED;
+        //valid move
+    else{
+        this->gameBoard[sourceRow][sourceCol] = this->emptyTool;
+        this->gameBoard[targetRow][targetCol] = this->battleWinner(sourceTool, targetTool);
+        return EXECUTE_COMMAND_SUCCESS;
+    }
+}
+
