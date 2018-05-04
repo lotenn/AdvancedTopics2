@@ -93,3 +93,13 @@ bool isCharArrValidJokerPieceType(char *c) {
     }
     return false;
 }
+
+bool Piece::canCapture(shared_ptr<Piece> other) {
+    vector<pieceType> weakerPieces = this->getWeakerPieces();
+    pieceType otherType = other->getType();
+    for(pieceType weakPiece: weakerPieces){
+        if(weakPiece == otherType)
+            return true;
+    }
+    return false;
+}
