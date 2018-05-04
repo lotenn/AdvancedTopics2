@@ -5,6 +5,8 @@
 #ifndef ADVANCEDTOPICS2_BOARD_H
 #define ADVANCEDTOPICS2_BOARD_H
 #include "PiecePosition.h"
+#include "GameManager.h"
+
 #define M 10
 #define N 10
 
@@ -19,13 +21,13 @@ private:
     shared_ptr<Piece> emptyPiece;
 
 public:
-    BoardImp():emptyPiece(move(make_shared<EmptyPiece>())){}
+    BoardImp(): emptyPiece(move(make_shared<EmptyPiece>())){}
     void clearBoard();
     int getPlayer(const Point& pos) const override {
-        return board[PointUtils::getRow(pos)][PointUtils::getCol(pos)]->getPlayer();
+        return playerEnumToInt(board[PointUtils::getRow(pos)][PointUtils::getCol(pos)]->getPlayer());
     }
-    string boardToString();
     shared_ptr<Piece>& getEmptyPiece(){return emptyPiece;}
+    string boardToString();
 };
 
 

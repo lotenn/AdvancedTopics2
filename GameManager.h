@@ -15,6 +15,19 @@ enum playerEnum {
     NO_PLAYER = 0
 };
 
+int static playerEnumToInt(playerEnum player){
+    switch(player){
+        case PLAYER_1:
+            return 1;
+        case PLAYER_2:
+            return 2;
+        case NO_PLAYER:
+            return 0;
+        default:
+            return -1;
+    }
+}
+
 string playerEnumToString(playerEnum player);
 
 playerEnum getOpposite(playerEnum player);
