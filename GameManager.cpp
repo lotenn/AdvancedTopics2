@@ -34,41 +34,12 @@ string getWinnerString(playerEnum player){
 
 //********************************************************************************************
 
-bool GameManager::executeMove(unique_ptr<Move> move){
-    if(move == nullptr){
-        gameStatus.setGameOff();
-        gameStatus.setMainReason(BAD_MOVE_FILE_INVALID);
-        return false;
-    }
-    Point sourcePoint = move->getFrom(), targetPoint = move->getTo();
-    shared_ptr<Piece> sourcePiece = board.getPiece(sourcePoint), targetPiece = board.getPiece(targetPoint);
-    if(sourcePiece->getPlayer() != this->currentPlayer){
-        gameStatus.setGameOff();
-        gameStatus.setMainReason(BAD_MOVE_FILE_NOT_YOUR_TOOL);
-         return false;
-    }
-    else if(!sourcePiece->canMove(sourcePoint, targetPoint)){
-        gameStatus.setGameOff();
-        gameStatus.setMainReason(BAD_MOVE_FILE_TOOL_CANT_MOVE);
-        return false;
-    }
-    else if(sourcePiece->getPlayer() == targetPiece->getPlayer()){
-        gameStatus.setGameOff();
-        gameStatus.setMainReason(BAD_MOVE_FILE_CELL_OCCUPIED);
-        return false;
-    }
-    else{
-        board.setPiece(sourcePoint, board.getEmptyPiece());
-        return performBattle(targetPoint, sourcePiece, targetPiece);
-    }
-}
-
 bool GameManager::performBattle(Point& point, shared_ptr<Piece> source, shared_ptr<Piece> target){
     bool wasFight = false, sourceWin = source->canCapture(target), targetWin = target->canCapture(source);
     char player1Piece = '#', player2Piece = '#';
     playerEnum winner = NO_PLAYER;
     if((source->getPlayer() == PLAYER_1 && target->getPlayer() == PLAYER_2) ||
-            (source->getPlayer() == PLAYER_2 && target->getPlayer() == PLAYER_1)){
+       (source->getPlayer() == PLAYER_2 && target->getPlayer() == PLAYER_1)){
         wasFight = true;
         player1Piece = source->getPlayer() == PLAYER_1 ?
                        pieceTypeToChar(source->getType()) : pieceTypeToChar(target->getType());
@@ -99,6 +70,44 @@ bool GameManager::performBattle(Point& point, shared_ptr<Piece> source, shared_p
     return wasFight;
 }
 
+bool GameManager::executeMove(unique_ptr<Move> move){
+    if(move == nullptr){
+        gameStatus.setGameOff();
+        gameStatus.setMainReason(BAD_MOVE_FILE_INVALID);
+        return false;
+    }
+    Point sourcePoint = move->getFrom(), targetPoint = move->getTo();
+    shared_ptr<Piece> sourcePiece = board.getPiece(sourcePoint), targetPiece = board.getPiece(targetPoint);
+    if(sourcePiece->getPlayer() != this->currentPlayer){
+        gameStatus.setGameOff();
+        gameStatus.setMainReason(BAD_MOVE_FILE_NOT_YOUR_TOOL);
+         return false;
+    }
+    else if(!sourcePiece->canMove(sourcePoint, targetPoint)){
+        gameStatus.setGameOff();
+        gameStatus.setMainReason(BAD_MOVE_FILE_TOOL_CANT_MOVE);
+        return false;
+    }
+    else if(sourcePiece->getPlayer() == targetPiece->getPlayer()){
+        gameStatus.setGameOff();
+        gameStatus.setMainReason(BAD_MOVE_FILE_CELL_OCCUPIED);
+        return false;
+    }
+    else{
+        board.setPiece(sourcePoint, board.getEmptyPiece());
+        return performBattle(targetPoint, sourcePiece, targetPiece);
+    }
+}
+
+void GameManager::executeJoker(unique_ptr<JokerChange> jokerChange){
+    if(jokerChange == nullptr){
+        gameStatus.setGameOff();
+        gameStatus.setMainReason(BAD_MOVE_FILE_INVALID);
+    }
+    pieceType joker_new_type = charToPieceType(jokerChange->getJokerNewRep());
+    shared_ptr<Piece> jokerPiece = board.getPiece(jokerChange->getJokerChangePosition());
+    jokerPiece->setJoker(joker_new_type, gameStatus);
+}
 void GameManager::validatePositioningVector(playerEnum player, vector<unique_ptr<PiecePosition>>&  piecePositions){
     //No positioning file or empty file
     if (piecePositions.empty()) {
