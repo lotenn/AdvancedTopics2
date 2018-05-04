@@ -1,7 +1,4 @@
-//
-// Created by loten on 20/04/2018.
-//
-
+#include <cstring>
 #include "Piece.h"
 
 pieceType charToPieceType(char c) {
@@ -21,8 +18,22 @@ pieceType charToPieceType(char c) {
     }
 }
 
-
-
+char pieceTypeToChar(pieceType _pieceType){
+    switch (_pieceType) {
+        case ROCK:
+            return 'R';
+        case PAPER:
+            return 'P';
+        case SCISSORS:
+            return 'S';
+        case BOMB:
+            return 'B';
+        case FLAG:
+            return 'F';
+        default:
+            return 'E';
+    }
+}
 
 bool isNumInRange(char* str, int rangeStart, int rangeEnd) {
     if (str == NULL || strlen(str)==0) {
