@@ -163,7 +163,7 @@ void Game::setPlayerTools(const vector<PositioningCommand> &commands, playerEnum
                 //matching tool was found (not positioned, joker type)
                 if (!tool->IsPositioned() && tool->isJoker()) {
                     tool->setJoker(_toolType);
-                    tool->placeTool();
+                    tool->placePiece();
                     this->gameBoard[row][col] = this->battleWinner(tool, this->gameBoard[row][col]);
                     break;
                 }
@@ -182,10 +182,10 @@ void Game::resetGameBoard(){
     }
 
     for(Piece *tool: player1Tools)
-        tool->removeTool();
+        tool->removePiece();
 
     for(Piece *tool: player2Tools)
-        tool->removeTool();
+        tool->removePiece();
 }
 
 void Game::setCurrentPlayer(playerEnum player){
@@ -194,55 +194,28 @@ void Game::setCurrentPlayer(playerEnum player){
     this->currentPlayer = player;
 }
 
-bool Piece::canCapture(Piece *other) {
-    vector<pieceType> weakerPieces = this->getWeakerPieces();
-    pieceType otherType = other->getType();
-    for(pieceType weakPiece: weakerPieces){
-        if(weakPiece == otherType)
-            return true;
-    }
-    return false;
-}
+
 
 Piece* Game::battleWinner(Piece *source, Piece *target) {
     bool sourceWin = source->canCapture(target), targetWin = target->canCapture(source);
     if(sourceWin && targetWin) {
-        source->removeTool();
-        target->removeTool();
+        source->removePiece();
+        target->removePiece();
         return this->emptyTool;
     }
     else if(sourceWin) {
-        source->placeTool();
-        target->removeTool();
+        source->placePiece();
+        target->removePiece();
         return source;
     }
     else{
-        target->placeTool();
-        source->removeTool();
+        target->placePiece();
+        source->removePiece();
         return target;
     }
 }
 
-executeCommandMessage Game::executeMove(Command cmd){
-    Cell source = cmd.source, target = cmd.target;
-    int sourceRow = getRow(source), sourceCol = getCol(source), targetRow = getRow(target), targetCol = getCol(target);
-    Piece *sourceTool = this->gameBoard[sourceRow][sourceCol], *targetTool = this->gameBoard[targetRow][targetCol];
-    //trying to move tool doesn't belong to player
-    if(sourceTool->getPlayer() != this->getCurrentPlayer())
-        return EXECUTE_COMMAND_NOT_YOUR_TOOL;
-    //trying to move tool that cannot move
-    else if(!sourceTool->canMove(source, target))
-        return EXECUTE_COMMAND_TOOL_CANT_MOVE;
-    //move's target cell contain player tool
-    else if(sourceTool->getPlayer() == targetTool->getPlayer())
-        return EXECUTE_COMMAND_CELL_OCCUPIED;
-    //valid move
-    else{
-        this->gameBoard[sourceRow][sourceCol] = this->emptyTool;
-        this->gameBoard[targetRow][targetCol] = this->battleWinner(sourceTool, targetTool);
-        return EXECUTE_COMMAND_SUCCESS;
-    }
-}
+
 
 executeCommandMessage Game::executeJoker(Command cmd){
     //joker command execution

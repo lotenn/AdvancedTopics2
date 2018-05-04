@@ -6,6 +6,8 @@
 #define ADVANCEDTOPICS2_PLAYERALGORITHM_H
 
 #include <vector>
+#include <iostream>
+#include <fstream>
 #include <list>
 #include "Board.h"
 #include "PiecePosition.h"
@@ -33,6 +35,8 @@ public:
     unique_ptr<Move> getMove() override {
         return move(moves.front());
     }
+
+    void getInitialPositions(int player, std::vector<unique_ptr<PiecePosition>>& vectorToFill) override;
 };
 
 
