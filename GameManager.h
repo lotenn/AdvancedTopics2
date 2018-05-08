@@ -63,7 +63,8 @@ public:
 
     void validatePositioningVector(playerEnum player, vector<unique_ptr<PiecePosition>>&  piecePositions);
 
-    void setPlayerTools(const vector<unique_ptr<PiecePosition>> piecePositions, playerEnum player, vector<unique_ptr<FightInfo>> fights);
+    void setPlayerPieces(const vector<unique_ptr<PiecePosition>> &piecePositions, playerEnum player,
+                                      vector<unique_ptr<FightInfo>>& fights);
 
     bool performBattle(const Point& point, shared_ptr<Piece> source, shared_ptr<Piece> target);
 
@@ -73,7 +74,12 @@ public:
 
     void initGame();
 
-    void positioningStage();
+    bool containsMovingPieces(vector<shared_ptr<Piece>>& playerPieces);
+
+    bool containsFlags(vector<shared_ptr<Piece>>& playerPieces);
+
+    void positioningStage(vector<unique_ptr<FightInfo>>& fights);
+
 };
 
 

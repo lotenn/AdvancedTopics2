@@ -273,8 +273,8 @@ void GameManager::initGame(){
         piece->removePiece();
 }
 
-void GameManager::setPlayerTools(const vector<unique_ptr<PiecePosition>> piecePositions, playerEnum player,
-                                    vector<unique_ptr<FightInfo>> fights){
+void GameManager::setPlayerPieces(const vector<unique_ptr<PiecePosition>> &piecePositions, playerEnum player,
+                                  vector<unique_ptr<FightInfo>>& fights){
     vector<shared_ptr<Piece>> *playerPieces;
     if(player == PLAYER_1){playerPieces = &player1Pieces;}
     else{playerPieces = &player2Pieces;}
@@ -317,7 +317,25 @@ void GameManager::setPlayerTools(const vector<unique_ptr<PiecePosition>> piecePo
     }
 }
 
-void GameManager::positioningStage(){
+bool GameManager::containsMovingPieces(vector<shared_ptr<Piece>>& playerPieces){
+    for(shared_ptr<Piece> piece: playerPieces) {
+        if (piece->IsPositioned() && piece->canMove())
+            return true;
+    }
+    return false;
+}
+
+bool GameManager::containsFlags(vector<shared_ptr<Piece>>& playerPieces){
+    for(shared_ptr<Piece> piece: playerPieces) {
+        if (piece->IsPositioned() && piece->getType() == FLAG)
+            return true;
+    }
+    return false;
+}
+
+
+
+void GameManager::positioningStage(vector<unique_ptr<FightInfo>>& fights){
     vector<unique_ptr<PiecePosition>> player1PiecePosition, player2PiecePosition;
     player1->getInitialPositions(PLAYER_1, player1PiecePosition);
     player2->getInitialPositions(PLAYER_2, player2PiecePosition);
@@ -342,5 +360,35 @@ void GameManager::positioningStage(){
             return;
         }
     }
+    setPlayerPieces(player1PiecePosition, PLAYER_1, fights);
+    setPlayerPieces(player2PiecePosition, PLAYER_2, fights);
 
+    bool player1HasFlags, player2HasFlags, player1HasMovingPieces, player2HasMovingPieces, player1Loss, player2Loss;
+    player1HasFlags = containsFlags(player1Pieces);
+    player1HasMovingPieces = containsMovingPieces(player1Pieces);
+    player2HasFlags = containsFlags(player2Pieces);
+    player2HasMovingPieces = containsMovingPieces(player2Pieces);
+    player1Loss = !player1HasFlags || !player1HasMovingPieces;
+    player2Loss = !player2HasFlags || !player2HasMovingPieces;
+
+    // in case of draw
+    if(player1Loss && player2Loss){
+        gameStatus.setGameOff();
+        if(!player1HasFlags){
+            gameStatus.setMainReason(DRAW_POSITIONING_ENDED_WITH_NO_FLAGS);
+            gameStatus.setReason1(NO_MORE_FLAGS);
+            gameStatus.setReason2(NO_MORE_FLAGS);
+            return;
+        }
+        else{
+            gameStatus.setMainReason(DRAW_POSITIONING_ENDED_WITH_NO_MOVING_TOOLS);
+            gameStatus.setReason1(NO_MOVING_TOOLS);
+            gameStatus.setReason2(NO_MOVING_TOOLS);
+            return;
+        }
+    }
+    //single winner
+    else if(player1Loss) {
+        return createEndGameMessage(player1LossReason, PLAYER_2);
+    }
 }
