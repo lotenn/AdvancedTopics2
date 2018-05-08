@@ -15,6 +15,7 @@ enum playerEnum {
 
 //************************End Game Reason Enum ****************************************************
 enum endGameReason{
+    NO_REASON,
     NO_MORE_FLAGS,
     NO_MOVING_TOOLS,
     NO_POSITIONING_FILE,
@@ -51,6 +52,10 @@ public:
 
     bool isGameOn() const {
         return gameOn;
+    }
+
+    void setGameOn(){
+        GameStatus::gameOn = true;
     }
 
     void setGameOff() {
@@ -112,6 +117,8 @@ public:
     void setErrorLine2(int errorLine2) {
         GameStatus::errorLine2 = errorLine2;
     }
+
+    void reset();
 };
 
 

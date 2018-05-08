@@ -23,6 +23,11 @@ private:
     playerEnum winner;
 
 public:
+    FightInfoImp() = default;
+    FightInfoImp(const Point& point, char _player1Piece, char _player2Piece, playerEnum _winner):
+            position(make_unique<PointImp>(point.getX(), point.getY())), player1Piece(_player1Piece),
+            player2Piece(_player2Piece), winner(_winner){}
+
     const Point& getPosition() const override{
         return *position;
     }

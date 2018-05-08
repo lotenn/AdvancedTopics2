@@ -18,6 +18,11 @@
 #define NUM_OF_F 1
 #define NUM_OF_TOOLS (NUM_OF_B + NUM_OF_F + NUM_OF_J + NUM_OF_P + NUM_OF_R + NUM_OF_S)
 
+enum playerMode{
+    AUTO_PLAYER = 0,
+    FILE_PLAYER = 1
+};
+
 int static playerEnumToInt(playerEnum player){
     switch(player){
         case PLAYER_1:
@@ -41,9 +46,11 @@ string getWinnerString(playerEnum player);
 
 class GameManager {
 private:
+    unique_ptr <PlayerAlgorithm> player1;
+    unique_ptr <PlayerAlgorithm> player2;
     BoardImp board;
-    vector<shared_ptr<Piece>> player1Tools;
-    vector<shared_ptr<Piece>> player2Tools;
+    vector<shared_ptr<Piece>> player1Pieces;
+    vector<shared_ptr<Piece>> player2Pieces;
     int player1Score;
     int player2Score;
     playerEnum currentPlayer;
@@ -52,15 +59,21 @@ private:
 
 
 public:
+    GameManager(playerMode player1Mode, playerMode player2Mode);
+
     void validatePositioningVector(playerEnum player, vector<unique_ptr<PiecePosition>>&  piecePositions);
 
-    void setPlayerTools(const vector<PositioningCommand> &commands, playerEnum player);
+    void setPlayerTools(const vector<unique_ptr<PiecePosition>> piecePositions, playerEnum player, vector<unique_ptr<FightInfo>> fights);
 
-    bool performBattle(Point& point, shared_ptr<Piece> source, shared_ptr<Piece> target);
+    bool performBattle(const Point& point, shared_ptr<Piece> source, shared_ptr<Piece> target);
 
     bool executeMove(unique_ptr<Move> move);
 
     void executeJoker(unique_ptr<JokerChange> jokerChange);
+
+    void initGame();
+
+    void positioningStage();
 };
 
 

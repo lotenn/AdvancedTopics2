@@ -1,3 +1,4 @@
+#include "GameManager.h"
 #include <map>
 #include <memory.h>
 #include "GameManager.h"
@@ -34,7 +35,48 @@ string getWinnerString(playerEnum player){
 
 //********************************************************************************************
 
-bool GameManager::performBattle(Point& point, shared_ptr<Piece> source, shared_ptr<Piece> target){
+GameManager::GameManager(playerMode player1Mode, playerMode player2Mode){
+    //creating the players
+    if(player1Mode == FILE_PLAYER) {this->player1 = make_unique<FilePlayerAlgorithm>();}
+    else{}//todo: creating auto player algorithm
+
+    if(player2Mode == FILE_PLAYER){this->player2 = make_unique<FilePlayerAlgorithm>();}
+    else{}//todo: creating auto player algorithm
+
+    //creating the game pieces
+    int toolIndex = 0;
+    for(int i=toolIndex; toolIndex < (i+NUM_OF_R); toolIndex++){
+        player1Pieces.push_back(make_shared<RockPiece>(PLAYER_1));
+        player1Pieces.push_back(make_shared<RockPiece>(PLAYER_2));
+    }
+
+    for(int i=toolIndex; toolIndex < (i+NUM_OF_P); toolIndex++){
+        player1Pieces.push_back(make_shared<PaperPiece>(PLAYER_1));
+        player1Pieces.push_back(make_shared<PaperPiece>(PLAYER_2));
+    }
+
+    for(int i=toolIndex; toolIndex < (i+NUM_OF_S); toolIndex++){
+        player1Pieces.push_back(make_shared<ScissorsPiece>(PLAYER_1));
+        player1Pieces.push_back(make_shared<ScissorsPiece>(PLAYER_2));
+    }
+
+    for(int i=toolIndex; toolIndex < (i+NUM_OF_B); toolIndex++){
+        player1Pieces.push_back(make_shared<BombPiece>(PLAYER_1));
+        player1Pieces.push_back(make_shared<BombPiece>(PLAYER_2));
+    }
+
+    for(int i=toolIndex; toolIndex < (i+NUM_OF_J); toolIndex++){
+        player1Pieces.push_back(make_shared<JokerPiece>(PLAYER_1));
+        player1Pieces.push_back(make_shared<JokerPiece>(PLAYER_2));
+    }
+
+    for(int i=toolIndex; toolIndex < (i+NUM_OF_F); toolIndex++){
+        player1Pieces.push_back(make_shared<FlagPiece>(PLAYER_1));
+        player1Pieces.push_back(make_shared<FlagPiece>(PLAYER_2));
+    }
+}
+
+bool GameManager::performBattle(const Point& point, shared_ptr<Piece> source, shared_ptr<Piece> target){
     bool wasFight = false, sourceWin = source->canCapture(target), targetWin = target->canCapture(source);
     char player1Piece = '#', player2Piece = '#';
     playerEnum winner = NO_PLAYER;
@@ -217,5 +259,88 @@ void generateOutputFile(const char *outputFilePath, string winner, string reason
         outputFile.close();
     }
     else cout<<"Error: Failed to open output file '" << outputFilePath << "'" <<endl;
+
+}
+
+void GameManager::initGame(){
+    player1Score = player2Score = 0;
+    currentPlayer = PLAYER_1;
+    gameStatus.reset();
+    board.clearBoard();
+    for(shared_ptr<Piece> piece: player1Pieces)
+        piece->removePiece();
+    for(shared_ptr<Piece> piece: player2Pieces)
+        piece->removePiece();
+}
+
+void GameManager::setPlayerTools(const vector<unique_ptr<PiecePosition>> piecePositions, playerEnum player,
+                                    vector<unique_ptr<FightInfo>> fights){
+    vector<shared_ptr<Piece>> *playerPieces;
+    if(player == PLAYER_1){playerPieces = &player1Pieces;}
+    else{playerPieces = &player2Pieces;}
+
+    for(int i=0; i < (int)piecePositions.size(); i++){
+        pieceType _pieceType = charToPieceType(piecePositions[i]->getPiece());
+        int row = PointUtils::getRow(piecePositions[i]->getPosition());
+        int col = PointUtils::getCol(piecePositions[i]->getPosition());
+        bool wasFight = false;
+        if(piecePositions[i]->getJokerRep() != NO_JOKER_CHANGE_SYMBOL){
+            for(shared_ptr<Piece> piece: *(playerPieces)){
+                if(!piece->IsPositioned() && !piece->isJoker() && piece->getType() == _pieceType){
+                    wasFight = performBattle(piecePositions[i]->getPosition(), piece,
+                                             board.getPiece(piecePositions[i]->getPosition()));
+                    if(wasFight)
+                        fights.push_back(make_unique<FightInfoImp>(piecePositions[i]->getPosition(),
+                                                                   fightInfo.getPiece(PLAYER_1),
+                                                                   fightInfo.getPiece(PLAYER_2),
+                                                                   fightInfo.getWinner()));
+                }
+                break;
+            }
+        }
+        else{
+            for(shared_ptr<Piece> piece: *(playerPieces)){
+                if(!piece->IsPositioned() && piece->isJoker()){
+                    piece->setJoker(_pieceType, gameStatus);
+                    piece-> placePiece();
+                    wasFight = performBattle(piecePositions[i]->getPosition(), piece,
+                                             board.getPiece(piecePositions[i]->getPosition()));
+                    if(wasFight)
+                        fights.push_back(make_unique<FightInfoImp>(piecePositions[i]->getPosition(),
+                                                                   fightInfo.getPiece(PLAYER_1),
+                                                                   fightInfo.getPiece(PLAYER_2),
+                                                                   fightInfo.getWinner()));
+                }
+                break;
+            }
+        }
+    }
+}
+
+void GameManager::positioningStage(){
+    vector<unique_ptr<PiecePosition>> player1PiecePosition, player2PiecePosition;
+    player1->getInitialPositions(PLAYER_1, player1PiecePosition);
+    player2->getInitialPositions(PLAYER_2, player2PiecePosition);
+    validatePositioningVector(PLAYER_1, player1PiecePosition);
+    validatePositioningVector(PLAYER_2, player2PiecePosition);
+    if(!gameStatus.isGameOn()){
+        //if there was a problematic positioning file and the game ended.
+        if(gameStatus.getReason1() != NO_REASON && gameStatus.getReason2() != NO_REASON) {
+            gameStatus.setMainReason(DRAW_BAD_POSITIONING_FILE_BOTH_PLAYERS);
+            return;
+        }
+        else if(gameStatus.getReason1() != NO_REASON){
+            gameStatus.setMainReason(gameStatus.getReason1());
+            gameStatus.setWinner(PLAYER_2);
+            gameStatus.setLoser(PLAYER_1);
+            return;
+        }
+        else{
+            gameStatus.setMainReason(gameStatus.getReason2());
+            gameStatus.setWinner(PLAYER_1);
+            gameStatus.setLoser(PLAYER_2);
+            return;
+        }
+    }
 
 }
