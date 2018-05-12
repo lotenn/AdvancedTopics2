@@ -5,11 +5,11 @@
 #ifndef ADVANCEDTOPICS2_GAMEMANAGER_H
 #define ADVANCEDTOPICS2_GAMEMANAGER_H
 
-#include "Board.h"
-#include "FightInfo.h"
-#include "GameStatus.h"
-#include "Move.h"
-#include "Parser.h"
+#include <map>
+#include <memory.h>
+#include "PlayerAlgorithm.h"
+#include "EnumUtils.h"
+
 #define NUM_OF_R 2
 #define NUM_OF_P 5
 #define NUM_OF_S 1
@@ -18,25 +18,7 @@
 #define NUM_OF_F 1
 #define MAX_TURNS_WITH_NO_FIGHTS 100
 
-enum playerMode{
-    AUTO_PLAYER = 0,
-    FILE_PLAYER = 1
-};
 
-int playerEnumToInt(playerEnum player){
-    switch(player){
-        case PLAYER_1:
-            return 1;
-        case PLAYER_2:
-            return 2;
-        case NO_PLAYER:
-            return 0;
-        default:
-            return -1;
-    }
-}
-
-string playerEnumToString(playerEnum player);
 
 playerEnum getOpposite(playerEnum player);
 
@@ -46,8 +28,8 @@ string getWinnerString(playerEnum player);
 
 class GameManager {
 private:
-    unique_ptr <PlayerAlgorithm> player1;
-    unique_ptr <PlayerAlgorithm> player2;
+    unique_ptr<PlayerAlgorithm> player1;
+    unique_ptr<PlayerAlgorithm> player2;
     BoardImp board;
     vector<shared_ptr<Piece>> player1Pieces;
     vector<shared_ptr<Piece>> player2Pieces;

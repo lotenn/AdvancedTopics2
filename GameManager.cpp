@@ -1,7 +1,5 @@
 #include "GameManager.h"
-#include <map>
-#include <memory.h>
-#include "GameManager.h"
+
 
 playerEnum getOpposite(playerEnum player){
     switch(player){
@@ -12,15 +10,6 @@ playerEnum getOpposite(playerEnum player){
         default:
             return NO_PLAYER;
     }
-}
-
-string playerEnumToString(playerEnum player){
-    map<playerEnum , string> strings;
-    strings[PLAYER_1] = "player 1";
-    strings[PLAYER_2] = "player 2";
-    strings[NO_PLAYER] = "no player";
-    auto str = strings.find(player);
-    return str != strings.end() ? str->second : "";
 }
 
 string getWinnerString(playerEnum player){
@@ -125,14 +114,14 @@ bool GameManager::executeMove(unique_ptr<Move> move){
         return false;
     }
 
-    Point sourcePoint = move->getFrom(), targetPoint = move->getTo();
-    shared_ptr<Piece> sourcePiece = board.getPiece(sourcePoint), targetPiece = board.getPiece(targetPoint);
+    const Point *sourcePoint = &move->getFrom(), *targetPoint = &move->getTo();
+    shared_ptr<Piece> sourcePiece = board.getPiece(*sourcePoint), targetPiece = board.getPiece(*targetPoint);
     if(sourcePiece->getPlayer() != this->currentPlayer){
         gameStatus.setGameOff();
         gameStatus.setMainReason(BAD_MOVE_FILE_NOT_YOUR_TOOL);
          return false;
     }
-    else if(!sourcePiece->canMove(sourcePoint, targetPoint)){
+    else if(!sourcePiece->canMove(*sourcePoint, *targetPoint)){
         gameStatus.setGameOff();
         gameStatus.setMainReason(BAD_MOVE_FILE_TOOL_CANT_MOVE);
         return false;
@@ -143,8 +132,8 @@ bool GameManager::executeMove(unique_ptr<Move> move){
         return false;
     }
     else{
-        board.setPiece(sourcePoint, board.getEmptyPiece());
-        return performBattle(targetPoint, sourcePiece, targetPiece);
+        board.setPiece(*sourcePoint, board.getEmptyPiece());
+        return performBattle(*targetPoint, sourcePiece, targetPiece);
     }
 }
 
@@ -175,7 +164,7 @@ void GameManager::validatePositioningVector(playerEnum player, vector<unique_ptr
             lineNumber = 1;
 
     //iterating through the vector
-   for(int i=0; i<piecePositions.size(); i++) {
+   for(int i=0; i<(int)piecePositions.size(); i++) {
        lineNumber = i+1;
        //Invalid command
        if (piecePositions[i] == nullptr) {
@@ -186,8 +175,9 @@ void GameManager::validatePositioningVector(playerEnum player, vector<unique_ptr
            gameStatus.setGameOff();
            return;
        }
-       Point position = piecePositions[i]->getPosition();
-       int row = PointUtils::getRow(position), col = PointUtils::getCol(position);
+
+       int row = PointUtils::getRow(piecePositions[i]->getPosition());
+       int col = PointUtils::getCol(piecePositions[i]->getPosition());
 
        //current point already contains same winner's tool
        if (alreadyPositioned[row][col]) {
@@ -272,8 +262,6 @@ void GameManager::setPlayerPieces(const vector<unique_ptr<PiecePosition>> &piece
 
     for(int i=0; i < (int)piecePositions.size(); i++){
         pieceType _pieceType = charToPieceType(piecePositions[i]->getPiece());
-        int row = PointUtils::getRow(piecePositions[i]->getPosition());
-        int col = PointUtils::getCol(piecePositions[i]->getPosition());
         bool wasFight = false;
         if(piecePositions[i]->getJokerRep() != NO_JOKER_CHANGE_SYMBOL){
             for(shared_ptr<Piece> piece: *(playerPieces)){
@@ -282,9 +270,9 @@ void GameManager::setPlayerPieces(const vector<unique_ptr<PiecePosition>> &piece
                                              board.getPiece(piecePositions[i]->getPosition()));
                     if(wasFight)
                         fights.push_back(make_unique<FightInfoImp>(piecePositions[i]->getPosition(),
-                                                                   fightInfo.getPiece(PLAYER_1),
-                                                                   fightInfo.getPiece(PLAYER_2),
-                                                                   fightInfo.getWinner()));
+                                                                   fightInfo.getPiece(1),
+                                                                   fightInfo.getPiece(2),
+                                                                   fightInfo.getWinner() == 1 ? PLAYER_1 : PLAYER_2));
                 }
                 break;
             }
@@ -298,9 +286,9 @@ void GameManager::setPlayerPieces(const vector<unique_ptr<PiecePosition>> &piece
                                              board.getPiece(piecePositions[i]->getPosition()));
                     if(wasFight)
                         fights.push_back(make_unique<FightInfoImp>(piecePositions[i]->getPosition(),
-                                                                   fightInfo.getPiece(PLAYER_1),
-                                                                   fightInfo.getPiece(PLAYER_2),
-                                                                   fightInfo.getWinner()));
+                                                                   fightInfo.getPiece(1),
+                                                                   fightInfo.getPiece(2),
+                                                                   fightInfo.getWinner() == 1 ? PLAYER_1 : PLAYER_2));
                 }
                 break;
             }
@@ -432,7 +420,7 @@ void GameManager::moveStage(){
         }
 
         unique_ptr<Move> player1Move  = player1->getMove();
-        Move currentMove = MoveImp(player1Move->getFrom().getX(),
+        MoveImp currentMove = MoveImp(player1Move->getFrom().getX(),
                                    player1Move->getFrom().getY(),
                                    player1Move->getTo().getX(),
                                    player1Move->getTo().getY());
@@ -582,7 +570,6 @@ string GameManager::getReasonString(){
     reasons[BAD_MOVE_FILE_TOOL_CANT_MOVE] = "Bad Moves input file for " + playerEnumToString(gameStatus.getLoser());
     reasons[BAD_MOVE_FILE_CELL_OCCUPIED] = "Bad Moves input file for " + playerEnumToString(gameStatus.getLoser());
     reasons[BAD_MOVE_FILE_NOT_JOKER] = "Bad Moves input file for "+ playerEnumToString(gameStatus.getLoser());
-    reasons[DRAW_NO_MORE_MOVES] = "A tie - both Moves input files done without a winner";
     reasons[DRAW_NO_MOVING_TOOLS] = "A tie - all moving PIECEs are eaten by both players";
     reasons[DRAW_POSITIONING_ENDED_WITH_NO_FLAGS] = "A tie - all flags are eaten by both players in the position files";
     reasons[DRAW_POSITIONING_ENDED_WITH_NO_MOVING_TOOLS] = "A tie - moving PIECEs are eaten by both players in the position files";

@@ -60,7 +60,7 @@ public:
 
     virtual bool canMove() const = 0;
 
-    virtual bool canMove(Point& source, Point& target) const = 0;
+    virtual bool canMove(const Point& source, const Point& target) const = 0;
 
     bool isJoker() const {return this->joker;}
 
@@ -92,7 +92,7 @@ public:
 
     bool canMove() const override {return true;}
 
-    bool canMove(Point& source, Point& target) const override {
+    bool canMove(const Point& source, const Point& target) const override {
         int sourceRow = PointUtils::getRow(source),
                 sourceCol = PointUtils::getCol(source),
                 targetRow = PointUtils::getRow(target),
@@ -118,7 +118,7 @@ public:
 
     bool canMove() const override {return true;}
 
-    bool canMove(Point& source, Point& target) const override {
+    bool canMove(const Point& source, const Point& target) const override {
         int sourceRow = PointUtils::getRow(source),
                 sourceCol = PointUtils::getCol(source),
                 targetRow = PointUtils::getRow(target),
@@ -145,7 +145,7 @@ public:
 
     bool canMove() const override {return true;}
 
-    bool canMove(Point& source, Point& target) const override {
+    bool canMove(const Point& source, const Point& target) const override {
         int sourceRow = PointUtils::getRow(source), sourceCol = PointUtils::getCol(source),
                 targetRow = PointUtils::getRow(target), targetCol = PointUtils::getCol(target);
         int vertical = abs(sourceRow - targetRow), horizontal = abs(sourceCol - targetCol);
@@ -169,7 +169,7 @@ public:
 
     bool canMove() const override {return false;}
 
-    bool canMove(Point& source, Point& target) const override {
+    bool canMove(const Point& source, const Point& target) const override {
         //mock check
         if(source.getX() ==0 && target.getX() ==0) return this->canMove();
         return this->canMove();
@@ -192,7 +192,7 @@ public:
 
     bool canMove() const override {return false;}
 
-    bool canMove(Point& source, Point& target) const override {
+    bool canMove(const Point& source, const Point& target) const override {
         //mock check
         if(source.getX()==0 && target.getX()==0) return this->canMove();
         return this->canMove();
@@ -215,7 +215,7 @@ public:
 
     bool canMove() const override {return false;}
 
-    bool canMove(Point& source, Point& target) const override {
+    bool canMove(const Point& source, const Point& target) const override {
         //mock check
         if(source.getX() ==0 && target.getX() ==0) return this->canMove();
         return this->canMove();
@@ -250,7 +250,7 @@ public:
         }
     }
 
-    bool canMove(Point& source, Point& target) const override {
+    bool canMove(const Point& source, const Point& target) const override {
         switch(this->getType()){
             case(SCISSORS):
                 return (ScissorsPiece(NO_PLAYER).canMove(source, target));

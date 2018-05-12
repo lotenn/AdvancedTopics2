@@ -1,7 +1,3 @@
-//
-// Created by loten on 23/04/2018.
-//
-
 #include "PlayerAlgorithm.h"
 
 void FilePlayerAlgorithm::getInitialPositions(int _player, std::vector<unique_ptr<PiecePosition>>& vectorToFill) {
@@ -27,7 +23,7 @@ void FilePlayerAlgorithm::getInitialPositions(int _player, std::vector<unique_pt
     while (getline(positioningFile, line)) {
         if (line.find_first_not_of(" \t\n\r") == line.npos) continue;
         _piecePosition = parser.parsePiecePosition(line);
-        vectorToFill.push_back(_piecePosition);
+        vectorToFill.push_back(move(_piecePosition));
     }
     positioningFile.close();
 }

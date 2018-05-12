@@ -4,8 +4,8 @@
 
 #ifndef ADVANCEDTOPICS2_BOARD_H
 #define ADVANCEDTOPICS2_BOARD_H
+
 #include "PiecePosition.h"
-#include "GameManager.h"
 
 #define M 10
 #define N 10
@@ -31,7 +31,7 @@ public:
         int row = PointUtils::getRow(point), col = PointUtils::getCol(point);
         return board[row][col];
     }
-    void setPiece(Point& point, shared_ptr<Piece> piece){
+    void setPiece(const Point& point, shared_ptr<Piece> piece){
         int row = PointUtils::getRow(point), col = PointUtils::getCol(point);
         board[row][col] = piece;
     }

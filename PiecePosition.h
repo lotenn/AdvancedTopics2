@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <memory>
-#include "Point.h"
 #include "Piece.h"
 
 using namespace std;

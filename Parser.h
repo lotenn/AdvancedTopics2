@@ -6,8 +6,9 @@
 #include <string.h>
 #include <vector>
 #include <sstream>
-#include "PiecePosition.h"
-#include "PlayerAlgorithm.h"
+#include "Move.h"
+//#include "PlayerAlgorithm.h"
+#include "FightInfo.h"
 
 
 using namespace std;

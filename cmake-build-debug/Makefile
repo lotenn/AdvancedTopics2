@@ -149,6 +149,33 @@ Board.cpp.s:
 	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Board.cpp.s
 .PHONY : Board.cpp.s
 
+EnumUtils.obj: EnumUtils.cpp.obj
+
+.PHONY : EnumUtils.obj
+
+# target to build an object file
+EnumUtils.cpp.obj:
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/EnumUtils.cpp.obj
+.PHONY : EnumUtils.cpp.obj
+
+EnumUtils.i: EnumUtils.cpp.i
+
+.PHONY : EnumUtils.i
+
+# target to preprocess a source file
+EnumUtils.cpp.i:
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/EnumUtils.cpp.i
+.PHONY : EnumUtils.cpp.i
+
+EnumUtils.s: EnumUtils.cpp.s
+
+.PHONY : EnumUtils.s
+
+# target to generate assembly for a file
+EnumUtils.cpp.s:
+	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/EnumUtils.cpp.s
+.PHONY : EnumUtils.cpp.s
+
 FightInfo.obj: FightInfo.cpp.obj
 
 .PHONY : FightInfo.obj
@@ -257,33 +284,6 @@ JokerChange.cpp.s:
 	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/JokerChange.cpp.s
 .PHONY : JokerChange.cpp.s
 
-Move.obj: Move.cpp.obj
-
-.PHONY : Move.obj
-
-# target to build an object file
-Move.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Move.cpp.obj
-.PHONY : Move.cpp.obj
-
-Move.i: Move.cpp.i
-
-.PHONY : Move.i
-
-# target to preprocess a source file
-Move.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Move.cpp.i
-.PHONY : Move.cpp.i
-
-Move.s: Move.cpp.s
-
-.PHONY : Move.s
-
-# target to generate assembly for a file
-Move.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Move.cpp.s
-.PHONY : Move.cpp.s
-
 Parser.obj: Parser.cpp.obj
 
 .PHONY : Parser.obj
@@ -338,33 +338,6 @@ Piece.cpp.s:
 	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Piece.cpp.s
 .PHONY : Piece.cpp.s
 
-PiecePosition.obj: PiecePosition.cpp.obj
-
-.PHONY : PiecePosition.obj
-
-# target to build an object file
-PiecePosition.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/PiecePosition.cpp.obj
-.PHONY : PiecePosition.cpp.obj
-
-PiecePosition.i: PiecePosition.cpp.i
-
-.PHONY : PiecePosition.i
-
-# target to preprocess a source file
-PiecePosition.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/PiecePosition.cpp.i
-.PHONY : PiecePosition.cpp.i
-
-PiecePosition.s: PiecePosition.cpp.s
-
-.PHONY : PiecePosition.s
-
-# target to generate assembly for a file
-PiecePosition.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/PiecePosition.cpp.s
-.PHONY : PiecePosition.cpp.s
-
 PlayerAlgorithm.obj: PlayerAlgorithm.cpp.obj
 
 .PHONY : PlayerAlgorithm.obj
@@ -391,33 +364,6 @@ PlayerAlgorithm.s: PlayerAlgorithm.cpp.s
 PlayerAlgorithm.cpp.s:
 	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/PlayerAlgorithm.cpp.s
 .PHONY : PlayerAlgorithm.cpp.s
-
-Point.obj: Point.cpp.obj
-
-.PHONY : Point.obj
-
-# target to build an object file
-Point.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Point.cpp.obj
-.PHONY : Point.cpp.obj
-
-Point.i: Point.cpp.i
-
-.PHONY : Point.i
-
-# target to preprocess a source file
-Point.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Point.cpp.i
-.PHONY : Point.cpp.i
-
-Point.s: Point.cpp.s
-
-.PHONY : Point.s
-
-# target to generate assembly for a file
-Point.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Point.cpp.s
-.PHONY : Point.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -458,6 +404,9 @@ help:
 	@echo ... Board.obj
 	@echo ... Board.i
 	@echo ... Board.s
+	@echo ... EnumUtils.obj
+	@echo ... EnumUtils.i
+	@echo ... EnumUtils.s
 	@echo ... FightInfo.obj
 	@echo ... FightInfo.i
 	@echo ... FightInfo.s
@@ -470,24 +419,15 @@ help:
 	@echo ... JokerChange.obj
 	@echo ... JokerChange.i
 	@echo ... JokerChange.s
-	@echo ... Move.obj
-	@echo ... Move.i
-	@echo ... Move.s
 	@echo ... Parser.obj
 	@echo ... Parser.i
 	@echo ... Parser.s
 	@echo ... Piece.obj
 	@echo ... Piece.i
 	@echo ... Piece.s
-	@echo ... PiecePosition.obj
-	@echo ... PiecePosition.i
-	@echo ... PiecePosition.s
 	@echo ... PlayerAlgorithm.obj
 	@echo ... PlayerAlgorithm.i
 	@echo ... PlayerAlgorithm.s
-	@echo ... Point.obj
-	@echo ... Point.i
-	@echo ... Point.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

@@ -6,7 +6,6 @@
 #define ADVANCEDTOPICS2_FIGHTINFO_H
 
 #include "Board.h"
-#include "GameManager.h"
 
 class FightInfo {
 public:

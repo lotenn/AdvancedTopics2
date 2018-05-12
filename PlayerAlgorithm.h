@@ -9,10 +9,6 @@
 #include <iostream>
 #include <fstream>
 #include <list>
-#include "Board.h"
-#include "PiecePosition.h"
-#include "Move.h"
-#include "FightInfo.h"
 #include "Parser.h"
 
 #define INVALID_COORD (-1)
@@ -27,7 +23,6 @@ public:
     virtual void notifyFightResult(const FightInfo& fightInfo)=0; // called only if there was a fight
     virtual unique_ptr<Move> getMove()=0;
     virtual unique_ptr<JokerChange> getJokerChange()=0; // nullptr if no change is requested
-
 };
 
 class FilePlayerAlgorithm: public PlayerAlgorithm{
@@ -44,7 +39,7 @@ public:
 
     unique_ptr<Move> getMove() override {
         //no more moves
-        if(currentMove == moves.size()){
+        if(currentMove == (int)moves.size()){
             return make_unique<MoveImp>(INVALID_COORD,INVALID_COORD,INVALID_COORD,INVALID_COORD);
         }
         //moves file was not parsed yet
@@ -54,7 +49,7 @@ public:
     }
 
     unique_ptr<JokerChange> getJokerChange() override  {
-        if(currentMove == moves.size()){
+        if(currentMove == (int)moves.size()){
             return make_unique<JokerChangeImp>(INVALID_COORD,INVALID_COORD,INVALID_CHAR);
         }
         return move(jokerChanges[currentJokerChange++]);
@@ -64,11 +59,26 @@ public:
 
     void getMoves();
 
-    void notifyOnInitialBoard(const Board& b, const std::vector<unique_ptr<FightInfo>>& fights) override {};
+    void notifyOnInitialBoard(const Board& b, const std::vector<unique_ptr<FightInfo>>& fights) override {
+        //nonsense - to use the unused parameter
+        if(b.getPlayer(PointImp(1,1)) && fights.size()>0){
+            return;
+        }
+    };
 
-    void notifyOnOpponentMove(const Move& move) override {}; // called only on opponent’s move
+    void notifyOnOpponentMove(const Move& move) override {
+        //nonsense - to use the unused parameter
+        if(move.getTo().getX() >0){
+            return;
+        }
+    }; // called only on opponent’s move
 
-    void notifyFightResult(const FightInfo& fightInfo) override {}; // called only if there was a fight
+    void notifyFightResult(const FightInfo& fightInfo) override {
+        //nonsense - to use the unused parameter
+        if(fightInfo.getWinner()==NO_PLAYER){
+            return;
+        }
+    }; // called only if there was a fight
 };
 
 

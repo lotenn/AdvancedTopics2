@@ -1,7 +1,3 @@
-//
-// Created by loten on 20/04/2018.
-//
-
 #ifndef ADVANCEDTOPICS2_MOVE_H
 #define ADVANCEDTOPICS2_MOVE_H
 
