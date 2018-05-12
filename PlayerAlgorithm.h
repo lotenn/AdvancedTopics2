@@ -43,9 +43,13 @@ public:
     FilePlayerAlgorithm():player(NO_PLAYER), currentMove(0), currentJokerChange(0){}
 
     unique_ptr<Move> getMove() override {
+        //no more moves
         if(currentMove == moves.size()){
             return make_unique<MoveImp>(INVALID_COORD,INVALID_COORD,INVALID_COORD,INVALID_COORD);
         }
+        //moves file was not parsed yet
+        if(currentMove==0)
+            this->getMoves();
         return move(moves[currentMove++]);
     }
 

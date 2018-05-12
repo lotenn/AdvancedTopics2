@@ -45,7 +45,11 @@ void FilePlayerAlgorithm::getMoves(){
     }
     movesFile.open(filePath, ios::in);
     //file is not opened / created
-    if(!movesFile.is_open()){return;}
+    if(!movesFile.is_open()){
+        this->moves.push_back(make_unique<MoveImp>(INVALID_COORD,INVALID_COORD,INVALID_COORD,INVALID_COORD));
+        this->jokerChanges.push_back(make_unique<JokerChangeImp>(INVALID_COORD,INVALID_COORD,INVALID_CHAR));
+        return;
+    }
 
     Parser parser;
     string line;

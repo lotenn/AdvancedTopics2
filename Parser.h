@@ -7,7 +7,6 @@
 #include <vector>
 #include <sstream>
 #include "PiecePosition.h"
-#include "Game.h"
 #include "PlayerAlgorithm.h"
 
 

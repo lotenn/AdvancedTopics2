@@ -176,60 +176,6 @@ FightInfo.cpp.s:
 	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/FightInfo.cpp.s
 .PHONY : FightInfo.cpp.s
 
-Files.obj: Files.cpp.obj
-
-.PHONY : Files.obj
-
-# target to build an object file
-Files.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Files.cpp.obj
-.PHONY : Files.cpp.obj
-
-Files.i: Files.cpp.i
-
-.PHONY : Files.i
-
-# target to preprocess a source file
-Files.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Files.cpp.i
-.PHONY : Files.cpp.i
-
-Files.s: Files.cpp.s
-
-.PHONY : Files.s
-
-# target to generate assembly for a file
-Files.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Files.cpp.s
-.PHONY : Files.cpp.s
-
-Game.obj: Game.cpp.obj
-
-.PHONY : Game.obj
-
-# target to build an object file
-Game.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Game.cpp.obj
-.PHONY : Game.cpp.obj
-
-Game.i: Game.cpp.i
-
-.PHONY : Game.i
-
-# target to preprocess a source file
-Game.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Game.cpp.i
-.PHONY : Game.cpp.i
-
-Game.s: Game.cpp.s
-
-.PHONY : Game.s
-
-# target to generate assembly for a file
-Game.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/Game.cpp.s
-.PHONY : Game.cpp.s
-
 GameManager.obj: GameManager.cpp.obj
 
 .PHONY : GameManager.obj
@@ -310,33 +256,6 @@ JokerChange.s: JokerChange.cpp.s
 JokerChange.cpp.s:
 	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/JokerChange.cpp.s
 .PHONY : JokerChange.cpp.s
-
-MainAux.obj: MainAux.cpp.obj
-
-.PHONY : MainAux.obj
-
-# target to build an object file
-MainAux.cpp.obj:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/MainAux.cpp.obj
-.PHONY : MainAux.cpp.obj
-
-MainAux.i: MainAux.cpp.i
-
-.PHONY : MainAux.i
-
-# target to preprocess a source file
-MainAux.cpp.i:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/MainAux.cpp.i
-.PHONY : MainAux.cpp.i
-
-MainAux.s: MainAux.cpp.s
-
-.PHONY : MainAux.s
-
-# target to generate assembly for a file
-MainAux.cpp.s:
-	$(MAKE) -f CMakeFiles\AdvancedTopics2.dir\build.make CMakeFiles/AdvancedTopics2.dir/MainAux.cpp.s
-.PHONY : MainAux.cpp.s
 
 Move.obj: Move.cpp.obj
 
@@ -542,12 +461,6 @@ help:
 	@echo ... FightInfo.obj
 	@echo ... FightInfo.i
 	@echo ... FightInfo.s
-	@echo ... Files.obj
-	@echo ... Files.i
-	@echo ... Files.s
-	@echo ... Game.obj
-	@echo ... Game.i
-	@echo ... Game.s
 	@echo ... GameManager.obj
 	@echo ... GameManager.i
 	@echo ... GameManager.s
@@ -557,9 +470,6 @@ help:
 	@echo ... JokerChange.obj
 	@echo ... JokerChange.i
 	@echo ... JokerChange.s
-	@echo ... MainAux.obj
-	@echo ... MainAux.i
-	@echo ... MainAux.s
 	@echo ... Move.obj
 	@echo ... Move.i
 	@echo ... Move.s

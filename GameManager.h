@@ -16,14 +16,14 @@
 #define NUM_OF_B 2
 #define NUM_OF_J 2
 #define NUM_OF_F 1
-#define NUM_OF_TOOLS (NUM_OF_B + NUM_OF_F + NUM_OF_J + NUM_OF_P + NUM_OF_R + NUM_OF_S)
+#define MAX_TURNS_WITH_NO_FIGHTS 100
 
 enum playerMode{
     AUTO_PLAYER = 0,
     FILE_PLAYER = 1
 };
 
-int static playerEnumToInt(playerEnum player){
+int playerEnumToInt(playerEnum player){
     switch(player){
         case PLAYER_1:
             return 1;
@@ -80,7 +80,29 @@ public:
 
     void positioningStage(vector<unique_ptr<FightInfo>>& fights);
 
-};
+    void positioningStageCheckGameEnd();
+
+    void moveStage();
+
+    void raisePlayerScore(int score, playerEnum player);
+
+    bool badPositioningFile(endGameReason reason);
+
+    bool badMovesFile(endGameReason reason);
+
+    bool badInputFile(endGameReason reason);
+
+    string getBadInputFileMessage(endGameReason reason);
+
+    void printBadInputFile();
+
+    string getReasonString();
+
+    void endGame();
+
+    void generateOutputFile(const char *outputFilePath, string winner, string reason, string board);
+
+    };
 
 
 #endif //ADVANCEDTOPICS2_GAMEMANAGER_H
