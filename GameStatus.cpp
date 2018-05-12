@@ -7,5 +7,4 @@ void GameStatus::reset(){
     this->setReason2(NO_REASON);
     this->setWinner(NO_PLAYER);
     this->setLoser(NO_PLAYER);
-    errorLine1 = errorLine2 = 0;
 }

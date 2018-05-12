@@ -16,8 +16,6 @@ private:
     endGameReason reason2;
     playerEnum winner;
     playerEnum loser;
-    int errorLine1;
-    int errorLine2;
 
 public:
     GameStatus(): gameOn(true){}
@@ -72,22 +70,6 @@ public:
 
     void setLoser(playerEnum loser) {
         GameStatus::loser = loser;
-    }
-
-    int getErrorLine1() const {
-        return errorLine1;
-    }
-
-    void setErrorLine1(int errorLine1) {
-        GameStatus::errorLine1 = errorLine1;
-    }
-
-    int getErrorLine2() const {
-        return errorLine2;
-    }
-
-    void setErrorLine2(int errorLine2) {
-        GameStatus::errorLine2 = errorLine2;
     }
 
     void reset();
