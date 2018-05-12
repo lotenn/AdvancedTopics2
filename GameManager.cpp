@@ -36,32 +36,32 @@ GameManager::GameManager(playerMode player1Mode, playerMode player2Mode){
     int toolIndex = 0;
     for(int i=toolIndex; toolIndex < (i+NUM_OF_R); toolIndex++){
         player1Pieces.push_back(make_shared<RockPiece>(PLAYER_1));
-        player1Pieces.push_back(make_shared<RockPiece>(PLAYER_2));
+        player2Pieces.push_back(make_shared<RockPiece>(PLAYER_2));
     }
 
     for(int i=toolIndex; toolIndex < (i+NUM_OF_P); toolIndex++){
         player1Pieces.push_back(make_shared<PaperPiece>(PLAYER_1));
-        player1Pieces.push_back(make_shared<PaperPiece>(PLAYER_2));
+        player2Pieces.push_back(make_shared<PaperPiece>(PLAYER_2));
     }
 
     for(int i=toolIndex; toolIndex < (i+NUM_OF_S); toolIndex++){
         player1Pieces.push_back(make_shared<ScissorsPiece>(PLAYER_1));
-        player1Pieces.push_back(make_shared<ScissorsPiece>(PLAYER_2));
+        player2Pieces.push_back(make_shared<ScissorsPiece>(PLAYER_2));
     }
 
     for(int i=toolIndex; toolIndex < (i+NUM_OF_B); toolIndex++){
         player1Pieces.push_back(make_shared<BombPiece>(PLAYER_1));
-        player1Pieces.push_back(make_shared<BombPiece>(PLAYER_2));
+        player2Pieces.push_back(make_shared<BombPiece>(PLAYER_2));
     }
 
     for(int i=toolIndex; toolIndex < (i+NUM_OF_J); toolIndex++){
         player1Pieces.push_back(make_shared<JokerPiece>(PLAYER_1));
-        player1Pieces.push_back(make_shared<JokerPiece>(PLAYER_2));
+        player2Pieces.push_back(make_shared<JokerPiece>(PLAYER_2));
     }
 
     for(int i=toolIndex; toolIndex < (i+NUM_OF_F); toolIndex++){
         player1Pieces.push_back(make_shared<FlagPiece>(PLAYER_1));
-        player1Pieces.push_back(make_shared<FlagPiece>(PLAYER_2));
+        player2Pieces.push_back(make_shared<FlagPiece>(PLAYER_2));
     }
 }
 
@@ -261,9 +261,12 @@ void GameManager::setPlayerPieces(const vector<unique_ptr<PiecePosition>> &piece
     else{playerPieces = &player2Pieces;}
 
     for(int i=0; i < (int)piecePositions.size(); i++){
-        pieceType _pieceType = charToPieceType(piecePositions[i]->getPiece());
         bool wasFight = false;
-        if(piecePositions[i]->getJokerRep() != NO_JOKER_CHANGE_SYMBOL){
+        //test
+//        cout << "i = " << i << " jokerRep of piecPos[i] = " <<  piecePositions[i]->getJokerRep() << endl;
+
+        if(piecePositions[i]->getJokerRep() == NO_JOKER_CHANGE_SYMBOL){
+            pieceType _pieceType = charToPieceType(piecePositions[i]->getPiece());
             for(shared_ptr<Piece> piece: *(playerPieces)){
                 if(!piece->IsPositioned() && !piece->isJoker() && piece->getType() == _pieceType){
                     wasFight = performBattle(piecePositions[i]->getPosition(), piece,
@@ -273,11 +276,12 @@ void GameManager::setPlayerPieces(const vector<unique_ptr<PiecePosition>> &piece
                                                                    fightInfo.getPiece(1),
                                                                    fightInfo.getPiece(2),
                                                                    fightInfo.getWinner() == 1 ? PLAYER_1 : PLAYER_2));
-                }
                 break;
+                }
             }
         }
         else{
+            pieceType _pieceType = charToPieceType(piecePositions[i]->getJokerRep());
             for(shared_ptr<Piece> piece: *(playerPieces)){
                 if(!piece->IsPositioned() && piece->isJoker()){
                     piece->setJoker(_pieceType, gameStatus);
@@ -289,8 +293,8 @@ void GameManager::setPlayerPieces(const vector<unique_ptr<PiecePosition>> &piece
                                                                    fightInfo.getPiece(1),
                                                                    fightInfo.getPiece(2),
                                                                    fightInfo.getWinner() == 1 ? PLAYER_1 : PLAYER_2));
-                }
                 break;
+                }
             }
         }
     }
@@ -312,7 +316,8 @@ bool GameManager::containsFlags(vector<shared_ptr<Piece>>& playerPieces){
     return false;
 }
 
-void GameManager::positioningStage(vector<unique_ptr<FightInfo>>& fights){
+void GameManager::positioningStage(){
+    vector<unique_ptr<FightInfo>> fights;
     vector<unique_ptr<PiecePosition>> player1PiecePosition, player2PiecePosition;
     player1->getInitialPositions(PLAYER_1, player1PiecePosition);
     player2->getInitialPositions(PLAYER_2, player2PiecePosition);
@@ -346,10 +351,15 @@ void GameManager::positioningStage(vector<unique_ptr<FightInfo>>& fights){
     setPlayerPieces(player1PiecePosition, PLAYER_1, fights);
     setPlayerPieces(player2PiecePosition, PLAYER_2, fights);
 
-    positioningStageCheckGameEnd();
+    positioningCheckGameEnd();
+
+    if(gameStatus.isGameOn()){
+       player1->notifyOnInitialBoard(board, fights);
+       player2->notifyOnInitialBoard(board, fights);
+    }
 }
 
-void GameManager::positioningStageCheckGameEnd() {
+void GameManager::positioningCheckGameEnd() {
     bool player1HasFlags, player2HasFlags, player1HasMovingPieces, player2HasMovingPieces, player1Loss, player2Loss;
     player1HasFlags = containsFlags(player1Pieces);
     player1HasMovingPieces = containsMovingPieces(player1Pieces);
@@ -420,6 +430,9 @@ void GameManager::moveStage(){
         }
 
         unique_ptr<Move> player1Move  = player1->getMove();
+        //test
+//        cout << player1Move->getFrom().getX() << endl;
+
         MoveImp currentMove = MoveImp(player1Move->getFrom().getX(),
                                    player1Move->getFrom().getY(),
                                    player1Move->getTo().getX(),
@@ -478,7 +491,7 @@ void GameManager::moveStage(){
             gameStatus.setReason2(gameStatus.getMainReason());
             return;
         }
-        player2->notifyOnOpponentMove(currentMove);
+        player1->notifyOnOpponentMove(currentMove);
         if(wasFight){
             numOfTurnsWithNoFight = 0;
             player1->notifyFightResult(fightInfo);
@@ -532,7 +545,7 @@ void GameManager::printBadInputFile(){
     string msgPrefix = "Bad "+ inputType +" input file: ";
     if(gameStatus.getMainReason() != DRAW_BAD_POSITIONING_FILE_BOTH_PLAYERS) {
         errorMessage = getBadInputFileMessage(gameStatus.getMainReason());
-        cout << msgPrefix << errorMessage << " - " + playerEnumToString(getOpposite(gameStatus.getLoser())) << endl;
+        cout << msgPrefix << errorMessage << " - " + playerEnumToString(gameStatus.getLoser()) << endl;
     }
     else{
         errorMessage = getBadInputFileMessage(gameStatus.getReason1());
@@ -568,6 +581,7 @@ string GameManager::getReasonString(){
     reasons[BAD_MOVE_FILE_INVALID] = "Bad Moves input file for "+ playerEnumToString(gameStatus.getLoser());
     reasons[BAD_MOVE_FILE_NOT_YOUR_TOOL] = "Bad Moves input file for " + playerEnumToString(gameStatus.getLoser());
     reasons[BAD_MOVE_FILE_TOOL_CANT_MOVE] = "Bad Moves input file for " + playerEnumToString(gameStatus.getLoser());
+    reasons[NO_MORE_MOVES] = "Moves ended for " + playerEnumToString(gameStatus.getLoser());
     reasons[BAD_MOVE_FILE_CELL_OCCUPIED] = "Bad Moves input file for " + playerEnumToString(gameStatus.getLoser());
     reasons[BAD_MOVE_FILE_NOT_JOKER] = "Bad Moves input file for "+ playerEnumToString(gameStatus.getLoser());
     reasons[DRAW_NO_MOVING_TOOLS] = "A tie - all moving PIECEs are eaten by both players";

@@ -39,17 +39,17 @@ public:
 
     unique_ptr<Move> getMove() override {
         //no more moves
-        if(currentMove == (int)moves.size()){
-            return make_unique<MoveImp>(INVALID_COORD,INVALID_COORD,INVALID_COORD,INVALID_COORD);
-        }
         //moves file was not parsed yet
         if(currentMove==0)
             this->getMoves();
+        if(currentMove == (int)moves.size()){
+            return make_unique<MoveImp>(INVALID_COORD,INVALID_COORD,INVALID_COORD,INVALID_COORD);
+        }
         return move(moves[currentMove++]);
     }
 
     unique_ptr<JokerChange> getJokerChange() override  {
-        if(currentMove == (int)moves.size()){
+        if(currentJokerChange == (int)jokerChanges.size()){
             return make_unique<JokerChangeImp>(INVALID_COORD,INVALID_COORD,INVALID_CHAR);
         }
         return move(jokerChanges[currentJokerChange++]);

@@ -43,11 +43,14 @@ private:
 public:
     GameManager(playerMode player1Mode, playerMode player2Mode);
 
+    const GameStatus &getGameStatus() const {
+        return gameStatus;
+    }
+
     void validatePositioningVector(playerEnum player, vector<unique_ptr<PiecePosition>>&  piecePositions);
 
     void setPlayerPieces(const vector<unique_ptr<PiecePosition>> &piecePositions, playerEnum player,
                                       vector<unique_ptr<FightInfo>>& fights);
-
     bool performBattle(const Point& point, shared_ptr<Piece> source, shared_ptr<Piece> target);
 
     bool executeMove(unique_ptr<Move> move);
@@ -60,9 +63,9 @@ public:
 
     bool containsFlags(vector<shared_ptr<Piece>>& playerPieces);
 
-    void positioningStage(vector<unique_ptr<FightInfo>>& fights);
+    void positioningStage();
 
-    void positioningStageCheckGameEnd();
+    void positioningCheckGameEnd();
 
     void moveStage();
 
