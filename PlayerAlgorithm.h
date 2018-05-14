@@ -61,7 +61,7 @@ public:
 
     void notifyOnInitialBoard(const Board& b, const std::vector<unique_ptr<FightInfo>>& fights) override {
         //nonsense - to use the unused parameter
-        if(b.getPlayer(PointImp(1,1)) && fights.size()>0){
+        if(b.getPlayer(PointImp(1,1)) && !fights.empty()){
             return;
         }
     };
@@ -136,23 +136,17 @@ private:
     PossiblePieces knownBoard[N][M][2];
 
 public:
-    AutoPlayerAlgorithm(playerEnum _player): player(_player){
-        resetKnownBoard();
-    }
-
-    void resetKnownBoard(){
-        for(int i=0; i<N; i++)
-            for(int j=0; j<M; j++)
-                for(int k=0; k<2; k++)
-                    knownBoard[i][j][k].reset();
-    }
-
+    AutoPlayerAlgorithm(playerEnum _player): player(_player){resetKnownBoard();}
+    void resetKnownBoard();
     void getInitialPositions(int player, std::vector<unique_ptr<PiecePosition>>& vectorToFill) override;
     void notifyOnInitialBoard(const Board& b, const std::vector<unique_ptr<FightInfo>>& fights) override;
     void notifyOnOpponentMove(const Move& move) override; // called only on opponent’s move
     void notifyFightResult(const FightInfo& fightInfo) override; // called only if there was a fight
-    unique_ptr<Move> getMove() override;
-    unique_ptr<JokerChange> getJokerChange() override; // nullptr if no change is requested
+
+//    todo: complete get move
+//    unique_ptr<Move> getMove() override;
+//    todo: complete Joker Change
+//    unique_ptr<JokerChange> getJokerChange() override; // nullptr if no change is requested
 };
 
 

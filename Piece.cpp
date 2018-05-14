@@ -1,6 +1,8 @@
 #include <cstring>
 #include "Piece.h"
 
+//***************************************Utility Functions**************************
+
 pieceType charToPieceType(char c) {
     switch (c) {
         case 'R':
@@ -32,6 +34,23 @@ char pieceTypeToChar(pieceType _pieceType){
             return 'F';
         default:
             return 'E';
+    }
+}
+
+possiblePieceType charToPossiblePieceType(char c){
+    switch (c) {
+        case 'R':
+            return pROCK;
+        case 'P':
+            return pPAPER;
+        case 'S':
+            return pSCISSORS;
+        case 'B':
+            return pBOMB;
+        case 'F':
+            return pFLAG;
+        default:
+            return pEMPTY;
     }
 }
 
@@ -93,6 +112,8 @@ bool isCharArrValidJokerPieceType(char *c) {
     }
     return false;
 }
+
+//***************************************Member Functions**************************
 
 bool Piece::canCapture(shared_ptr<Piece> other) {
     vector<pieceType> weakerPieces = this->getWeakerPieces();

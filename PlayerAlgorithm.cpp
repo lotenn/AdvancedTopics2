@@ -58,6 +58,13 @@ void FilePlayerAlgorithm::getMoves(){
 }
 
 //*******************************************Auto Algorithm*****************************************************
+void AutoPlayerAlgorithm::resetKnownBoard(){
+    for(int i=0; i<N; i++)
+        for(int j=0; j<M; j++)
+            for(int k=0; k<2; k++)
+                knownBoard[i][j][k].reset();
+}
+
 void AutoPlayerAlgorithm::getInitialPositions(int player, std::vector<unique_ptr<PiecePosition>>& vectorToFill){
     if(player == 1){
 
@@ -167,32 +174,44 @@ void AutoPlayerAlgorithm::getInitialPositions(int player, std::vector<unique_ptr
 }
 
 void AutoPlayerAlgorithm::notifyOnInitialBoard(const Board& b, const std::vector<unique_ptr<FightInfo>>& fights){
-    int opponentPlayerInt = this->player == PLAYER_1 ? 2 : 1, row, col;
-    playerEnum opponentPlayer = this->player == PLAYER_1 ? PLAYER_2 : PLAYER_1;
+    int opponentPlayer = playerEnumToInt(getOpposite(this->player));
+    int row, col;
 
     //finding opponent player & update.
     for(int x=1; x <= M; x++){
         for(int y=1; y <= N; y++){
             PointImp point(x,y);
-            if(b.getPlayer(point) == opponentPlayerInt){
+            if(b.getPlayer(point) == opponentPlayer){
                 row = PointUtils::getRow(point);
                 col = PointUtils::getCol(point);
-                this->knownBoard[row][col][PRIMARY].setPlayer(opponentPlayer);
+                this->knownBoard[row][col][PRIMARY].reset();    //In case current position includes this player's piece
+                this->knownBoard[row][col][PRIMARY].setPlayer(getOpposite(this->player));
+                this->knownBoard[row][col][PRIMARY].setPossiblePiece(pUNKNOWN);
             }
         }
     }
-
+    /*
+     * Iterating through fights vector
+     * If this->player won the fight, knownBoard is already updated
+     * else, we update known board according to the winner (opponent or both lose)
+     */
     int winnerInt;
-    char player1Piece, player2Piece;
-    pieceType winnerPiece;
-    for(int i=0; i < fights.size(); i++){
+    char opponentPiece;
+    for(int i=0; i < (int)fights.size(); i++){
         winnerInt = fights[i]->getWinner();
-        player1Piece = fights[i]->getPiece(1);
-        player2Piece = fights[i]->getPiece(2);
-        winnerPiece = winnerInt == 0 ? pEMPTY : charToPossiblePieceType(fights[i]->getPiece(winnerInt));
+        row = PointUtils::getRow(fights[i]->getPosition());
+        col = PointUtils::getCol(fights[i]->getPosition());
+        opponentPiece = fights[i]->getPiece(opponentPlayer);
+
+        //opponent won
+        if(winnerInt == opponentPlayer)
+            this->knownBoard[row][col][PRIMARY].setPossiblePiece(charToPossiblePieceType(opponentPiece));
+        //both lose
+        else if(winnerInt == playerEnumToInt(NO_PLAYER))
+            this->knownBoard[row][col][PRIMARY].reset();
+        else continue;  //this player won - known board is up2date
     }
 }
-
 
 void AutoPlayerAlgorithm::notifyOnOpponentMove(const Move& move){
     int fromCol, fromRow, toCol, toRow;
@@ -202,7 +221,7 @@ void AutoPlayerAlgorithm::notifyOnOpponentMove(const Move& move){
     toCol = PointUtils::getCol(move.getTo());
 
     //target point is empty
-    if(knownBoard[toRow][toCol][PRIMARY].getPlayer() == pEMPTY){
+    if(knownBoard[toRow][toCol][PRIMARY].getPossiblePiece() == pEMPTY){
         knownBoard[toRow][toCol][PRIMARY] = knownBoard[fromRow][fromCol][PRIMARY];
         knownBoard[toRow][toCol][PRIMARY].setIsMovable(true);
     }
@@ -211,22 +230,13 @@ void AutoPlayerAlgorithm::notifyOnOpponentMove(const Move& move){
         knownBoard[toRow][toCol][SECONDARY] = knownBoard[fromRow][fromCol][PRIMARY];
         knownBoard[toRow][toCol][SECONDARY].setIsMovable(true);
     }
-
     this->knownBoard[fromRow][fromCol][PRIMARY].reset();
 }
 
 void AutoPlayerAlgorithm::notifyFightResult(const FightInfo& fightInfo){
     int thisPlayer, opponentPlayer, col, row;
-    playerEnum  thisPlayerEnum;
-
-    if(this->player == PLAYER_1){
-        thisPlayer = 1;
-        opponentPlayer =2;
-    }
-    else{
-        thisPlayer = 2;
-        opponentPlayer =1;
-    }
+    thisPlayer = playerEnumToInt(this->player);
+    opponentPlayer = playerEnumToInt(getOpposite(this->player));
 
     char opponentPiece = fightInfo.getPiece(opponentPlayer);
     row = PointUtils::getRow(fightInfo.getPosition());
@@ -244,9 +254,10 @@ void AutoPlayerAlgorithm::notifyFightResult(const FightInfo& fightInfo){
     }
     //opponent won the fight
     else if(fightInfo.getWinner() == opponentPlayer){
-        if(knownBoard[row][col][PRIMARY].getPlayer() == this->player){        //primary contains losing piece
+        //primary contains losing piece
+        if(knownBoard[row][col][PRIMARY].getPlayer() == this->player){
             knownBoard[row][col][PRIMARY] = this->knownBoard[row][col][SECONDARY];
-            knownBoard[row][col][PRIMARY].setPossiblePiece(possiblePieceTypeToChar(opponentPiece));
+            knownBoard[row][col][PRIMARY].setPossiblePiece(charToPossiblePieceType(opponentPiece));
             knownBoard[row][col][SECONDARY].reset();
         }
         else    //secondary contains losing piece

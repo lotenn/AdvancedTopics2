@@ -1,16 +1,7 @@
 #include "GameManager.h"
 
 
-playerEnum getOpposite(playerEnum player){
-    switch(player){
-        case PLAYER_1:
-            return PLAYER_2;
-        case PLAYER_2:
-            return PLAYER_1;
-        default:
-            return NO_PLAYER;
-    }
-}
+
 
 string getWinnerString(playerEnum player){
     map<playerEnum , string> winner;

@@ -20,7 +20,7 @@
 
 
 
-playerEnum getOpposite(playerEnum player);
+
 
 string getWinnerString(playerEnum player);
 

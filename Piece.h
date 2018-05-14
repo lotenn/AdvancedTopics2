@@ -15,7 +15,7 @@ bool isValidJokerPieceType(char tool);
 
 bool isCharArrValidJokerPieceType(char *c);
 
-//*************************PieceType Enum********************************************************
+//*************************PieceType Enums********************************************************
 
 enum pieceType {
     ROCK ,
@@ -40,11 +40,8 @@ enum possiblePieceType {
     pUNKNOWN,
 };
 
-/*possiblePieceType charToPossiblePieceType(char c){
-*//*    switch(c){
-        case ''
-    }*//*
-}*/
+possiblePieceType charToPossiblePieceType(char c);
+
 
 //*************************Piece Class********************************************************
 
