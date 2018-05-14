@@ -80,18 +80,77 @@ public:
     }; // called only if there was a fight
 };
 
+class PossiblePieces {
+private:
+    playerEnum player;
+    possiblePieceType possiblePiece;
+    bool isMovable;
+    bool isJoker;
+
+public:
+    bool isIsJoker() const {
+        return isJoker;
+    }
+
+    void setIsJoker(bool isJoker) {
+        PossiblePieces::isJoker = isJoker;
+    }
+
+    playerEnum getPlayer() const {
+        return player;
+    }
+
+    void setPlayer(playerEnum player) {
+        PossiblePieces::player = player;
+    }
+
+    possiblePieceType getPossiblePiece() const {
+        return possiblePiece;
+    }
+
+    void setPossiblePiece(possiblePieceType possiblePiece) {
+        PossiblePieces::possiblePiece = possiblePiece;
+    }
+
+    bool isIsMovable() const {
+        return isMovable;
+    }
+
+    void setIsMovable(bool isMovable) {
+        PossiblePieces::isMovable = isMovable;
+    }
+
+    void reset(){
+        this->player = NO_PLAYER;
+        this->possiblePiece = pEMPTY;
+        this->isMovable = false;
+        this->isJoker = false;
+    }
+};
+
 class AutoPlayerAlgorithm: public PlayerAlgorithm{
 private:
     playerEnum player;
-    unique_ptr<vector<Piece>> knownBoard[N][M];
+    PossiblePieces knownBoard[N][M];
 
 public:
+    AutoPlayerAlgorithm(playerEnum _player): player(_player){
+        resetKnownBoard();
+    }
+
+    void resetKnownBoard(){
+        for(int i=0; i<N; i++)
+            for(int j=0; j<M; j++)
+                knownBoard[i][j].reset();
+    }
+
     void getInitialPositions(int player, std::vector<unique_ptr<PiecePosition>>& vectorToFill) override;
     void notifyOnInitialBoard(const Board& b, const std::vector<unique_ptr<FightInfo>>& fights) override {}
     void notifyOnOpponentMove(const Move& move) override {} // called only on opponent’s move
     void notifyFightResult(const FightInfo& fightInfo) override {} // called only if there was a fight
-//    unique_ptr<Move> getMove() override {}
-//    unique_ptr<JokerChange> getJokerChange() override {} // nullptr if no change is requested
+    unique_ptr<Move> getMove() override {}
+    unique_ptr<JokerChange> getJokerChange() override {} // nullptr if no change is requested
 };
+
 
 #endif //ADVANCEDTOPICS2_PLAYERALGORITHM_H

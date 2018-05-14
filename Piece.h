@@ -30,6 +30,16 @@ pieceType charToPieceType(char c);
 
 char pieceTypeToChar(pieceType _pieceType);
 
+enum possiblePieceType {
+    pROCK ,
+    pPAPER,
+    pSCISSORS,
+    pBOMB,
+    pFLAG,
+    pEMPTY,
+    pUNKNOWN,
+};
+
 //*************************Piece Class********************************************************
 
 class Piece{
