@@ -13,7 +13,8 @@
 
 #define INVALID_COORD (-1)
 #define INVALID_CHAR '\0'
-
+#define PRIMARY 0
+#define SECONDARY 1
 
 class PlayerAlgorithm {
 public:
@@ -132,7 +133,7 @@ public:
 class AutoPlayerAlgorithm: public PlayerAlgorithm{
 private:
     playerEnum player;
-    PossiblePieces knownBoard[N][M];
+    PossiblePieces knownBoard[N][M][2];
 
 public:
     AutoPlayerAlgorithm(playerEnum _player): player(_player){
@@ -142,7 +143,8 @@ public:
     void resetKnownBoard(){
         for(int i=0; i<N; i++)
             for(int j=0; j<M; j++)
-                knownBoard[i][j].reset();
+                for(int k=0; k<2; k++)
+                    knownBoard[i][j][k].reset();
     }
 
     void getInitialPositions(int player, std::vector<unique_ptr<PiecePosition>>& vectorToFill) override;
