@@ -166,6 +166,33 @@ void AutoPlayerAlgorithm::getInitialPositions(int player, std::vector<unique_ptr
     }
 }
 
+void AutoPlayerAlgorithm::notifyOnInitialBoard(const Board& b, const std::vector<unique_ptr<FightInfo>>& fights){
+    int opponentPlayerInt = this->player == PLAYER_1 ? 2 : 1, row, col;
+    playerEnum opponentPlayer = this->player == PLAYER_1 ? PLAYER_2 : PLAYER_1;
+
+    //finding opponent player & update.
+    for(int x=1; x <= M; x++){
+        for(int y=1; y <= N; y++){
+            PointImp point(x,y);
+            if(b.getPlayer(point) == opponentPlayerInt){
+                row = PointUtils::getRow(point);
+                col = PointUtils::getCol(point);
+                this->knownBoard[row][col][PRIMARY].setPlayer(opponentPlayer);
+            }
+        }
+    }
+
+    int winnerInt;
+    char player1Piece, player2Piece;
+    pieceType winnerPiece;
+    for(int i=0; i < fights.size(); i++){
+        winnerInt = fights[i]->getWinner();
+        player1Piece = fights[i]->getPiece(1);
+        player2Piece = fights[i]->getPiece(2);
+        winnerPiece = winnerInt == 0 ? pEMPTY : charToPossiblePieceType(fights[i]->getPiece(winnerInt));
+    }
+}
+
 
 void AutoPlayerAlgorithm::notifyOnOpponentMove(const Move& move){
     int fromCol, fromRow, toCol, toRow;
@@ -191,7 +218,7 @@ void AutoPlayerAlgorithm::notifyOnOpponentMove(const Move& move){
 void AutoPlayerAlgorithm::notifyFightResult(const FightInfo& fightInfo){
     int thisPlayer, opponentPlayer, col, row;
     playerEnum  thisPlayerEnum;
-    
+
     if(this->player == PLAYER_1){
         thisPlayer = 1;
         opponentPlayer =2;
@@ -200,15 +227,15 @@ void AutoPlayerAlgorithm::notifyFightResult(const FightInfo& fightInfo){
         thisPlayer = 2;
         opponentPlayer =1;
     }
-    
+
     char opponentPiece = fightInfo.getPiece(opponentPlayer);
     row = PointUtils::getRow(fightInfo.getPosition());
     col = PointUtils::getCol(fightInfo.getPosition());
 
     //this player won the fight
     if(fightInfo.getWinner() == thisPlayer){
-        if(knownBoard[row][col][PRIMARY].getPlayer() == this->player){ 
-           knownBoard[row][col][SECONDARY].reset(); 
+        if(knownBoard[row][col][PRIMARY].getPlayer() == this->player){
+           knownBoard[row][col][SECONDARY].reset();
         }
         else{
             knownBoard[row][col][PRIMARY] = knownBoard[row][col][SECONDARY];
@@ -226,7 +253,7 @@ void AutoPlayerAlgorithm::notifyFightResult(const FightInfo& fightInfo){
             knownBoard[row][col][SECONDARY].reset();
     }
     //both lose
-    else{     
+    else{
         knownBoard[row][col][PRIMARY].reset();
         knownBoard[row][col][SECONDARY].reset();
     }
