@@ -40,6 +40,12 @@ enum possiblePieceType {
     pUNKNOWN,
 };
 
+/*possiblePieceType charToPossiblePieceType(char c){
+*//*    switch(c){
+        case ''
+    }*//*
+}*/
+
 //*************************Piece Class********************************************************
 
 class Piece{

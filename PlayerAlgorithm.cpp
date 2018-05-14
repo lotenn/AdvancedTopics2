@@ -125,3 +125,30 @@ void AutoPlayerAlgorithm::getInitialPositions(int player, std::vector<unique_ptr
         vectorToFill.push_back(make_unique<PiecePositionImp>(6, 5, 'J', 'S'));
     }
 }
+
+void AutoPlayerAlgorithm::notifyOnInitialBoard(const Board& b, const std::vector<unique_ptr<FightInfo>>& fights){
+    int opponentPlayerInt = this->player == PLAYER_1 ? 2 : 1, row, col;
+    playerEnum opponentPlayer = this->player == PLAYER_1 ? PLAYER_2 : PLAYER_1;
+
+    //finding opponent player & update.
+    for(int x=1; x <= M; x++){
+        for(int y=1; y <= N; y++){
+            PointImp point(x,y);
+            if(b.getPlayer(point) == opponentPlayerInt){
+                row = PointUtils::getRow(point);
+                col = PointUtils::getCol(point);
+                this->knownBoard[row][col].setPlayer(opponentPlayer);
+            }
+        }
+    }
+
+    int winnerInt;
+    char player1Piece, player2Piece;
+    pieceType winnerPiece;
+    for(int i=0; i < fights.size(); i++){
+       winnerInt = fights[i]->getWinner();
+       player1Piece = fights[i]->getPiece(1);
+       player2Piece = fights[i]->getPiece(2);
+       winnerPiece = winnerInt == 0 ? pEMPTY : charToPossiblePieceType(fights[i]->getPiece(winnerInt));
+    }
+}
