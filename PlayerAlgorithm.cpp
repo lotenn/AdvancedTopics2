@@ -165,3 +165,15 @@ void AutoPlayerAlgorithm::getInitialPositions(int player, std::vector<unique_ptr
         this->knownBoard[4][5].setIsJoker(true);
     }
 }
+
+
+void AutoPlayerAlgorithm::notifyOnOpponentMove(const Move& move){
+    int fromCol, fromRow, toCol, toRow;
+    fromRow = PointUtils::getRow(move.getFrom());
+    fromCol = PointUtils::getCol(move.getFrom());
+    toRow = PointUtils::getRow(move.getTo());
+    toCol = PointUtils::getCol(move.getTo());
+
+    this->knownBoard[toRow][toCol] = knownBoard[fromRow][fromCol];
+    this->knownBoard[fromRow][fromCol].reset();
+}
