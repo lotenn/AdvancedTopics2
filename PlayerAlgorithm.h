@@ -15,6 +15,10 @@
 #define INVALID_CHAR '\0'
 #define PRIMARY 0
 #define SECONDARY 1
+#define LEFTMOST_COL 0
+#define RIGHTMOST_COL (M-1)
+#define UPMOST_ROW (N-1)
+#define DOWNMOST_ROW 0
 
 class PlayerAlgorithm {
 public:
@@ -85,7 +89,7 @@ class PossiblePieces {
 private:
     playerEnum player;
     possiblePieceType possiblePiece;
-    bool isMovable;
+    bool optFlag;
     bool isJoker;
 
 public:
@@ -114,18 +118,18 @@ public:
         PossiblePieces::possiblePiece = possiblePiece;
     }
 
-    bool isIsMovable() const {
-        return isMovable;
+    bool isOptFlag() const {
+        return optFlag;
     }
 
-    void setIsMovable(bool isMovable) {
-        PossiblePieces::isMovable = isMovable;
+    void setOptFlag(bool isMovable) {
+        PossiblePieces::optFlag = isMovable;
     }
 
     void reset(){
         this->player = NO_PLAYER;
         this->possiblePiece = pEMPTY;
-        this->isMovable = false;
+        this->optFlag = true;
         this->isJoker = false;
     }
 };
@@ -144,9 +148,15 @@ public:
     void notifyFightResult(const FightInfo& fightInfo) override; // called only if there was a fight
 
 //    todo: complete get move
-//    unique_ptr<Move> getMove() override;
+    unique_ptr<Move> getMove() override;
 //    todo: complete Joker Change
 //    unique_ptr<JokerChange> getJokerChange() override; // nullptr if no change is requested
+
+
+    void getPossibleTargets(const PointImp& point, vector<PointImp>& targetsToFill);
+    bool canMove(possiblePieceType p_pieceType);
+
+    void performPlayerMove(const PointImp &from, const PointImp &to);
 };
 
 

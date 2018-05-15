@@ -69,104 +69,104 @@ void AutoPlayerAlgorithm::getInitialPositions(int player, std::vector<unique_ptr
     if(player == 1){
 
         vectorToFill.push_back(make_unique<PiecePositionImp>(2, 6, 'R', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[5][1][PRIMARY].setIsMovable(true);
+        this->knownBoard[5][1][PRIMARY].setOptFlag(false);
         this->knownBoard[5][1][PRIMARY].setPlayer(PLAYER_1);
         this->knownBoard[5][1][PRIMARY].setPossiblePiece(pROCK);
         vectorToFill.push_back(make_unique<PiecePositionImp>(8, 6, 'R', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[5][7][PRIMARY].setIsMovable(true);
+        this->knownBoard[5][7][PRIMARY].setOptFlag(false);
         this->knownBoard[5][7][PRIMARY].setPlayer(PLAYER_1);
         this->knownBoard[5][7][PRIMARY].setPossiblePiece(pROCK);
         vectorToFill.push_back(make_unique<PiecePositionImp>(3, 7, 'P', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[6][2][PRIMARY].setIsMovable(true);
+        this->knownBoard[6][2][PRIMARY].setOptFlag(false);
         this->knownBoard[6][2][PRIMARY].setPlayer(PLAYER_1);
         this->knownBoard[6][2][PRIMARY].setPossiblePiece(pPAPER);
         vectorToFill.push_back(make_unique<PiecePositionImp>(4, 7, 'P', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[6][3][PRIMARY].setIsMovable(true);
+        this->knownBoard[6][3][PRIMARY].setOptFlag(false);
         this->knownBoard[6][3][PRIMARY].setPlayer(PLAYER_1);
         this->knownBoard[6][3][PRIMARY].setPossiblePiece(pPAPER);
         vectorToFill.push_back(make_unique<PiecePositionImp>(5, 7, 'P', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[6][4][PRIMARY].setIsMovable(true);
+        this->knownBoard[6][4][PRIMARY].setOptFlag(false);
         this->knownBoard[6][4][PRIMARY].setPlayer(PLAYER_1);
         this->knownBoard[6][4][PRIMARY].setPossiblePiece(pPAPER);
         vectorToFill.push_back(make_unique<PiecePositionImp>(6, 7, 'P', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[6][5][PRIMARY].setIsMovable(true);
+        this->knownBoard[6][5][PRIMARY].setOptFlag(false);
         this->knownBoard[6][5][PRIMARY].setPlayer(PLAYER_1);
         this->knownBoard[6][5][PRIMARY].setPossiblePiece(pPAPER);
         vectorToFill.push_back(make_unique<PiecePositionImp>(7, 7, 'P', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[6][6][PRIMARY].setIsMovable(true);
+        this->knownBoard[6][6][PRIMARY].setOptFlag(false);
         this->knownBoard[6][6][PRIMARY].setPlayer(PLAYER_1);
         this->knownBoard[6][6][PRIMARY].setPossiblePiece(pPAPER);
         vectorToFill.push_back(make_unique<PiecePositionImp>(4, 8, 'B', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[7][3][PRIMARY].setIsMovable(false);
+        this->knownBoard[7][3][PRIMARY].setOptFlag(false);
         this->knownBoard[7][3][PRIMARY].setPlayer(PLAYER_1);
         this->knownBoard[7][3][PRIMARY].setPossiblePiece(pBOMB);
         vectorToFill.push_back(make_unique<PiecePositionImp>(6, 8, 'B', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[7][5][PRIMARY].setIsMovable(false);
+        this->knownBoard[7][5][PRIMARY].setOptFlag(false);
         this->knownBoard[7][5][PRIMARY].setPlayer(PLAYER_1);
         this->knownBoard[7][5][PRIMARY].setPossiblePiece(pBOMB);
         vectorToFill.push_back(make_unique<PiecePositionImp>(5, 9, 'F', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[8][4][PRIMARY].setIsMovable(false);
+        this->knownBoard[8][4][PRIMARY].setOptFlag(true);
         this->knownBoard[8][4][PRIMARY].setPlayer(PLAYER_1);
         this->knownBoard[8][4][PRIMARY].setPossiblePiece(pFLAG);
         vectorToFill.push_back(make_unique<PiecePositionImp>(4, 6, 'J', 'S'));
-        this->knownBoard[5][3][PRIMARY].setIsMovable(true);
+        this->knownBoard[5][3][PRIMARY].setOptFlag(false);
         this->knownBoard[5][3][PRIMARY].setPlayer(PLAYER_1);
         this->knownBoard[5][3][PRIMARY].setPossiblePiece(pSCISSORS);
         this->knownBoard[5][3][PRIMARY].setIsJoker(true);
         vectorToFill.push_back(make_unique<PiecePositionImp>(5, 6, 'J', 'B'));
-        this->knownBoard[5][4][PRIMARY].setIsMovable(false);
+        this->knownBoard[5][4][PRIMARY].setOptFlag(false);
         this->knownBoard[5][4][PRIMARY].setPlayer(PLAYER_1);
         this->knownBoard[5][4][PRIMARY].setPossiblePiece(pBOMB);
         this->knownBoard[5][4][PRIMARY].setIsJoker(true);
     }
     else{
         vectorToFill.push_back(make_unique<PiecePositionImp>(2, 5, 'R', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[4][1][PRIMARY].setIsMovable(true);
+        this->knownBoard[4][1][PRIMARY].setOptFlag(false);
         this->knownBoard[4][1][PRIMARY].setPlayer(PLAYER_2);
         this->knownBoard[4][1][PRIMARY].setPossiblePiece(pROCK);
         vectorToFill.push_back(make_unique<PiecePositionImp>(8, 5, 'R', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[4][7][PRIMARY].setIsMovable(true);
+        this->knownBoard[4][7][PRIMARY].setOptFlag(false);
         this->knownBoard[4][7][PRIMARY].setPlayer(PLAYER_2);
         this->knownBoard[4][7][PRIMARY].setPossiblePiece(pROCK);
         vectorToFill.push_back(make_unique<PiecePositionImp>(3, 4, 'P', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[3][2][PRIMARY].setIsMovable(true);
+        this->knownBoard[3][2][PRIMARY].setOptFlag(false);
         this->knownBoard[3][2][PRIMARY].setPlayer(PLAYER_2);
         this->knownBoard[3][2][PRIMARY].setPossiblePiece(pPAPER);
         vectorToFill.push_back(make_unique<PiecePositionImp>(4, 4, 'P', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[3][3][PRIMARY].setIsMovable(true);
+        this->knownBoard[3][3][PRIMARY].setOptFlag(false);
         this->knownBoard[3][3][PRIMARY].setPlayer(PLAYER_2);
         this->knownBoard[3][3][PRIMARY].setPossiblePiece(pPAPER);
         vectorToFill.push_back(make_unique<PiecePositionImp>(5, 4, 'P', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[3][4][PRIMARY].setIsMovable(true);
+        this->knownBoard[3][4][PRIMARY].setOptFlag(false);
         this->knownBoard[3][4][PRIMARY].setPlayer(PLAYER_2);
         this->knownBoard[3][4][PRIMARY].setPossiblePiece(pPAPER);
         vectorToFill.push_back(make_unique<PiecePositionImp>(6, 4, 'P', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[3][5][PRIMARY].setIsMovable(true);
+        this->knownBoard[3][5][PRIMARY].setOptFlag(false);
         this->knownBoard[3][5][PRIMARY].setPlayer(PLAYER_2);
         this->knownBoard[3][5][PRIMARY].setPossiblePiece(pPAPER);
         vectorToFill.push_back(make_unique<PiecePositionImp>(7, 4, 'P', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[3][6][PRIMARY].setIsMovable(true);
+        this->knownBoard[3][6][PRIMARY].setOptFlag(false);
         this->knownBoard[3][6][PRIMARY].setPlayer(PLAYER_2);
         this->knownBoard[3][6][PRIMARY].setPossiblePiece(pPAPER);
         vectorToFill.push_back(make_unique<PiecePositionImp>(4, 3, 'B', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[2][3][PRIMARY].setIsMovable(false);
+        this->knownBoard[2][3][PRIMARY].setOptFlag(false);
         this->knownBoard[2][3][PRIMARY].setPlayer(PLAYER_2);
         this->knownBoard[2][3][PRIMARY].setPossiblePiece(pBOMB);
         vectorToFill.push_back(make_unique<PiecePositionImp>(6, 3, 'B', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[2][5][PRIMARY].setIsMovable(false);
+        this->knownBoard[2][5][PRIMARY].setOptFlag(false);
         this->knownBoard[2][5][PRIMARY].setPlayer(PLAYER_2);
         this->knownBoard[2][5][PRIMARY].setPossiblePiece(pBOMB);
         vectorToFill.push_back(make_unique<PiecePositionImp>(5, 2, 'F', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[1][4][PRIMARY].setIsMovable(false);
+        this->knownBoard[1][4][PRIMARY].setOptFlag(true);
         this->knownBoard[1][4][PRIMARY].setPlayer(PLAYER_2);
         this->knownBoard[1][4][PRIMARY].setPossiblePiece(pFLAG);
         vectorToFill.push_back(make_unique<PiecePositionImp>(5, 5, 'J', 'B'));
-        this->knownBoard[4][4][PRIMARY].setIsMovable(false);
+        this->knownBoard[4][4][PRIMARY].setOptFlag(false);
         this->knownBoard[4][4][PRIMARY].setPlayer(PLAYER_2);
         this->knownBoard[4][4][PRIMARY].setPossiblePiece(pBOMB);
         this->knownBoard[4][4][PRIMARY].setIsJoker(true);
         vectorToFill.push_back(make_unique<PiecePositionImp>(6, 5, 'J', 'S'));
-        this->knownBoard[4][5][PRIMARY].setIsMovable(false);
+        this->knownBoard[4][5][PRIMARY].setOptFlag(false);
         this->knownBoard[4][5][PRIMARY].setPlayer(PLAYER_2);
         this->knownBoard[4][5][PRIMARY].setPossiblePiece(pSCISSORS);
         this->knownBoard[4][5][PRIMARY].setIsJoker(true);
@@ -204,8 +204,12 @@ void AutoPlayerAlgorithm::notifyOnInitialBoard(const Board& b, const std::vector
         opponentPiece_char = fights[i]->getPiece(opponentPlayer_int);
 
         //opponent won
-        if(winner_int == opponentPlayer_int)
+        if(winner_int == opponentPlayer_int) {
+            knownBoard[row][col][PRIMARY].reset();
+            knownBoard[row][col][PRIMARY].setPlayer(getOpposite(this->player));
             knownBoard[row][col][PRIMARY].setPossiblePiece(charToPossiblePieceType(opponentPiece_char));
+            knownBoard[row][col][PRIMARY].setOptFlag(false);
+        }
         //both lose
         else if(winner_int == playerEnumToInt(NO_PLAYER))
             knownBoard[row][col][PRIMARY].reset();
@@ -223,12 +227,12 @@ void AutoPlayerAlgorithm::notifyOnOpponentMove(const Move& move){
     //target point is empty
     if(knownBoard[toRow][toCol][PRIMARY].getPossiblePiece() == pEMPTY){
         knownBoard[toRow][toCol][PRIMARY] = knownBoard[fromRow][fromCol][PRIMARY];
-        knownBoard[toRow][toCol][PRIMARY].setIsMovable(true);
+        knownBoard[toRow][toCol][PRIMARY].setOptFlag(false);
     }
     //target point contains this player piece
     else{
         knownBoard[toRow][toCol][SECONDARY] = knownBoard[fromRow][fromCol][PRIMARY];
-        knownBoard[toRow][toCol][SECONDARY].setIsMovable(true);
+        knownBoard[toRow][toCol][SECONDARY].setOptFlag(false);
     }
     this->knownBoard[fromRow][fromCol][PRIMARY].reset();
 }
@@ -258,9 +262,11 @@ void AutoPlayerAlgorithm::notifyFightResult(const FightInfo& fightInfo){
         if(knownBoard[row][col][PRIMARY].getPlayer() == this->player){
             knownBoard[row][col][PRIMARY] = this->knownBoard[row][col][SECONDARY];
             knownBoard[row][col][PRIMARY].setPossiblePiece(charToPossiblePieceType(opponentPiece));
+            knownBoard[row][col][PRIMARY].setOptFlag(false);
             knownBoard[row][col][SECONDARY].reset();
         }
         else    //secondary contains losing piece
+            knownBoard[row][col][PRIMARY].setOptFlag(false);
             knownBoard[row][col][SECONDARY].reset();
     }
     //both lose
@@ -268,4 +274,81 @@ void AutoPlayerAlgorithm::notifyFightResult(const FightInfo& fightInfo){
         knownBoard[row][col][PRIMARY].reset();
         knownBoard[row][col][SECONDARY].reset();
     }
+}
+
+unique_ptr<Move> AutoPlayerAlgorithm::getMove(){
+    //looking for a possible flag
+    for(int i=0; i<N; i++) {
+        for (int j = 0; j < M; j++) {
+            if (knownBoard[i][j][PRIMARY].getPlayer() == this->player) {
+                vector<PointImp> possibleTargets;
+                PointImp from(j+1,i+1);
+                getPossibleTargets(from, possibleTargets);
+                for(const auto &possibleTarget : possibleTargets){
+                    int targetRow, targetCol;
+                    targetRow = PointUtils::getRow(possibleTarget);
+                    targetCol = PointUtils::getCol(possibleTarget);
+                    if(knownBoard[targetRow][targetCol][PRIMARY].isOptFlag()) {
+                        performPlayerMove(from, possibleTarget);
+
+                        return move(make_unique<MoveImp>(from.getX(), from.getY(),
+                                                         possibleTarget.getX(), possibleTarget.getY()));
+
+
+                    }
+                }
+
+
+
+
+
+            }
+        }
+    }
+
+}
+
+void AutoPlayerAlgorithm::performPlayerMove(const PointImp &from, const PointImp &to) {
+    int fromRow = PointUtils::getRow(from), fromCol = PointUtils::getCol(from);
+    int targetRow = PointUtils::getRow(to), targetCol = PointUtils::getCol(to);
+    int key = knownBoard[targetRow][targetCol][PRIMARY].getPossiblePiece() == pEMPTY ?
+              PRIMARY : SECONDARY;
+    knownBoard[targetRow][targetCol][key] = knownBoard[fromRow][fromCol][PRIMARY];
+}
+
+void AutoPlayerAlgorithm::getPossibleTargets(const PointImp& point, vector<PointImp>& targetsToFill){
+    int row, col;
+    row = PointUtils::getRow(point);
+    col = PointUtils::getCol(point);
+
+    //check if the piece can actually move
+    if(!canMove(knownBoard[row][col]->getPossiblePiece()))
+        return;
+
+    //left target
+    if(col != LEFTMOST_COL){
+        if(knownBoard[row][col-1]->getPlayer() != this->player)
+            targetsToFill.emplace_back(point.getX()-1, point.getY());
+    }
+    //right target
+    if(col != RIGHTMOST_COL){
+        if(knownBoard[row][col+1]->getPlayer() != this->player)
+            targetsToFill.emplace_back(point.getX()+1, point.getY());
+    }
+    //upper target
+    if(row != UPMOST_ROW){
+        if(knownBoard[row+1][col]->getPlayer() != this->player)
+            targetsToFill.emplace_back(point.getX(), point.getY()+1);
+    }
+    //lower target
+    if(row != DOWNMOST_ROW){
+        if(knownBoard[row-1][col]->getPlayer() != this->player)
+            targetsToFill.emplace_back(point.getX(), point.getY()-1);
+    }
+}
+
+bool AutoPlayerAlgorithm::canMove(possiblePieceType p_pieceType){
+    if(p_pieceType == pROCK || p_pieceType == pSCISSORS || p_pieceType == pPAPER)
+        return true;
+    return false;
 }
