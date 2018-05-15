@@ -277,26 +277,62 @@ void AutoPlayerAlgorithm::notifyFightResult(const FightInfo& fightInfo){
 }
 
 unique_ptr<Move> AutoPlayerAlgorithm::getMove(){
-    //looking for a possible flag
+    //possible move of all this->player pieces
+    int numOfMobilePieces = 0;
+    vector<PointImp> possibleTargets[N][M];
     for(int i=0; i<N; i++) {
         for (int j = 0; j < M; j++) {
             if (knownBoard[i][j][PRIMARY].getPlayer() == this->player) {
-                vector<PointImp> possibleTargets;
                 PointImp from(j+1,i+1);
-                getPossibleTargets(from, possibleTargets);
-                for(const auto &possibleTarget : possibleTargets){
-                    int targetRow, targetCol;
-                    targetRow = PointUtils::getRow(possibleTarget);
-                    targetCol = PointUtils::getCol(possibleTarget);
-                    if(knownBoard[targetRow][targetCol][PRIMARY].isOptFlag()) {
+                getPossibleTargets(from, possibleTargets[i][j]);
+                if(!possibleTargets[i][j].empty())
+                    numOfMobilePieces++;
+            }
+        }
+    }
+    //looking to attack a possible-opponent-flag
+    for(int i=0; i<N; i++) {
+        for (int j = 0; j < M; j++) {
+            if (!possibleTargets[i][j].empty()) {
+                PointImp from(j + 1, i + 1);
+                for (const auto &possibleTarget : possibleTargets[i][j]) {
+                    int targetRow = PointUtils::getRow(possibleTarget), targetCol = PointUtils::getCol(possibleTarget);
+                    if (knownBoard[targetRow][targetCol][PRIMARY].isOptFlag()) {
                         performPlayerMove(from, possibleTarget);
-                        return move(make_unique<MoveImp>(from.getX(), from.getY(),
-                                                         possibleTarget.getX(), possibleTarget.getY()));
+                        return move(make_unique<MoveImp>(from.getX(), from.getY(), possibleTarget.getX(),
+                                                         possibleTarget.getY()));
                     }
                 }
             }
         }
     }
+
+    //looking to attack a weaker piece of the opponent
+    for(int i=0; i<N; i++) {
+        for (int j = 0; j < M; j++) {
+            if (!possibleTargets[i][j].empty()) {
+                PointImp from(j + 1, i + 1);
+                int fromRow = PointUtils::getRow(from), fromCol =  PointUtils::getCol(from);
+                possiblePieceType playerPossiblePiece = knownBoard[fromRow][fromCol][PRIMARY].getPossiblePiece();
+
+                for (const auto &possibleTarget : possibleTargets[i][j]) {
+                    int targetRow = PointUtils::getRow(possibleTarget), targetCol = PointUtils::getCol(possibleTarget);
+                    possiblePieceType opponentPossiblePiece = knownBoard[targetRow][targetCol][PRIMARY].getPossiblePiece();
+                    if (knownBoard[targetRow][targetCol][PRIMARY].getPlayer() == getOpposite(this->player) &&
+                        opponentPossiblePiece != pUNKNOWN &&
+                        canCapture(playerPossiblePiece, opponentPossiblePiece)) {
+
+                        performPlayerMove(from, possibleTarget);
+                        return move(make_unique<MoveImp>(from.getX(), from.getY(), possibleTarget.getX(),
+                                                         possibleTarget.getY()));
+                    }
+                }
+            }
+        }
+    }
+
+
+
 
 }
 
@@ -340,7 +376,25 @@ void AutoPlayerAlgorithm::getPossibleTargets(const PointImp& point, vector<Point
 }
 
 bool AutoPlayerAlgorithm::canMove(possiblePieceType p_pieceType){
-    if(p_pieceType == pROCK || p_pieceType == pSCISSORS || p_pieceType == pPAPER)
-        return true;
-    return false;
+    return p_pieceType == pROCK || p_pieceType == pSCISSORS || p_pieceType == pPAPER;
+}
+
+bool AutoPlayerAlgorithm::canCapture(possiblePieceType _playerPiece, possiblePieceType _opponentPiece){
+    pieceType playerPiece = possiblePieceType2PieceType(_playerPiece);
+    pieceType opponentPiece = possiblePieceType2PieceType(_opponentPiece);
+    vector<pieceType> playerWeakerPieces = getKnownWeakerPieces(playerPiece);
+    vector<pieceType> opponentWeakerPieces = getKnownWeakerPieces(opponentPiece);
+
+    //todo: can capture logic
+}
+
+vector<pieceType> AutoPlayerAlgorithm::getKnownWeakerPieces(pieceType playerPiece) const {
+    switch(playerPiece){
+        case SCISSORS:
+            return ScissorsPiece(player).getWeakerPieces();
+        case ROCK:
+            return RockPiece(player).getWeakerPieces();
+        default:
+            return PaperPiece(player).getWeakerPieces();
+    }
 }

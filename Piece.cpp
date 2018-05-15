@@ -54,6 +54,23 @@ possiblePieceType charToPossiblePieceType(char c){
     }
 }
 
+pieceType possiblePieceType2PieceType(possiblePieceType _possiblePiece){
+    switch (_possiblePiece) {
+        case pROCK:
+            return ROCK;
+        case pPAPER:
+            return PAPER;
+        case pSCISSORS:
+            return SCISSORS;
+        case pBOMB:
+            return BOMB;
+        case pFLAG:
+            return FLAG;
+        default:
+            return EMPTY;
+    }
+}
+
 bool isNumInRange(char* str, int rangeStart, int rangeEnd) {
     if (str == NULL || strlen(str)==0) {
         return false;

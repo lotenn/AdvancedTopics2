@@ -157,6 +157,9 @@ public:
     bool canMove(possiblePieceType p_pieceType);
 
     void performPlayerMove(const PointImp &from, const PointImp &to);
+    bool canCapture(possiblePieceType playerPiece, possiblePieceType opponentPiece);
+
+    vector<pieceType> getKnownWeakerPieces(pieceType playerPiece) const;
 };
 
 

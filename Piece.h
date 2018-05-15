@@ -42,6 +42,7 @@ enum possiblePieceType {
 
 possiblePieceType charToPossiblePieceType(char c);
 
+pieceType possiblePieceType2PieceType(possiblePieceType _possiblePiece);
 
 //*************************Piece Class********************************************************
 
