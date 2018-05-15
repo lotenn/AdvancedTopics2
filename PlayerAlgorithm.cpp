@@ -290,18 +290,10 @@ unique_ptr<Move> AutoPlayerAlgorithm::getMove(){
                     targetCol = PointUtils::getCol(possibleTarget);
                     if(knownBoard[targetRow][targetCol][PRIMARY].isOptFlag()) {
                         performPlayerMove(from, possibleTarget);
-
                         return move(make_unique<MoveImp>(from.getX(), from.getY(),
                                                          possibleTarget.getX(), possibleTarget.getY()));
-
-
                     }
                 }
-
-
-
-
-
             }
         }
     }
