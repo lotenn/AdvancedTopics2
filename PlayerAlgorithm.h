@@ -39,7 +39,7 @@ private:
     int currentJokerChange;
 
 public:
-    FilePlayerAlgorithm():player(NO_PLAYER), currentMove(0), currentJokerChange(0){}
+    FilePlayerAlgorithm(playerEnum _player):player(_player), currentMove(0), currentJokerChange(0){}
 
     unique_ptr<Move> getMove() override {
         //no more moves
@@ -94,7 +94,7 @@ private:
 
 public:
 
-    bool isIsJoker() const {
+    bool IsJoker() const {
         return isJoker;
     }
 
@@ -132,6 +132,8 @@ public:
         this->optFlag = true;
         this->isJoker = false;
     }
+
+    bool canMove();
 };
 
 class AutoPlayerAlgorithm: public PlayerAlgorithm{
@@ -146,20 +148,13 @@ public:
     void notifyOnInitialBoard(const Board& b, const std::vector<unique_ptr<FightInfo>>& fights) override;
     void notifyOnOpponentMove(const Move& move) override; // called only on opponent’s move
     void notifyFightResult(const FightInfo& fightInfo) override; // called only if there was a fight
-
-//    todo: complete get move
     unique_ptr<Move> getMove() override;
-//    todo: complete Joker Change
-//    unique_ptr<JokerChange> getJokerChange() override; // nullptr if no change is requested
-
-
+    unique_ptr<JokerChange> getJokerChange() override; // nullptr if no change is requested
     void getPossibleTargets(const PointImp& point, vector<PointImp>& targetsToFill);
-    bool canMove(possiblePieceType p_pieceType);
-
     void performPlayerMove(const PointImp &from, const PointImp &to);
     bool canCapture(possiblePieceType playerPiece, possiblePieceType opponentPiece);
-
     vector<pieceType> getKnownWeakerPieces(pieceType playerPiece) const;
+    possiblePieceType getJokerRepStrongerThan(const possiblePieceType &threatType) const;
 };
 
 

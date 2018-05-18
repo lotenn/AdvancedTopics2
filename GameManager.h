@@ -87,6 +87,8 @@ public:
 
     void generateOutputFile(const char *outputFilePath, string winner, string reason, string board);
 
+    static bool parsePlayerModes(char* commandLine, playerMode& player1mode, playerMode& player2mode);
+
     };
 
 

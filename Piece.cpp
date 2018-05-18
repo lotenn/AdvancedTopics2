@@ -54,7 +54,27 @@ possiblePieceType charToPossiblePieceType(char c){
     }
 }
 
-pieceType possiblePieceType2PieceType(possiblePieceType _possiblePiece){
+char possiblePieceTypeToChar(possiblePieceType _pPieceType){
+    switch (_pPieceType) {
+        case pROCK:
+            return 'R';
+        case pPAPER:
+            return 'P';
+        case pSCISSORS:
+            return 'S';
+        case pBOMB:
+            return 'B';
+        case pFLAG:
+            return 'F';
+        case pUNKNOWN:
+            return 'U';
+        default:
+            return 'E';
+    }
+}
+
+
+pieceType possiblePieceTypeToPieceType(possiblePieceType _possiblePiece){
     switch (_possiblePiece) {
         case pROCK:
             return ROCK;

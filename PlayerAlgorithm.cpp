@@ -2,9 +2,10 @@
 //******************************************File Algorithm*****************************************************
 
 void FilePlayerAlgorithm::getInitialPositions(int _player, std::vector<unique_ptr<PiecePosition>>& vectorToFill) {
+    if(_player){}
     ifstream positioningFile;
     const char* filePath;
-    switch(_player){
+    switch(this->player){
         case PLAYER_1:
             filePath = "../player1.rps_board";
             this->player = PLAYER_1;
@@ -58,6 +59,10 @@ void FilePlayerAlgorithm::getMoves(){
 }
 
 //*******************************************Auto Algorithm*****************************************************
+bool PossiblePieces::canMove(){
+    return getPossiblePiece() == pROCK || getPossiblePiece() == pSCISSORS || getPossiblePiece() == pPAPER || this->isJoker;
+}
+
 void AutoPlayerAlgorithm::resetKnownBoard(){
     for(int i=0; i<N; i++)
         for(int j=0; j<M; j++)
@@ -265,9 +270,10 @@ void AutoPlayerAlgorithm::notifyFightResult(const FightInfo& fightInfo){
             knownBoard[row][col][PRIMARY].setOptFlag(false);
             knownBoard[row][col][SECONDARY].reset();
         }
-        else    //secondary contains losing piece
+        else {    //secondary contains losing piece
             knownBoard[row][col][PRIMARY].setOptFlag(false);
             knownBoard[row][col][SECONDARY].reset();
+        }
     }
     //both lose
     else{
@@ -316,12 +322,14 @@ unique_ptr<Move> AutoPlayerAlgorithm::getMove(){
                 possiblePieceType playerPossiblePiece = knownBoard[fromRow][fromCol][PRIMARY].getPossiblePiece();
 
                 for (const auto &possibleTarget : possibleTargets[i][j]) {
-                    int targetRow = PointUtils::getRow(possibleTarget), targetCol = PointUtils::getCol(possibleTarget);
+                    int targetRow = PointUtils::getRow(possibleTarget);
+                    int targetCol = PointUtils::getCol(possibleTarget);
                     possiblePieceType opponentPossiblePiece = knownBoard[targetRow][targetCol][PRIMARY].getPossiblePiece();
+
                     if (knownBoard[targetRow][targetCol][PRIMARY].getPlayer() == getOpposite(this->player) &&
                         opponentPossiblePiece != pUNKNOWN &&
-                        canCapture(playerPossiblePiece, opponentPossiblePiece)) {
-
+                        canCapture(playerPossiblePiece, opponentPossiblePiece))
+                    {
                         performPlayerMove(from, possibleTarget);
                         return move(make_unique<MoveImp>(from.getX(), from.getY(), possibleTarget.getX(),
                                                          possibleTarget.getY()));
@@ -331,9 +339,59 @@ unique_ptr<Move> AutoPlayerAlgorithm::getMove(){
         }
     }
 
+    //escaping possible attack of the opponent
+    for(int i=0; i<N; i++) {
+        for (int j = 0; j < M; j++) {
+            if (possibleTargets[i][j].size()>1) {   //if there is a single move possible - no escape option available
+                PointImp from(j + 1, i + 1);
+                int fromRow = PointUtils::getRow(from), fromCol =  PointUtils::getCol(from);
+                possiblePieceType playerPossiblePiece = knownBoard[fromRow][fromCol][PRIMARY].getPossiblePiece();
 
+                for (const auto &possibleTarget : possibleTargets[i][j]) {
+                    int targetRow = PointUtils::getRow(possibleTarget);
+                    int targetCol = PointUtils::getCol(possibleTarget);
+                    possiblePieceType opponentPossiblePiece = knownBoard[targetRow][targetCol][PRIMARY].getPossiblePiece();
+                    //if opponent can capture this player's piece
+                    if (knownBoard[targetRow][targetCol][PRIMARY].getPlayer() == getOpposite(this->player) &&
+                        opponentPossiblePiece != pUNKNOWN &&
+                        canCapture(opponentPossiblePiece, playerPossiblePiece))
+                    {
+                        //looking for empty point to escape to
+                        for (const auto &possibleEscapeTarget : possibleTargets[i][j]){
+                            int possibleEscapeTargetRow = PointUtils::getRow(possibleEscapeTarget);
+                            int possibleEscapeTargetCol = PointUtils::getCol(possibleEscapeTarget);
+                            if(knownBoard[possibleEscapeTargetRow][possibleEscapeTargetCol][PRIMARY].getPossiblePiece() == pEMPTY) {
+                                performPlayerMove(from, possibleEscapeTarget);
+                                return move(make_unique<MoveImp>(from.getX(), from.getY(), possibleEscapeTarget.getX(),
+                                                                 possibleEscapeTarget.getY()));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
+    //randomly choose a mobile piece
+    int randPieceNumber = rand() % numOfMobilePieces;
+    for(int i=0; i<N; i++) {
+        for (int j = 0; j < M; j++) {
+            if (!possibleTargets[i][j].empty()) {   //if the piece is mobile
+                if(randPieceNumber==0) {            //reached random piece needed
+                    int randMoveNumber = rand() % possibleTargets[i][j].size();
+                    PointImp from(j + 1, i + 1);
+                    PointImp *target = &possibleTargets[i][j][randMoveNumber];
 
+                    performPlayerMove(from, *target);
+                    return move(make_unique<MoveImp>(from.getX(), from.getY(), target->getX(),
+                                                     target->getY()));
+                }
+                else
+                    randPieceNumber--;
+            }
+        }
+    }
+    return move(make_unique<MoveImp>(INVALID_COORD,INVALID_COORD,INVALID_COORD,INVALID_COORD));
 }
 
 void AutoPlayerAlgorithm::performPlayerMove(const PointImp &from, const PointImp &to) {
@@ -350,7 +408,7 @@ void AutoPlayerAlgorithm::getPossibleTargets(const PointImp& point, vector<Point
     col = PointUtils::getCol(point);
 
     //check if the piece can actually move
-    if(!canMove(knownBoard[row][col]->getPossiblePiece()))
+    if(!(knownBoard[row][col]->canMove()))
         return;
 
     //left target
@@ -375,17 +433,23 @@ void AutoPlayerAlgorithm::getPossibleTargets(const PointImp& point, vector<Point
     }
 }
 
-bool AutoPlayerAlgorithm::canMove(possiblePieceType p_pieceType){
-    return p_pieceType == pROCK || p_pieceType == pSCISSORS || p_pieceType == pPAPER;
-}
-
 bool AutoPlayerAlgorithm::canCapture(possiblePieceType _playerPiece, possiblePieceType _opponentPiece){
-    pieceType playerPiece = possiblePieceType2PieceType(_playerPiece);
-    pieceType opponentPiece = possiblePieceType2PieceType(_opponentPiece);
+    pieceType playerPiece = possiblePieceTypeToPieceType(_playerPiece);
+    pieceType opponentPiece = possiblePieceTypeToPieceType(_opponentPiece);
     vector<pieceType> playerWeakerPieces = getKnownWeakerPieces(playerPiece);
     vector<pieceType> opponentWeakerPieces = getKnownWeakerPieces(opponentPiece);
 
-    //todo: can capture logic
+    for(int i=0; i<(int)playerWeakerPieces.size(); i++){             //looking for opponent piece in player's weakerPieces
+        if(playerWeakerPieces[i] == opponentPiece){             //found that opponent piece is weaker than player's piece
+            for(int j=0; j<(int)opponentWeakerPieces.size(); j++){   //looking for player's piece in opponents weaker
+                if(opponentWeakerPieces[j] == playerPiece){     //player's piece is also weaker than opponent - battle will end with both lose
+                    return false;
+                }
+            }
+            return true;        //opponent is weaker than player
+        }
+    }
+    return false;               //opponent piece is not in player's weaker pieces
 }
 
 vector<pieceType> AutoPlayerAlgorithm::getKnownWeakerPieces(pieceType playerPiece) const {
@@ -394,7 +458,50 @@ vector<pieceType> AutoPlayerAlgorithm::getKnownWeakerPieces(pieceType playerPiec
             return ScissorsPiece(player).getWeakerPieces();
         case ROCK:
             return RockPiece(player).getWeakerPieces();
-        default:
+        case PAPER:
             return PaperPiece(player).getWeakerPieces();
+        case FLAG:
+            return FlagPiece(player).getWeakerPieces();
+        case BOMB:
+            return BombPiece(player).getWeakerPieces();
+        default:
+            return EmptyPiece().getWeakerPieces();
     }
+}
+
+unique_ptr<JokerChange> AutoPlayerAlgorithm::getJokerChange(){
+    for(int i=0; i<N; i++){
+        for(int j=0; j<M; j++){
+            PossiblePieces *possibleJokerPiece = &knownBoard[i][j][PRIMARY];
+            if(possibleJokerPiece->getPlayer() == this->player && possibleJokerPiece->IsJoker()){
+                PointImp jokerPosition(j+1,i+1);
+                vector<PointImp> possibleThreats;
+                getPossibleTargets(jokerPosition, possibleThreats);
+                if(!possibleThreats.empty()){
+                    int threatRow = PointUtils::getRow(possibleThreats[0]);
+                    int threatCol = PointUtils::getCol(possibleThreats[0]);
+                    possiblePieceType threatType = knownBoard[threatRow][threatCol][PRIMARY].getPossiblePiece();
+                    possiblePieceType newJokerRep = getJokerRepStrongerThan(threatType);
+                    possibleJokerPiece->setPossiblePiece(newJokerRep);
+                    return move(make_unique<JokerChangeImp>(jokerPosition.getX(),
+                                                            jokerPosition.getY(),
+                                                            possiblePieceTypeToChar(newJokerRep)));
+                }
+            }
+        }
+    }
+    return make_unique<JokerChangeImp>(INVALID_COORD,INVALID_COORD,INVALID_CHAR);
+}
+
+possiblePieceType AutoPlayerAlgorithm::getJokerRepStrongerThan(const possiblePieceType &threatType) const {
+     switch(threatType){
+         case pPAPER:
+             return pSCISSORS;
+         case pSCISSORS:
+             return pROCK;
+         case pROCK:
+             return pPAPER;
+         default:
+             return pEMPTY;
+     }
 }

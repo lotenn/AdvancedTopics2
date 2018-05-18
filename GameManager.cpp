@@ -17,11 +17,11 @@ string getWinnerString(playerEnum player){
 
 GameManager::GameManager(playerMode player1Mode, playerMode player2Mode){
     //creating the players
-    if(player1Mode == FILE_PLAYER) {this->player1 = make_unique<FilePlayerAlgorithm>();}
-    else{}//todo: creating auto player algorithm
+    if(player1Mode == FILE_PLAYER) {this->player1 = make_unique<FilePlayerAlgorithm>(PLAYER_1);}
+    else{this->player1 = make_unique<AutoPlayerAlgorithm>(PLAYER_1);}
 
-    if(player2Mode == FILE_PLAYER){this->player2 = make_unique<FilePlayerAlgorithm>();}
-    else{}//todo: creating auto player algorithm
+    if(player2Mode == FILE_PLAYER){this->player2 = make_unique<FilePlayerAlgorithm>(PLAYER_2);}
+    else{this->player1 = make_unique<AutoPlayerAlgorithm>(PLAYER_2);}
 
     //creating the game pieces
     int toolIndex = 0;
@@ -607,4 +607,30 @@ void GameManager::generateOutputFile(const char *outputFilePath, string winner, 
         outputFile.close();
     }
     else cout<<"Error: Failed to open output file '" << outputFilePath << "'" <<endl;
+}
+
+bool GameManager::parsePlayerModes(char* commandLine, playerMode& player1mode, playerMode& player2mode){
+    if(!commandLine || strlen(commandLine)==0 || strcmp(commandLine, "")==0) {return false;}
+    if(strcmp(commandLine, "auto-vs-file")==0){
+        player1mode = AUTO_PLAYER;
+        player2mode = FILE_PLAYER;
+        return true;
+    }
+    else if(strcmp(commandLine, "file-vs-auto")==0){
+        player1mode = FILE_PLAYER;
+        player2mode = AUTO_PLAYER;
+        return true;
+    }
+    else if(strcmp(commandLine, "auto-vs-auto")==0){
+        player1mode = AUTO_PLAYER;
+        player2mode = AUTO_PLAYER;
+        return true;
+    }
+    else if(strcmp(commandLine, "file-vs-file")==0){
+        player1mode = FILE_PLAYER;
+        player2mode = FILE_PLAYER;
+        return true;
+    }
+    else
+        return false;
 }
