@@ -7,16 +7,14 @@ int main(int argc, char* argv[]) {
         cout << "Invalid Command Line Arguments: Wrong num of arguments" << endl;
         return 0;
     }
-
-
     playerMode player1mode;
     playerMode player2mode;
     if(!GameManager::parsePlayerModes(argv[1], player1mode, player2mode)){
         cout << "Invalid Command Line Arguments: Wrong Format" << endl;
         return 0;
     }
-    GameManager gameManager(player1mode, player2mode);
 
+    GameManager gameManager(player1mode, player2mode);
     gameManager.initGame();
     gameManager.positioningStage();
     if(!gameManager.getGameStatus().isGameOn()){

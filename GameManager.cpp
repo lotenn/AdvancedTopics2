@@ -21,7 +21,7 @@ GameManager::GameManager(playerMode player1Mode, playerMode player2Mode){
     else{this->player1 = make_unique<AutoPlayerAlgorithm>(PLAYER_1);}
 
     if(player2Mode == FILE_PLAYER){this->player2 = make_unique<FilePlayerAlgorithm>(PLAYER_2);}
-    else{this->player1 = make_unique<AutoPlayerAlgorithm>(PLAYER_2);}
+    else{this->player2 = make_unique<AutoPlayerAlgorithm>(PLAYER_2);}
 
     //creating the game pieces
     int toolIndex = 0;
@@ -292,8 +292,8 @@ bool GameManager::containsFlags(vector<shared_ptr<Piece>>& playerPieces){
 void GameManager::positioningStage(){
     vector<unique_ptr<FightInfo>> fights;
     vector<unique_ptr<PiecePosition>> player1PiecePosition, player2PiecePosition;
-    player1->getInitialPositions(PLAYER_1, player1PiecePosition);
-    player2->getInitialPositions(PLAYER_2, player2PiecePosition);
+    player1->getInitialPositions(1, player1PiecePosition);
+    player2->getInitialPositions(2, player2PiecePosition);
     validatePositioningVector(PLAYER_1, player1PiecePosition);
     //no pos. file or empty pos. file
     if(gameStatus.getMainReason() == NO_POSITIONING_FILE){return;}
@@ -388,6 +388,7 @@ void GameManager::positioningCheckGameEnd() {
 
 void GameManager::moveStage(){
     int numOfTurnsWithNoFight = 0;
+
     while(numOfTurnsWithNoFight < MAX_TURNS_WITH_NO_FIGHTS){
         numOfTurnsWithNoFight++;
 
@@ -574,6 +575,8 @@ string GameManager::getReasonString(){
     reasons[DRAW_POSITIONING_ENDED_WITH_NO_FLAGS] = "A tie - all flags are eaten by both players in the position files";
     reasons[DRAW_POSITIONING_ENDED_WITH_NO_MOVING_PIECES] = "A tie - moving PIECEs are eaten by both players in the position files";
     reasons[DRAW_BAD_POSITIONING_FILE_BOTH_PLAYERS] = "Bad Positioning input file for both players";
+    reasons[DRAW_REACHED_MAX_NUM_OF_TURNS_WITH_NO_FIGHTS] = "Draw. Reached max num of turns with no fights";
+
 
     auto str = reasons.find(gameStatus.getMainReason());
     return str != reasons.end() ? str->second : "";

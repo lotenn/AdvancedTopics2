@@ -9,6 +9,7 @@
 #include <iostream>
 #include <fstream>
 #include <list>
+#include <ctime>
 #include "Parser.h"
 
 #define INVALID_COORD (-1)
@@ -129,7 +130,7 @@ public:
     void reset(){
         this->player = NO_PLAYER;
         this->possiblePiece = pEMPTY;
-        this->optFlag = true;
+        this->optFlag = false;
         this->isJoker = false;
     }
 
@@ -150,7 +151,7 @@ public:
     void notifyFightResult(const FightInfo& fightInfo) override; // called only if there was a fight
     unique_ptr<Move> getMove() override;
     unique_ptr<JokerChange> getJokerChange() override; // nullptr if no change is requested
-    void getPossibleTargets(const PointImp& point, vector<PointImp>& targetsToFill);
+    void getPossibleTargets(const PointImp& point, vector<PointImp>& targetsToFill, bool jokerChange);
     void performPlayerMove(const PointImp &from, const PointImp &to);
     bool canCapture(possiblePieceType playerPiece, possiblePieceType opponentPiece);
     vector<pieceType> getKnownWeakerPieces(pieceType playerPiece) const;

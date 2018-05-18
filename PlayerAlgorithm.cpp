@@ -60,7 +60,7 @@ void FilePlayerAlgorithm::getMoves(){
 
 //*******************************************Auto Algorithm*****************************************************
 bool PossiblePieces::canMove(){
-    return getPossiblePiece() == pROCK || getPossiblePiece() == pSCISSORS || getPossiblePiece() == pPAPER || this->isJoker;
+    return getPossiblePiece() == pROCK || getPossiblePiece() == pSCISSORS || getPossiblePiece() == pPAPER;
 }
 
 void AutoPlayerAlgorithm::resetKnownBoard(){
@@ -72,7 +72,6 @@ void AutoPlayerAlgorithm::resetKnownBoard(){
 
 void AutoPlayerAlgorithm::getInitialPositions(int player, std::vector<unique_ptr<PiecePosition>>& vectorToFill){
     if(player == 1){
-
         vectorToFill.push_back(make_unique<PiecePositionImp>(2, 6, 'R', NO_JOKER_CHANGE_SYMBOL));
         this->knownBoard[5][1][PRIMARY].setOptFlag(false);
         this->knownBoard[5][1][PRIMARY].setPlayer(PLAYER_1);
@@ -125,6 +124,7 @@ void AutoPlayerAlgorithm::getInitialPositions(int player, std::vector<unique_ptr
         this->knownBoard[5][4][PRIMARY].setIsJoker(true);
     }
     else{
+
         vectorToFill.push_back(make_unique<PiecePositionImp>(2, 5, 'R', NO_JOKER_CHANGE_SYMBOL));
         this->knownBoard[4][1][PRIMARY].setOptFlag(false);
         this->knownBoard[4][1][PRIMARY].setPlayer(PLAYER_2);
@@ -192,6 +192,7 @@ void AutoPlayerAlgorithm::notifyOnInitialBoard(const Board& b, const std::vector
                 knownBoard[row][col][PRIMARY].reset();    //In case current position includes this player's piece
                 knownBoard[row][col][PRIMARY].setPlayer(getOpposite(this->player));
                 knownBoard[row][col][PRIMARY].setPossiblePiece(pUNKNOWN);
+                knownBoard[row][col][PRIMARY].setOptFlag(true);
             }
         }
     }
@@ -290,7 +291,7 @@ unique_ptr<Move> AutoPlayerAlgorithm::getMove(){
         for (int j = 0; j < M; j++) {
             if (knownBoard[i][j][PRIMARY].getPlayer() == this->player) {
                 PointImp from(j+1,i+1);
-                getPossibleTargets(from, possibleTargets[i][j]);
+                getPossibleTargets(from, possibleTargets[i][j], false);
                 if(!possibleTargets[i][j].empty())
                     numOfMobilePieces++;
             }
@@ -303,7 +304,8 @@ unique_ptr<Move> AutoPlayerAlgorithm::getMove(){
                 PointImp from(j + 1, i + 1);
                 for (const auto &possibleTarget : possibleTargets[i][j]) {
                     int targetRow = PointUtils::getRow(possibleTarget), targetCol = PointUtils::getCol(possibleTarget);
-                    if (knownBoard[targetRow][targetCol][PRIMARY].isOptFlag()) {
+                    if (knownBoard[targetRow][targetCol][PRIMARY].getPlayer() == getOpposite(this->player) &&
+                        knownBoard[targetRow][targetCol][PRIMARY].isOptFlag()) {
                         performPlayerMove(from, possibleTarget);
                         return move(make_unique<MoveImp>(from.getX(), from.getY(), possibleTarget.getX(),
                                                          possibleTarget.getY()));
@@ -373,6 +375,7 @@ unique_ptr<Move> AutoPlayerAlgorithm::getMove(){
     }
 
     //randomly choose a mobile piece
+    std::srand(std::time(nullptr));
     int randPieceNumber = rand() % numOfMobilePieces;
     for(int i=0; i<N; i++) {
         for (int j = 0; j < M; j++) {
@@ -400,15 +403,16 @@ void AutoPlayerAlgorithm::performPlayerMove(const PointImp &from, const PointImp
     int key = knownBoard[targetRow][targetCol][PRIMARY].getPossiblePiece() == pEMPTY ?
               PRIMARY : SECONDARY;
     knownBoard[targetRow][targetCol][key] = knownBoard[fromRow][fromCol][PRIMARY];
+    knownBoard[fromRow][fromCol][PRIMARY].reset();
 }
 
-void AutoPlayerAlgorithm::getPossibleTargets(const PointImp& point, vector<PointImp>& targetsToFill){
+void AutoPlayerAlgorithm::getPossibleTargets(const PointImp& point, vector<PointImp>& targetsToFill, bool jokerChange){
     int row, col;
     row = PointUtils::getRow(point);
     col = PointUtils::getCol(point);
 
     //check if the piece can actually move
-    if(!(knownBoard[row][col]->canMove()))
+    if(!jokerChange && !(knownBoard[row][col]->canMove()))
         return;
 
     //left target
@@ -476,21 +480,27 @@ unique_ptr<JokerChange> AutoPlayerAlgorithm::getJokerChange(){
             if(possibleJokerPiece->getPlayer() == this->player && possibleJokerPiece->IsJoker()){
                 PointImp jokerPosition(j+1,i+1);
                 vector<PointImp> possibleThreats;
-                getPossibleTargets(jokerPosition, possibleThreats);
+                getPossibleTargets(jokerPosition, possibleThreats, true);
                 if(!possibleThreats.empty()){
-                    int threatRow = PointUtils::getRow(possibleThreats[0]);
-                    int threatCol = PointUtils::getCol(possibleThreats[0]);
-                    possiblePieceType threatType = knownBoard[threatRow][threatCol][PRIMARY].getPossiblePiece();
-                    possiblePieceType newJokerRep = getJokerRepStrongerThan(threatType);
-                    possibleJokerPiece->setPossiblePiece(newJokerRep);
-                    return move(make_unique<JokerChangeImp>(jokerPosition.getX(),
-                                                            jokerPosition.getY(),
-                                                            possiblePieceTypeToChar(newJokerRep)));
+                    for(int k=0; k<(int)possibleThreats.size(); k++) {
+                        int threatRow = PointUtils::getRow(possibleThreats[k]);
+                        int threatCol = PointUtils::getCol(possibleThreats[k]);
+                        possiblePieceType threatType = knownBoard[threatRow][threatCol][PRIMARY].getPossiblePiece();
+                        playerEnum threatPlayer = knownBoard[threatRow][threatCol][PRIMARY].getPlayer();
+
+                        if(threatPlayer == getOpposite(this->player)&& threatType != pUNKNOWN) {
+                            possiblePieceType newJokerRep = getJokerRepStrongerThan(threatType);
+                            possibleJokerPiece->setPossiblePiece(newJokerRep);
+                            return move(make_unique<JokerChangeImp>(jokerPosition.getX(),
+                                                                    jokerPosition.getY(),
+                                                                    possiblePieceTypeToChar(newJokerRep)));
+                        }
+                    }
                 }
             }
         }
     }
-    return make_unique<JokerChangeImp>(INVALID_COORD,INVALID_COORD,INVALID_CHAR);
+    return nullptr;
 }
 
 possiblePieceType AutoPlayerAlgorithm::getJokerRepStrongerThan(const possiblePieceType &threatType) const {
