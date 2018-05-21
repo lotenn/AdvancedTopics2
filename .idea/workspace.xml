@@ -11,9 +11,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e2da3cc-7623-41d8-8097-a60e30a86474" name="Default" comment="">
+    <list default="true" id="2e2da3cc-7623-41d8-8097-a60e30a86474" name="Default" comment="notify opponent move">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlayerAlgorithm.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PlayerAlgorithm.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,68 +25,73 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            <state relative-caret-position="105">
+              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayerAlgorithm.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PlayerAlgorithm.h">
+      <file leaf-file-name="PlayerAlgorithm.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PlayerAlgorithm.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="139" />
+            <state relative-caret-position="1239">
+              <caret line="59" selection-start-line="59" selection-end-line="59" />
               <folding>
-                <element signature="e#0#2#0" />
-                <element signature="e#276#852#1" />
-                <element signature="e#855#2648#1" />
-                <element signature="e#1172#1533#0" />
-                <element signature="e#1539#1814#0" />
-                <element signature="e#1948#2194#0" />
-                <element signature="e#2201#2376#0" />
-                <element signature="e#2417#2609#0" />
-                <element signature="e#2792#2846#0" />
-                <element signature="e#2852#2932#0" />
-                <element signature="e#399#553#0" />
-                <element signature="e#464#546#0" />
-                <element signature="e#552#632#0" />
-                <element signature="e#638#755#0" />
-                <element signature="e#761#819#0" />
-                <element signature="e#825#913#0" />
-                <element signature="e#3295#3357#0" />
-                <element signature="e#3557#3629#0" />
-                <element signature="e#3640#3683#0" />
+                <element signature="e#142#1085#0" />
+                <element signature="e#1087#2052#0" />
+                <element signature="e#2054#2324#0" />
+                <element signature="e#2326#2510#0" />
+                <element signature="e#2512#9634#0" />
+                <element signature="e#9636#11620#0" />
+                <element signature="e#10507#10707#0" />
+                <element signature="e#11622#12439#0" />
+                <element signature="e#12441#14028#0" />
+                <element signature="e#14030#19879#0" />
+                <element signature="e#19881#20335#0" />
+                <element signature="e#20337#21386#0" />
+                <element signature="e#21388#22537#0" />
+                <element signature="e#22539#23115#0" />
+                <element signature="e#23192#24999#0" />
+                <element signature="e#24450#24791#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayerAlgorithm.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/PlayerAlgorithm.cpp">
+      <file leaf-file-name="GameManager.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameManager.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="106" column="30" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
+            <state relative-caret-position="903">
+              <caret line="43" column="10" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="player2.rps_board" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/player2.rps_board">
+      <file leaf-file-name="GameManager.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameManager.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="player1.rps_board" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/player1.rps_board">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+            <state relative-caret-position="12117">
+              <caret line="577" column="106" selection-start-line="577" selection-start-column="106" selection-end-line="577" selection-end-column="106" />
+              <folding>
+                <element signature="e#29#282#0" />
+                <element signature="e#2063#3529#0" />
+                <element signature="e#3531#4682#0" />
+                <element signature="e#5052#8361#0" />
+                <element signature="e#8667#11213#0" />
+                <element signature="e#11215#11450#0" />
+                <element signature="e#11452#11688#0" />
+                <element signature="e#13363#15311#0" />
+                <element signature="e#19539#19719#0" />
+                <element signature="e#19721#20069#0" />
+                <element signature="e#20071#20346#0" />
+                <element signature="e#20348#20468#0" />
+                <element signature="e#20470#21297#0" />
+                <element signature="e#21299#22366#0" />
+                <element signature="e#24956#25449#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,6 +106,7 @@
       <find>executeCommand</find>
       <find>battleWinner</find>
       <find>msg</find>
+      <find>canMove</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -117,7 +122,6 @@
         <option value="$PROJECT_DIR$/Point.h" />
         <option value="$PROJECT_DIR$/Cell.cpp" />
         <option value="$PROJECT_DIR$/Cell.h" />
-        <option value="$PROJECT_DIR$/Piece.cpp" />
         <option value="$PROJECT_DIR$/Game.h" />
         <option value="$PROJECT_DIR$/Board.cpp" />
         <option value="$PROJECT_DIR$/Parser.cpp" />
@@ -127,23 +131,24 @@
         <option value="$PROJECT_DIR$/Move.h" />
         <option value="$PROJECT_DIR$/PiecePosition.h" />
         <option value="$PROJECT_DIR$/FightInfo.cpp" />
-        <option value="$PROJECT_DIR$/EnumUtils.cpp" />
         <option value="$PROJECT_DIR$/FightInfo.h" />
         <option value="$PROJECT_DIR$/Parser.h" />
         <option value="$PROJECT_DIR$/Board.h" />
-        <option value="$PROJECT_DIR$/GameManager.h" />
         <option value="$PROJECT_DIR$/rps.output" />
         <option value="$PROJECT_DIR$/player1.rps_board" />
         <option value="$PROJECT_DIR$/player1.rps_moves" />
         <option value="$PROJECT_DIR$/GameStatus.h" />
         <option value="$PROJECT_DIR$/GameStatus.cpp" />
-        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/EnumUtils.cpp" />
         <option value="$PROJECT_DIR$/EnumUtils.h" />
-        <option value="$PROJECT_DIR$/GameManager.cpp" />
+        <option value="$PROJECT_DIR$/Piece.cpp" />
         <option value="$PROJECT_DIR$/Piece.h" />
-        <option value="$PROJECT_DIR$/PlayerAlgorithm.h" />
+        <option value="$PROJECT_DIR$/GameManager.h" />
         <option value="$PROJECT_DIR$/PlayerAlgorithm.cpp" />
+        <option value="$PROJECT_DIR$/PlayerAlgorithm.h" />
+        <option value="$PROJECT_DIR$/GameManager.cpp" />
+        <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
   </component>
@@ -168,7 +173,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,6 +184,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -202,7 +207,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.AdvancedTopics2">
-    <configuration name="AdvancedTopics2" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="AdvancedTopics2" TARGET_NAME="AdvancedTopics2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="AdvancedTopics2" RUN_TARGET_NAME="AdvancedTopics2" />
+    <configuration name="AdvancedTopics2" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="auto-vs-auto" PASS_PARENT_ENVS_2="true" PROJECT_NAME="AdvancedTopics2" TARGET_NAME="AdvancedTopics2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="AdvancedTopics2" RUN_TARGET_NAME="AdvancedTopics2" />
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="AdvancedTopics2" RUN_TARGET_NAME="AdvancedTopics2" EXPLICIT_BUILD_TARGET_NAME="all" />
     <list>
       <item itemvalue="Application.Build All" />
@@ -225,7 +230,11 @@
       <workItem from="1525083408315" duration="8893000" />
       <workItem from="1525778734851" duration="11547000" />
       <workItem from="1526107058389" duration="28243000" />
-      <workItem from="1526292311519" duration="5456000" />
+      <workItem from="1526292311519" duration="16437000" />
+      <workItem from="1526322818154" duration="177000" />
+      <workItem from="1526385453718" duration="10366000" />
+      <workItem from="1526627578512" duration="21266000" />
+      <workItem from="1526896394497" duration="58000" />
     </task>
     <task id="LOCAL-00001" summary="sadsda">
       <created>1524214765333</created>
@@ -346,11 +355,88 @@
       <option name="project" value="LOCAL" />
       <updated>1526296723944</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="auto player">
+      <created>1526298052237</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1526298052237</updated>
+    </task>
+    <task id="LOCAL-00019" summary="notify opponent move">
+      <created>1526300199647</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1526300199647</updated>
+    </task>
+    <task id="LOCAL-00020" summary="notifyFightResult">
+      <created>1526303846221</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1526303846221</updated>
+    </task>
+    <task id="LOCAL-00021" summary="notify opponent move">
+      <created>1526304703143</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1526304703143</updated>
+    </task>
+    <task id="LOCAL-00022" summary="notifyOnInitialBoard + fixes">
+      <created>1526315360259</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1526315360259</updated>
+    </task>
+    <task id="LOCAL-00023" summary="fixes">
+      <created>1526315645310</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1526315645310</updated>
+    </task>
+    <task id="LOCAL-00024" summary="getMove() autoplayer">
+      <created>1526391148162</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1526391148162</updated>
+    </task>
+    <task id="LOCAL-00025" summary="notify opponent move">
+      <created>1526391186131</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1526391186131</updated>
+    </task>
+    <task id="LOCAL-00026" summary="getMove() continue">
+      <created>1526395880038</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1526395880038</updated>
+    </task>
+    <task id="LOCAL-00027" summary="final before test">
+      <created>1526642759339</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1526642759339</updated>
+    </task>
+    <task id="LOCAL-00028" summary="final - after joker fix">
+      <created>1526650869408</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1526650869408</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96323000" />
+    <option name="totallyTimeSpent" value="139171000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -365,9 +451,9 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17118308" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17118308" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49966952" weight="0.42165244" />
+      <window_info active="true" anchor="bottom" id="Messages" order="7" sideWeight="0.49966952" visible="true" weight="0.42165244" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32905984" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50033045" side_tool="true" weight="0.32905984" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3091168" />
@@ -384,26 +470,6 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
     </layout>
-    <layout-to-restore>
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17184402" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32905984" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32905984" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32905984" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="CMake" order="11" weight="0.32905984" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -426,58 +492,39 @@
     <MESSAGE value=" success" />
     <MESSAGE value="execute change" />
     <MESSAGE value="auto player" />
-    <option name="LAST_COMMIT_MESSAGE" value="auto player" />
+    <MESSAGE value="notifyFightResult" />
+    <MESSAGE value="notifyOnInitialBoard + fixes" />
+    <MESSAGE value="fixes" />
+    <MESSAGE value="getMove() autoplayer" />
+    <MESSAGE value="notify opponent move" />
+    <MESSAGE value="getMove() continue" />
+    <MESSAGE value="final before test" />
+    <MESSAGE value="final - after joker fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="final - after joker fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="25" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="58" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="this-&gt;gameStatus" />
         <watch expression="player2Move" />
+        <watch expression="this" />
+        <watch expression="this" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PlayerAlgorithm.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="60" column="12" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PlayerAlgorithm.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2037">
           <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
           <folding>
             <element signature="e#0#2#0" />
-            <element signature="e#276#852#1" />
-            <element signature="e#855#2648#1" />
-            <element signature="e#1172#1533#0" />
-            <element signature="e#1539#1814#0" />
-            <element signature="e#1948#2194#0" />
-            <element signature="e#2201#2376#0" />
-            <element signature="e#2417#2609#0" />
-            <element signature="e#2792#2846#0" />
-            <element signature="e#2852#2932#0" />
-            <element signature="e#399#553#0" />
-            <element signature="e#464#546#0" />
-            <element signature="e#552#632#0" />
-            <element signature="e#638#755#0" />
-            <element signature="e#761#819#0" />
-            <element signature="e#825#913#0" />
-            <element signature="e#3295#3357#0" />
-            <element signature="e#3557#3629#0" />
-            <element signature="e#3640#3683#0" />
           </folding>
         </state>
       </provider>
@@ -504,37 +551,16 @@
     <entry file="file://$PROJECT_DIR$/Command.cpp" />
     <entry file="file://$PROJECT_DIR$/Cell.h" />
     <entry file="file://$PROJECT_DIR$/Cell.cpp" />
-    <entry file="file://$PROJECT_DIR$/Piece.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="20" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Files.cpp" />
     <entry file="file://$PROJECT_DIR$/Game.cpp" />
     <entry file="file://$PROJECT_DIR$/MainAux.cpp" />
     <entry file="file://$PROJECT_DIR$/Game.h" />
     <entry file="file://$PROJECT_DIR$/Point.cpp" />
-    <entry file="file://$PROJECT_DIR$/JokerChange.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PiecePosition.cpp" />
     <entry file="file://$PROJECT_DIR$/FightInfo.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Board.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -573,33 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FightInfo.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#2#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/bits/unique_ptr.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="330" selection-start-line="330" selection-end-line="330" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameManager.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="51" column="9" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
-          <folding>
-            <element signature="e#119#133#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/bits/stl_vector.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -614,13 +613,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EnumUtils.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/player1.rps_moves">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -632,27 +624,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
           <caret line="74" column="13" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameStatus.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rps.output">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -677,118 +648,188 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EnumUtils.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="45" column="3" lean-forward="true" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
-          <folding>
-            <element signature="e#115#132#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PiecePosition.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-          <folding>
-            <element signature="e#81#100#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Parser.cpp">
+    <entry file="file://$PROJECT_DIR$/FightInfo.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="93" column="38" selection-start-line="93" selection-start-column="31" selection-end-line="93" selection-end-column="38" />
+        <state relative-caret-position="414">
+          <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameManager.cpp">
+    <entry file="file://$PROJECT_DIR$/EnumUtils.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="105" column="4" selection-start-line="105" selection-start-column="4" selection-end-line="105" selection-end-column="4" />
-          <folding>
-            <element signature="e#27#248#0" />
-            <element signature="e#250#503#0" />
-            <element signature="e#602#2282#0" />
-            <element signature="e#2284#3750#0" />
-            <element signature="e#5421#8730#0" />
-            <element signature="e#8732#9034#0" />
-            <element signature="e#9036#11582#0" />
-            <element signature="e#11584#11819#0" />
-            <element signature="e#11821#12057#0" />
-            <element signature="e#12059#13730#0" />
-            <element signature="e#13732#15680#0" />
-            <element signature="e#19477#19657#0" />
-            <element signature="e#19659#20007#0" />
-            <element signature="e#20009#20284#0" />
-            <element signature="e#20286#20406#0" />
-            <element signature="e#20408#21235#0" />
-            <element signature="e#21237#22304#0" />
-            <element signature="e#22306#24275#0" />
-            <element signature="e#24277#24892#0" />
-            <element signature="e#24894#25387#0" />
-          </folding>
+        <state relative-caret-position="320">
+          <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Board.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Move.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Piece.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-          <folding>
-            <element signature="e#64#82#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="315">
+          <caret line="44" column="60" selection-start-line="44" selection-start-column="60" selection-end-line="44" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PlayerAlgorithm.h">
+    <entry file="file://$PROJECT_DIR$/Piece.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="139" />
-          <folding>
-            <element signature="e#0#2#0" />
-            <element signature="e#276#852#1" />
-            <element signature="e#855#2648#1" />
-            <element signature="e#1172#1533#0" />
-            <element signature="e#1539#1814#0" />
-            <element signature="e#1948#2194#0" />
-            <element signature="e#2201#2376#0" />
-            <element signature="e#2417#2609#0" />
-            <element signature="e#2792#2846#0" />
-            <element signature="e#2852#2932#0" />
-            <element signature="e#399#553#0" />
-            <element signature="e#464#546#0" />
-            <element signature="e#552#632#0" />
-            <element signature="e#638#755#0" />
-            <element signature="e#761#819#0" />
-            <element signature="e#825#913#0" />
-            <element signature="e#3295#3357#0" />
-            <element signature="e#3557#3629#0" />
-            <element signature="e#3640#3683#0" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="56" column="28" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JokerChange.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="20" column="50" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Parser.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="51" column="66" lean-forward="true" selection-start-line="39" selection-start-column="4" selection-end-line="51" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/bits/move.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameStatus.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/player1.rps_board">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+        <state>
+          <caret selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/player2.rps_board">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+        <state>
+          <caret selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/bits/unique_ptr.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="330" selection-start-line="330" selection-end-line="330" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameManager.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="903">
+          <caret line="43" column="10" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PlayerAlgorithm.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#2#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PlayerAlgorithm.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="106" column="30" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
+        <state relative-caret-position="1239">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+          <folding>
+            <element signature="e#142#1085#0" />
+            <element signature="e#1087#2052#0" />
+            <element signature="e#2054#2324#0" />
+            <element signature="e#2326#2510#0" />
+            <element signature="e#2512#9634#0" />
+            <element signature="e#9636#11620#0" />
+            <element signature="e#10507#10707#0" />
+            <element signature="e#11622#12439#0" />
+            <element signature="e#12441#14028#0" />
+            <element signature="e#14030#19879#0" />
+            <element signature="e#19881#20335#0" />
+            <element signature="e#20337#21386#0" />
+            <element signature="e#21388#22537#0" />
+            <element signature="e#22539#23115#0" />
+            <element signature="e#23192#24999#0" />
+            <element signature="e#24450#24791#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12117">
+          <caret line="577" column="106" selection-start-line="577" selection-start-column="106" selection-end-line="577" selection-end-column="106" />
+          <folding>
+            <element signature="e#29#282#0" />
+            <element signature="e#2063#3529#0" />
+            <element signature="e#3531#4682#0" />
+            <element signature="e#5052#8361#0" />
+            <element signature="e#8667#11213#0" />
+            <element signature="e#11215#11450#0" />
+            <element signature="e#11452#11688#0" />
+            <element signature="e#13363#15311#0" />
+            <element signature="e#19539#19719#0" />
+            <element signature="e#19721#20069#0" />
+            <element signature="e#20071#20346#0" />
+            <element signature="e#20348#20468#0" />
+            <element signature="e#20470#21297#0" />
+            <element signature="e#21299#22366#0" />
+            <element signature="e#24956#25449#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EnumUtils.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="37" column="52" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rps.output">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
         </state>
       </provider>
     </entry>
