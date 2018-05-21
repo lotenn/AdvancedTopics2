@@ -189,8 +189,8 @@ void GameManager::validatePositioningVector(playerEnum player, vector<unique_ptr
 
            //out of tools
            if (rockCounter < 0 || scissorsCounter < 0 || paperCounter < 0 || flagCounter < 0 || bombCounter < 0) {
-               player == PLAYER_1 ? gameStatus.setReason1(BAD_POSITIONING_FILE_TOO_MANY_TOOLS)
-                                  : gameStatus.setReason2(BAD_POSITIONING_FILE_TOO_MANY_TOOLS);
+               player == PLAYER_1 ? gameStatus.setReason1(BAD_POSITIONING_FILE_TOO_MANY_PIECES)
+                                  : gameStatus.setReason2(BAD_POSITIONING_FILE_TOO_MANY_PIECES);
                gameStatus.setGameOff();
                return;
            }
@@ -200,13 +200,13 @@ void GameManager::validatePositioningVector(playerEnum player, vector<unique_ptr
            jokerCounter--;
            //out of tools
            if (jokerCounter < 0) {
-               player == PLAYER_1 ? gameStatus.setReason1(BAD_POSITIONING_FILE_TOO_MANY_TOOLS)
-                                  : gameStatus.setReason2(BAD_POSITIONING_FILE_TOO_MANY_TOOLS);
+               player == PLAYER_1 ? gameStatus.setReason1(BAD_POSITIONING_FILE_TOO_MANY_PIECES)
+                                  : gameStatus.setReason2(BAD_POSITIONING_FILE_TOO_MANY_PIECES);
                gameStatus.setGameOff();
                return;
            }
-           alreadyPositioned[row][col] = true;
        }
+       alreadyPositioned[row][col] = true;
    }
     //vector ended with not enough flags positioned
     if (flagCounter != 0) {
@@ -513,7 +513,7 @@ void GameManager::raisePlayerScore(int score, playerEnum player){
 
 bool GameManager::badPositioningFile(endGameReason reason){
     return (reason == BAD_POSITIONING_FILE_INVALID || reason == BAD_POSITIONING_FILE_NOT_ENOUGH_FLAGS ||
-            reason == BAD_POSITIONING_FILE_TOO_MANY_TOOLS || reason == BAD_POSITIONING_FILE_DUPLICATE_CELL_POSITION ||
+            reason == BAD_POSITIONING_FILE_TOO_MANY_PIECES || reason == BAD_POSITIONING_FILE_DUPLICATE_CELL_POSITION ||
             reason == DRAW_BAD_POSITIONING_FILE_BOTH_PLAYERS);
 }
 
@@ -546,12 +546,12 @@ string GameManager::getBadInputFileMessage(endGameReason reason){
     map<endGameReason, string> messages;
     messages[BAD_POSITIONING_FILE_INVALID] = "invalid line in Positioning input file";
     messages[BAD_POSITIONING_FILE_NOT_ENOUGH_FLAGS] = "not enough flags in the positioning input file";
-    messages[BAD_POSITIONING_FILE_TOO_MANY_TOOLS] = "too many tools in positioning input file";
-    messages[BAD_POSITIONING_FILE_DUPLICATE_CELL_POSITION] = "2 tools located in the same cell in the positioning input file";
-    messages[BAD_MOVE_FILE_NOT_YOUR_PIECE] = "specified cell does not contain player's tool";
-    messages[BAD_MOVE_FILE_TOOL_CANT_MOVE] = "trying to perform an illegal movement with a tool";
-    messages[BAD_MOVE_FILE_CELL_OCCUPIED] = "target cell already contains player's tool";
-    messages[BAD_MOVE_FILE_NOT_JOKER] = "cannot change tool type. cell does not contain a joker";
+    messages[BAD_POSITIONING_FILE_TOO_MANY_PIECES] = "too many pieces in positioning input file";
+    messages[BAD_POSITIONING_FILE_DUPLICATE_CELL_POSITION] = "2 pieces located in the same cell in the positioning input file";
+    messages[BAD_MOVE_FILE_NOT_YOUR_PIECE] = "specified cell does not contain player's piece";
+    messages[BAD_MOVE_FILE_TOOL_CANT_MOVE] = "trying to perform an illegal movement with a piece";
+    messages[BAD_MOVE_FILE_CELL_OCCUPIED] = "target cell already contains player's piece";
+    messages[BAD_MOVE_FILE_NOT_JOKER] = "cannot change piece type. cell does not contain a joker";
     messages[BAD_MOVE_FILE_INVALID] = "invalid line in Moves input file";
     auto str = messages.find(reason);
     return str != messages.end() ? str->second : "";
@@ -563,7 +563,7 @@ string GameManager::getReasonString(){
     reasons[NO_MOVING_PIECES] = "All moving PIECEs of the opponent are eaten";
     reasons[BAD_POSITIONING_FILE_INVALID] = "Bad Positioning input file for "+ playerEnumToString(gameStatus.getLoser());
     reasons[BAD_POSITIONING_FILE_NOT_ENOUGH_FLAGS] = "Bad Positioning input file for " + playerEnumToString(gameStatus.getLoser());
-    reasons[BAD_POSITIONING_FILE_TOO_MANY_TOOLS] = "Bad Positioning input file for " + playerEnumToString(gameStatus.getLoser());
+    reasons[BAD_POSITIONING_FILE_TOO_MANY_PIECES] = "Bad Positioning input file for " + playerEnumToString(gameStatus.getLoser());
     reasons[BAD_POSITIONING_FILE_DUPLICATE_CELL_POSITION] = "Bad Positioning input file for "+ playerEnumToString(gameStatus.getLoser());
     reasons[BAD_MOVE_FILE_INVALID] = "Bad Moves input file for "+ playerEnumToString(gameStatus.getLoser());
     reasons[BAD_MOVE_FILE_NOT_YOUR_PIECE] = "Bad Moves input file for " + playerEnumToString(gameStatus.getLoser());
