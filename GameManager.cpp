@@ -571,7 +571,6 @@ string GameManager::getReasonString(){
     reasons[NO_MORE_MOVES] = "No moves for " + playerEnumToString(gameStatus.getLoser());
     reasons[BAD_MOVE_FILE_CELL_OCCUPIED] = "Bad Moves input file for " + playerEnumToString(gameStatus.getLoser());
     reasons[BAD_MOVE_FILE_NOT_JOKER] = "Bad Moves input file for "+ playerEnumToString(gameStatus.getLoser());
-    reasons[DRAW_NO_MOVING_PIECES] = "A tie - all moving PIECEs are eaten by both players";
     reasons[DRAW_POSITIONING_ENDED_WITH_NO_FLAGS] = "A tie - all flags are eaten by both players in the position files";
     reasons[DRAW_POSITIONING_ENDED_WITH_NO_MOVING_PIECES] = "A tie - moving PIECEs are eaten by both players in the position files";
     reasons[DRAW_BAD_POSITIONING_FILE_BOTH_PLAYERS] = "Bad Positioning input file for both players";
