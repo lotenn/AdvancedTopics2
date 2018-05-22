@@ -235,9 +235,6 @@ void GameManager::setPlayerPieces(const vector<unique_ptr<PiecePosition>> &piece
 
     for(int i=0; i < (int)piecePositions.size(); i++){
         bool wasFight = false;
-        //test
-//        cout << "i = " << i << " jokerRep of piecPos[i] = " <<  piecePositions[i]->getJokerRep() << endl;
-
         if(piecePositions[i]->getJokerRep() == NO_JOKER_CHANGE_SYMBOL){
             pieceType _pieceType = charToPieceType(piecePositions[i]->getPiece());
             for(shared_ptr<Piece> piece: *(playerPieces)){
@@ -245,10 +242,10 @@ void GameManager::setPlayerPieces(const vector<unique_ptr<PiecePosition>> &piece
                     wasFight = performBattle(piecePositions[i]->getPosition(), piece,
                                              board.getPiece(piecePositions[i]->getPosition()));
                     if(wasFight)
-                        fights.push_back(make_unique<FightInfoImp>(piecePositions[i]->getPosition(),
+                        fights.push_back(move(make_unique<FightInfoImp>(piecePositions[i]->getPosition(),
                                                                    fightInfo.getPiece(1),
                                                                    fightInfo.getPiece(2),
-                                                                   fightInfo.getWinner() == 1 ? PLAYER_1 : PLAYER_2));
+                                                                   fightInfo.getWinner() == 1 ? PLAYER_1 : PLAYER_2)));
                 break;
                 }
             }
@@ -262,10 +259,10 @@ void GameManager::setPlayerPieces(const vector<unique_ptr<PiecePosition>> &piece
                     wasFight = performBattle(piecePositions[i]->getPosition(), piece,
                                              board.getPiece(piecePositions[i]->getPosition()));
                     if(wasFight)
-                        fights.push_back(make_unique<FightInfoImp>(piecePositions[i]->getPosition(),
+                        fights.push_back(move(make_unique<FightInfoImp>(piecePositions[i]->getPosition(),
                                                                    fightInfo.getPiece(1),
                                                                    fightInfo.getPiece(2),
-                                                                   fightInfo.getWinner() == 1 ? PLAYER_1 : PLAYER_2));
+                                                                   fightInfo.getWinner() == 1 ? PLAYER_1 : PLAYER_2)));
                 break;
                 }
             }

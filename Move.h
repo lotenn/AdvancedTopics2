@@ -3,7 +3,6 @@
 
 #include "JokerChange.h"
 
-
 class Move {
 public:
     virtual const Point& getFrom() const = 0;

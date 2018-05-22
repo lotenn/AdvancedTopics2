@@ -18,6 +18,7 @@ private:
 
 public:
     PointImp(int _x, int _y): x(_x), y(_y){}
+    ~PointImp() override {};
     int getX() const override {return x;}
     int getY() const override {return y;}
 };

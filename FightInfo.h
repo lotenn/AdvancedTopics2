@@ -5,6 +5,7 @@
 #ifndef ADVANCEDTOPICS2_FIGHTINFO_H
 #define ADVANCEDTOPICS2_FIGHTINFO_H
 
+#include <iostream>
 #include "Board.h"
 
 class FightInfo {
@@ -24,8 +25,12 @@ private:
 public:
     FightInfoImp() = default;
     FightInfoImp(const Point& point, char _player1Piece, char _player2Piece, playerEnum _winner):
-            position(make_unique<PointImp>(point.getX(), point.getY())), player1Piece(_player1Piece),
-            player2Piece(_player2Piece), winner(_winner){}
+            player1Piece(_player1Piece),
+            player2Piece(_player2Piece),
+            winner(_winner)
+    {
+        position = make_unique<PointImp>(point.getX(), point.getY());
+    }
 
     const Point& getPosition() const override{
         return *position;
