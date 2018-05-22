@@ -11,16 +11,16 @@ public:
 
 class MoveImp: public Move{
 private:
-    unique_ptr<Point> from;
-    unique_ptr<Point> to;
+    PointImp from;
+    PointImp to;
 
 public:
     MoveImp(int fromX, int fromY, int toX, int toY):
-            from(make_unique<PointImp>(PointImp(fromX, fromY))),
-            to(make_unique<PointImp>(PointImp(toX, toY))){}
+            from(fromX, fromY),
+            to(toX, toY){}
 
-    const Point& getFrom() const override {return *(this->from);}
-    const Point& getTo() const override {return *(this->to);}
+    const Point& getFrom() const override {return (this->from);}
+    const Point& getTo() const override {return (this->to);}
 };
 
 

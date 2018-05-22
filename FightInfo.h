@@ -10,6 +10,7 @@
 
 class FightInfo {
 public:
+//    virtual ~FightInfo(){};
     virtual const Point& getPosition() const=0;
     virtual char getPiece(int player) const = 0; // R, P, S, B or F (but NOT J)
     virtual int getWinner() const=0; // 0 - both lost, 1 - player 1 won, 2 - player 2 won
@@ -17,27 +18,28 @@ public:
 
 class FightInfoImp: public FightInfo{
 private:
-    unique_ptr<Point> position;
+    //todo: returen to Point
+    PointImp position;
     char player1Piece;
     char player2Piece;
     playerEnum winner;
 
 public:
-    FightInfoImp() = default;
+    FightInfoImp(): position(0,0), player1Piece('0'), player2Piece('0'), winner(NO_PLAYER) {};
     FightInfoImp(const Point& point, char _player1Piece, char _player2Piece, playerEnum _winner):
+            position(point.getX(), point.getY()),
             player1Piece(_player1Piece),
             player2Piece(_player2Piece),
-            winner(_winner)
-    {
-        position = make_unique<PointImp>(point.getX(), point.getY());
-    }
+            winner(_winner){}
+
+//    virtual ~FightInfoImp() override = default;
 
     const Point& getPosition() const override{
-        return *position;
+        return position;
     }
 
     void setPosition(int x, int y){
-        position = make_unique<PointImp>(x,y);
+        position = PointImp(x,y);
     }
 
     char getPiece(int player) const override{

@@ -1,12 +1,13 @@
 #ifndef ADVANCEDTOPICS2_POINT_H
 #define ADVANCEDTOPICS2_POINT_H
 
+#include <iostream>
 #include <memory>
 using namespace std;
 
 class Point {
 public:
-    virtual ~Point() = default;
+    virtual ~Point() {};
     virtual int getX() const = 0;
     virtual int getY() const = 0;
 };
@@ -18,7 +19,7 @@ private:
 
 public:
     PointImp(int _x, int _y): x(_x), y(_y){}
-    ~PointImp() override {};
+    ~PointImp() override = default;
     int getX() const override {return x;}
     int getY() const override {return y;}
 };

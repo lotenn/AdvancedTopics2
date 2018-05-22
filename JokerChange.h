@@ -15,15 +15,15 @@ public:
 
 class JokerChangeImp: public JokerChange{
 private:
-    unique_ptr<Point> jokerChangePosition;
+    PointImp jokerChangePosition;
     char jokerNewRep;
 public:
     JokerChangeImp(int x, int y, char _jokerNewRep):
-            jokerChangePosition(make_unique<PointImp>(x,y)),
+            jokerChangePosition(x,y),
             jokerNewRep(_jokerNewRep){}
 
     const Point& getJokerChangePosition() const override{
-        return *(this->jokerChangePosition);
+        return (this->jokerChangePosition);
     }
 
     char getJokerNewRep() const override{
