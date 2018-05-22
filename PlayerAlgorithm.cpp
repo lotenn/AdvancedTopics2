@@ -123,8 +123,8 @@ void AutoPlayerAlgorithm::getInitialPositions(int player, std::vector<unique_ptr
         this->knownBoard[5][4][PRIMARY].setPossiblePiece(pBOMB);
         this->knownBoard[5][4][PRIMARY].setIsJoker(true);
     }
-    else{
-/*        vectorToFill.push_back(make_unique<PiecePositionImp>(2, 5, 'R', NO_JOKER_CHANGE_SYMBOL));
+    else {
+        vectorToFill.push_back(make_unique<PiecePositionImp>(2, 5, 'R', NO_JOKER_CHANGE_SYMBOL));
         this->knownBoard[4][1][PRIMARY].setOptFlag(false);
         this->knownBoard[4][1][PRIMARY].setPlayer(PLAYER_2);
         this->knownBoard[4][1][PRIMARY].setPossiblePiece(pROCK);
@@ -173,57 +173,7 @@ void AutoPlayerAlgorithm::getInitialPositions(int player, std::vector<unique_ptr
         this->knownBoard[4][5][PRIMARY].setOptFlag(false);
         this->knownBoard[4][5][PRIMARY].setPlayer(PLAYER_2);
         this->knownBoard[4][5][PRIMARY].setPossiblePiece(pSCISSORS);
-        this->knownBoard[4][5][PRIMARY].setIsJoker(true);*/
-        vectorToFill.push_back(make_unique<PiecePositionImp>(1, 5, 'R', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[4][0][PRIMARY].setOptFlag(false);
-        this->knownBoard[4][0][PRIMARY].setPlayer(PLAYER_2);
-        this->knownBoard[4][0][PRIMARY].setPossiblePiece(pROCK);
-        vectorToFill.push_back(make_unique<PiecePositionImp>(2, 5, 'R', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[4][1][PRIMARY].setOptFlag(false);
-        this->knownBoard[4][1][PRIMARY].setPlayer(PLAYER_2);
-        this->knownBoard[4][1][PRIMARY].setPossiblePiece(pROCK);
-        vectorToFill.push_back(make_unique<PiecePositionImp>(3, 5, 'P', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[4][2][PRIMARY].setOptFlag(false);
-        this->knownBoard[4][2][PRIMARY].setPlayer(PLAYER_2);
-        this->knownBoard[4][2][PRIMARY].setPossiblePiece(pPAPER);
-        vectorToFill.push_back(make_unique<PiecePositionImp>(4, 5, 'P', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[4][3][PRIMARY].setOptFlag(false);
-        this->knownBoard[4][3][PRIMARY].setPlayer(PLAYER_2);
-        this->knownBoard[4][3][PRIMARY].setPossiblePiece(pPAPER);
-        vectorToFill.push_back(make_unique<PiecePositionImp>(5, 5, 'P', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[4][4][PRIMARY].setOptFlag(false);
-        this->knownBoard[4][4][PRIMARY].setPlayer(PLAYER_2);
-        this->knownBoard[4][4][PRIMARY].setPossiblePiece(pPAPER);
-        vectorToFill.push_back(make_unique<PiecePositionImp>(6, 5, 'P', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[4][5][PRIMARY].setOptFlag(false);
-        this->knownBoard[4][5][PRIMARY].setPlayer(PLAYER_2);
-        this->knownBoard[4][5][PRIMARY].setPossiblePiece(pPAPER);
-        vectorToFill.push_back(make_unique<PiecePositionImp>(7, 5, 'P', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[4][6][PRIMARY].setOptFlag(false);
-        this->knownBoard[4][6][PRIMARY].setPlayer(PLAYER_2);
-        this->knownBoard[4][6][PRIMARY].setPossiblePiece(pPAPER);
-        vectorToFill.push_back(make_unique<PiecePositionImp>(1, 2, 'B', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[1][0][PRIMARY].setOptFlag(false);
-        this->knownBoard[1][0][PRIMARY].setPlayer(PLAYER_2);
-        this->knownBoard[1][0][PRIMARY].setPossiblePiece(pBOMB);
-        vectorToFill.push_back(make_unique<PiecePositionImp>(2, 1, 'B', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[0][1][PRIMARY].setOptFlag(false);
-        this->knownBoard[0][1][PRIMARY].setPlayer(PLAYER_2);
-        this->knownBoard[0][1][PRIMARY].setPossiblePiece(pBOMB);
-        vectorToFill.push_back(make_unique<PiecePositionImp>(1, 1, 'F', NO_JOKER_CHANGE_SYMBOL));
-        this->knownBoard[0][0][PRIMARY].setOptFlag(true);
-        this->knownBoard[0][0][PRIMARY].setPlayer(PLAYER_2);
-        this->knownBoard[0][0][PRIMARY].setPossiblePiece(pFLAG);
-        vectorToFill.push_back(make_unique<PiecePositionImp>(8, 5, 'J', 'R'));
-        this->knownBoard[4][7][PRIMARY].setOptFlag(false);
-        this->knownBoard[4][7][PRIMARY].setPlayer(PLAYER_2);
-        this->knownBoard[4][7][PRIMARY].setPossiblePiece(pBOMB);
-        this->knownBoard[4][7][PRIMARY].setIsJoker(true);
-        vectorToFill.push_back(make_unique<PiecePositionImp>(9, 5, 'J', 'S'));
-        this->knownBoard[4][8][PRIMARY].setOptFlag(false);
-        this->knownBoard[4][8][PRIMARY].setPlayer(PLAYER_2);
-        this->knownBoard[4][8][PRIMARY].setPossiblePiece(pSCISSORS);
-        this->knownBoard[4][8][PRIMARY].setIsJoker(true);
+        this->knownBoard[4][5][PRIMARY].setIsJoker(true);
     }
 }
 

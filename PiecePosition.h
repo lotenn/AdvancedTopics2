@@ -9,10 +9,10 @@ using namespace std;
 
 class PiecePosition{
 public:
-    virtual ~PiecePosition() = default;
     virtual const Point& getPosition() const = 0;
     virtual char getPiece() const = 0; // R, P, S, B, J or F
     virtual char getJokerRep() const = 0; // ONLY for Joker: R, P, S or B -- non-Joker may return ‘#’
+    virtual ~PiecePosition() {}
 };
 
 class PiecePositionImp: public PiecePosition{
@@ -39,6 +39,5 @@ public:
         return this->jokerRep;
     }
 };
-
 
 #endif //ADVANCEDTOPICS2_PIECEPOSITION_H

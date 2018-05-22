@@ -7,9 +7,9 @@ using namespace std;
 
 class Point {
 public:
-    virtual ~Point() {};
     virtual int getX() const = 0;
     virtual int getY() const = 0;
+    virtual ~Point() {}
 };
 
 class PointImp: public Point{
@@ -19,7 +19,6 @@ private:
 
 public:
     PointImp(int _x, int _y): x(_x), y(_y){}
-    ~PointImp() override = default;
     int getX() const override {return x;}
     int getY() const override {return y;}
 };

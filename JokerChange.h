@@ -11,19 +11,20 @@ class JokerChange {
 public:
     virtual const Point& getJokerChangePosition() const=0;
     virtual char getJokerNewRep() const=0; // R, P, S or B (but NOT J and NOT F)
+    virtual ~JokerChange() {}
 };
 
 class JokerChangeImp: public JokerChange{
 private:
-    PointImp jokerChangePosition;
+    unique_ptr<Point> jokerChangePosition;
     char jokerNewRep;
 public:
     JokerChangeImp(int x, int y, char _jokerNewRep):
-            jokerChangePosition(x,y),
+            jokerChangePosition(make_unique<PointImp>(x,y)),
             jokerNewRep(_jokerNewRep){}
 
     const Point& getJokerChangePosition() const override{
-        return (this->jokerChangePosition);
+        return *(this->jokerChangePosition);
     }
 
     char getJokerNewRep() const override{
