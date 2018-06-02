@@ -5,6 +5,7 @@
 #include "EnumUtils.h"
 
 
+
 int playerEnumToInt(playerEnum player){
     switch(player){
         case PLAYER_1:
@@ -34,4 +35,15 @@ string playerEnumToString(playerEnum player){
     strings[NO_PLAYER] = "no player";
     auto str = strings.find(player);
     return str != strings.end() ? str->second : "";
+}
+
+playerEnum intToPlayerEnum(int player){
+    switch(player){
+        case 1:
+            return PLAYER_1;
+        case 2:
+            return PLAYER_2;
+        default:
+            return NO_PLAYER;
+    }
 }

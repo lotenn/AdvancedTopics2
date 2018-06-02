@@ -71,6 +71,7 @@ void AutoPlayerAlgorithm::resetKnownBoard(){
 }
 
 void AutoPlayerAlgorithm::getInitialPositions(int player, std::vector<unique_ptr<PiecePosition>>& vectorToFill){
+    this->player = intToPlayerEnum(player);
     if(player == 1){
         vectorToFill.push_back(make_unique<PiecePositionImp>(2, 6, 'R', NO_JOKER_CHANGE_SYMBOL));
         this->knownBoard[5][1][PRIMARY].setOptFlag(false);

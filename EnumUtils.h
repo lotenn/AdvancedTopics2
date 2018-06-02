@@ -42,6 +42,8 @@ enum endGameReason{
 
 int playerEnumToInt(playerEnum player);
 
+playerEnum intToPlayerEnum(int player);
+
 playerEnum getOpposite(playerEnum player);
 
 string playerEnumToString(playerEnum player);
